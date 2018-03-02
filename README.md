@@ -1,2 +1,2 @@
-# essay-annotator
-A Crowdsourcing Essay Annotation Platform
+# Essay Annotator
+A Crowdsourcing Essay Annotation Platform built by Tornado
