@@ -1,3 +1,9 @@
+label {
+    display: block;
+    float: left;
+    width: 110px;
+}
+
 .title {
     font-family: "Arial";
 }
@@ -6,6 +12,11 @@
     margin: auto;
     background: white;
     font-family: "Arial";
+}
+
+.essay {
+    font-family: "Monaco";
+    font-size: 14px;
 }
 
 .col {
@@ -36,57 +47,35 @@
 .key { color: black; }
 
 
-.upload_button {
+.button_previous {
     font-size: 14px;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
 
-.upload_button:hover {
+.button_previous:hover {
     background-color: rgb(40, 223, 255);
     color: white;
 }
 
-.record_button {
+.button_next {
     font-size: 14px;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
 
-.record_button:hover {
+.button_next:hover {
     background-color: rgb(40, 223, 255);
     color: white;
 }
 
-.judge_button {
+.button_submit {
     font-size: 14px;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
 
-.judge_button:hover {
+.button_submit:hover {
     background-color: rgb(40, 223, 255);
-    color: white;
-}
-
-.stop_button {
-    font-size: 14px;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-
-.stop_button:hover {
-    background-color: rgb(255, 0, 0);
-    color: white;
-}
-
-.clear_button {
-    font-size: 14px;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-
-.clear_button:hover {
-    background-color: rgb(64, 228, 15);
     color: white;
 }

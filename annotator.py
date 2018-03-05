@@ -40,11 +40,15 @@ class Application(tornado.web.Application):
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render('index.html',
-                    title='Essay Grading Annotation',
-                    )
-
-        
+        self.render(
+            'index.html',
+            title='Essay Grading Annotation',
+            essay_id='001',
+            essay='Essay placeholder.',
+            annotated_quantity=0,
+            sum=60000,
+            annotation_ratio=0,
+        )
 
 def main():
     print("Server Running on http://" + str(options.address) + ":" + str(options.port))
