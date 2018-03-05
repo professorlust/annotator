@@ -1,0 +1,92 @@
+.title {
+    font-family: "Arial";
+}
+
+.essay_annotator {
+    margin: auto;
+    background: white;
+    font-family: "Arial";
+}
+
+.col {
+    margin: auto;
+    float: left;
+}
+
+.left {
+    font-family: "Arial";
+    width: 50%;
+}
+
+.right {
+    font-family: "Arial";
+    width: 50%;
+}
+
+.log {
+    display: none;
+    font-family: "Arial";
+    font-size: 14px;
+}
+
+.string { color: blue; }
+.number { color: red; }
+.boolean { color: green; }
+.null { color: magenta; }
+.key { color: black; }
+
+
+.upload_button {
+    font-size: 14px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.upload_button:hover {
+    background-color: rgb(40, 223, 255);
+    color: white;
+}
+
+.record_button {
+    font-size: 14px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.record_button:hover {
+    background-color: rgb(40, 223, 255);
+    color: white;
+}
+
+.judge_button {
+    font-size: 14px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.judge_button:hover {
+    background-color: rgb(40, 223, 255);
+    color: white;
+}
+
+.stop_button {
+    font-size: 14px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.stop_button:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.clear_button {
+    font-size: 14px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.clear_button:hover {
+    background-color: rgb(64, 228, 15);
+    color: white;
+}
