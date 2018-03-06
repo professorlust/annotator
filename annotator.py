@@ -29,6 +29,9 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/', MainHandler),
+            (r'/previous', PreviousHandler),
+            (r'/next', NextHandler),
+            (r'/mark', MarkHandler),
         ]
         settings = dict(
             static_path=os.path.join(os.path.dirname(__file__), "static"),
@@ -49,6 +52,46 @@ class MainHandler(tornado.web.RequestHandler):
             sum=60000,
             annotation_ratio=0,
         )
+
+
+class PreviousHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render(
+            'index.html',
+            title='Essay Grading Annotation',
+            essay_id='001',
+            essay='Essay placeholder.',
+            annotated_quantity=0,
+            sum=60000,
+            annotation_ratio=0,
+        )
+
+
+class NextHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render(
+            'index.html',
+            title='Essay Grading Annotation',
+            essay_id='001',
+            essay='Essay placeholder.',
+            annotated_quantity=0,
+            sum=60000,
+            annotation_ratio=0,
+        )
+
+
+class MarkHandler(tornado.web.RequestHandler):
+    def post(self):
+        print()
+
+
+
+
+class Database():
+    def __init__(self, parent=None):
+        self.parent = parent
+
+
 
 def main():
     print("Server Running on http://" + str(options.address) + ":" + str(options.port))

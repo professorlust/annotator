@@ -16,16 +16,15 @@
 		<h1 class="title">{{ title }}</h1>
 		<div class="col left">
 			<b>Essay</b><br><br>
-			Current Essay ID: {{ essay_id }}<br>
-			<pre id="essay" name="essay" class="essay">{{ essay }}</pre>
+			Essay ID: {{ essay_id }}<br>
 			Annotation Progress: {{ annotated_quantity }}/{{ sum }}, {{ annotation_ratio }}%<br>
-			革命尚未成功，同志仍需努力！<br><br>
+			<pre id="essay" name="essay" class="essay">{{ essay }}</pre>
 			<button id="previous" class="button_previous" onclick="previous(this);">Previous</button>
 			<button id="next" class="button_next" onclick="next(this);">Next</button>
 		</div>
 		<div class="col right">
 			<b>Annotation</b><br><br>
-			Detailed Grading Rules:<br>
+			Grading Rules:<br>
 			<ul id='rules' class='rules'>
 				<li>2: High</li>
 				<li>1: Medium</li>
