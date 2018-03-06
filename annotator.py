@@ -19,8 +19,12 @@ import tornado.options
 import tornado.web
 from tornado.options import define, options, parse_command_line
 from pprint import pprint
+import pymongo
+from pymongo import MongoClient
+from bson import json_util
+from bson.objectid import ObjectId
 
-define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84    202 server: 10.6.1.202
+define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 
@@ -40,6 +44,11 @@ class Application(tornado.web.Application):
         )
         super(Application, self).__init__(handlers, **settings)
 
+        self.essay_path = "./data/essay.txt"
+        self.essays = [line.strip() for line in open(self.essay_path)]
+        self.conn = MongoClient("localhost", 27017)
+        self.db = self.conn["definitions"]
+
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -47,7 +56,7 @@ class MainHandler(tornado.web.RequestHandler):
             'index.html',
             title='Essay Grading Annotation',
             essay_id='001',
-            essay='Essay placeholder.',
+            essay='Essay placeholder',
             annotated_quantity=0,
             sum=60000,
             annotation_ratio=0,
@@ -86,10 +95,6 @@ class MarkHandler(tornado.web.RequestHandler):
 
 
 
-
-class Database():
-    def __init__(self, parent=None):
-        self.parent = parent
 
 
 
