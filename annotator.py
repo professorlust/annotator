@@ -5,7 +5,7 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
-
+import datetime
 import os.path
 import json
 import base64
@@ -44,10 +44,24 @@ class Application(tornado.web.Application):
         )
         super(Application, self).__init__(handlers, **settings)
 
-        self.essay_path = "./data/essay.txt"
-        self.essays = [line.strip() for line in open(self.essay_path)]
+        # database
         self.conn = MongoClient("localhost", 27017)
-        self.db = self.conn["definitions"]
+        self.db = self.conn.annotation
+        self.collection = self.db.collection
+        self.collection.drop()  # clear
+        self.essay_path = "./data/essay.txt"
+        self.essays = []    # [{'essay_id': 1, 'essay': xxx}]
+        with open(self.essay_path, 'r') as essay_file:
+            essay_id = 1    # essay_id == line_num + 1
+            for line in essay_file:
+                essay_dict = {}
+                line = line.strip()
+                essay_dict['essay_id'] = essay_id
+                essay_dict['essay'] = line
+                self.essays.append(essay_dict)
+                essay_id += 1
+        self.collection.insert_many(self.essays)
+
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -91,7 +105,11 @@ class NextHandler(tornado.web.RequestHandler):
 
 class MarkHandler(tornado.web.RequestHandler):
     def post(self):
-        print()
+        overall_score = self.get_argument('overall_score')
+        vocabulary_score = self.get_argument('vocabulary_score')
+        sentence_score = self.get_argument('sentence_score')
+        structure_score = self.get_argument('structure_score')
+        content_score = self.get_argument('content_score')
 
 
 

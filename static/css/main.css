@@ -4,6 +4,10 @@ label {
     width: 110px;
 }
 
+ul {
+    margin-top: 0px;
+}
+
 .title {
     font-family: "Arial";
 }
