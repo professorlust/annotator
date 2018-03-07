@@ -18,9 +18,15 @@ ul {
     font-family: "Arial";
 }
 
+.essay_id {
+    display: inline;
+}
+
 .essay {
     font-family: "Monaco";
-    font-size: 16px;
+    font-size: 14px;
+    word-wrap: break-word;
+    width: 90%;
 }
 
 .col {

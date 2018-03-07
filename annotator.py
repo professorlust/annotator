@@ -71,6 +71,7 @@ class Application(tornado.web.Application):
                     candidate_record['essay'] = line
                     candidate_record['annotator_counter'] = 0
                     candidates.append(candidate_record)
+                    essay_id += 1
                 self.db.candidate.insert_many(candidates)
 
         if "data" not in self.db.collection_names():
@@ -78,7 +79,11 @@ class Application(tornado.web.Application):
         
         if "progress" not in self.db.collection_names():
             self.db.progress
-            self.db.progress.insert_one({'annotated_quantity': 0})
+            # one annotator one record
+            self.db.progress.insert_one({'annotator:': 'sjyan', 'annotated_quantity': 0})
+        
+        if "marked" not in self.db.collection_names():
+            self.db.marked
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -89,11 +94,14 @@ class MainHandler(tornado.web.RequestHandler):
         self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
 
     def get_essay(self):
-        print()
-
+        candidate = self.application.db.candidate
+        essay_record = candidate.find_one()
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
 
     def get(self):
         self.get_progress()
+        self.get_essay()
 
         self.render(
             'index.html',
@@ -107,28 +115,48 @@ class MainHandler(tornado.web.RequestHandler):
 
 
 class PreviousHandler(tornado.web.RequestHandler):
-    def get(self):
+    def get_essay(self, essay_id):
+        candidate = self.application.db.candidate
+        essay_record = candidate.find_one({"essay_id": essay_id})
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
+
+    def post(self):
+        essay_id = int(self.get_argument('essay_id'))
+
+        self.get_essay(essay_id - 1)
+
         self.render(
             'index.html',
             title='Essay Grading Annotation',
-            essay_id='001',
-            essay='Essay placeholder.',
-            annotated_quantity=0,
-            sum=60000,
-            annotation_ratio=0,
+            essay_id=self.application.current_essay_id,
+            essay=self.application.current_essay,
+            annotated_quantity=self.application.annotated_quantity,
+            sum=self.application.essay_quantity,
+            annotation_ratio=self.application.annotation_ratio,
         )
 
 
 class NextHandler(tornado.web.RequestHandler):
-    def get(self):
+    def get_essay(self, essay_id):
+        candidate = self.application.db.candidate
+        essay_record = candidate.find_one({"essay_id": essay_id})
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
+
+    def post(self):
+        essay_id = int(self.get_argument('essay_id'))
+
+        self.get_essay(essay_id + 1)
+
         self.render(
             'index.html',
             title='Essay Grading Annotation',
-            essay_id='001',
-            essay='Essay placeholder.',
-            annotated_quantity=0,
-            sum=60000,
-            annotation_ratio=0,
+            essay_id=self.application.current_essay_id,
+            essay=self.application.current_essay,
+            annotated_quantity=self.application.annotated_quantity,
+            sum=self.application.essay_quantity,
+            annotation_ratio=self.application.annotation_ratio,
         )
 
 
@@ -140,7 +168,21 @@ class MarkHandler(tornado.web.RequestHandler):
         structure_score = self.get_argument('structure_score')
         content_score = self.get_argument('content_score')
 
-        print(overall_score)
+        mark_record = {}
+        mark_record['overall_score'] = overall_score
+        mark_record['vocabulary_score'] = vocabulary_score
+        mark_record['sentence_score'] = sentence_score
+        mark_record['structure_score'] = structure_score
+        mark_record['content_score'] = content_score
+    
+    def write_db(self, record):
+        candidate = self.application.db.candidate
+
+    
+    def close_db(self):
+        self.application.conn.close()
+
+
 
 
 

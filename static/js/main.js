@@ -1,9 +1,63 @@
 function previous(button) {
     console.log("Previous");
+
+    var essay_id = document.getElementById("essay_id").innerHTML;
+    console.log(essay_id)
+
+    if (essay_id == 0) {
+        alert("There is no previous essay!");
+        return
+    }
+
+    var formData = new FormData();
+    formData.append('essay_id', essay_id);
+    $.ajax({
+        type: 'POST',
+        url: '/previous',
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(response) {
+            console.log('Response received!');
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            alert(textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
+            console.log("Something went wrong:(");
+        }
+    });
 }
 
 function next(button) {
     console.log("Next");
+
+    var essay_id = document.getElementById("essay_id").innerHTML;
+    var essay_sum = 9
+
+    if (essay_id == essay_sum ) {
+        alert("There is no next essay!");
+        return
+    }
+
+    var formData = new FormData();
+    formData.append('essay_id', essay_id);
+    $.ajax({
+        type: 'POST',
+        url: '/next',
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(response) {
+            console.log('Response received!');
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            alert(textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
+            console.log("Something went wrong:(");
+        }
+    });
 }
 
 function isRadioChecked(name) {
