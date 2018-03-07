@@ -44,17 +44,22 @@ class Application(tornado.web.Application):
         )
         super(Application, self).__init__(handlers, **settings)
 
+        self.essay_path = "./data/essay.txt"
+        self.essays = [line.strip() for line in open(self.essay_path)]
+        self.essay_quantity = len(self.essays)
+        self.annotated_quantity = 0
+        self.annotation_ratio = 0.0
+        self.current_essay_id = 0
+        self.current_essay = 'Essay Placeholder'
+
         self.connect_db()
 
     def connect_db(self):
         self.conn = MongoClient("localhost", 27017)
         self.db = self.conn.annotation
-        self.essay_path = "./data/essay.txt"
-        self.essays = [line.strip() for line in open(self.essay_path)]
-        self.essay_quantity = len(self.essays)
 
         if "candidate" not in self.db.collection_names():
-            self.candidate = self.db.candidate
+            self.db.candidate
             candidates = []
 
             with open(self.essay_path, 'r') as essay_file:
@@ -66,26 +71,34 @@ class Application(tornado.web.Application):
                     candidate_record['essay'] = line
                     candidate_record['annotator_counter'] = 0
                     candidates.append(candidate_record)
-                self.candidate.insert_many(candidates)
+                self.db.candidate.insert_many(candidates)
 
         if "data" not in self.db.collection_names():
-            self.data = self.db.data
+            self.db.data
         
         if "progress" not in self.db.collection_names():
-            self.progress = self.db.progress
-            self.progress.insert_one({'annotated_quantity': 0})
+            self.db.progress
+            self.db.progress.insert_one({'annotated_quantity': 0})
 
 
 class MainHandler(tornado.web.RequestHandler):
+    def get_progress(self):
+        progress = self.application.db.progress
+        progress_record = progress.find_one()
+        self.application.annotated_quantity = progress_record['annotated_quantity']
+        self.application.annotation_ratio = float(self.application.annotated_quantity / self.application.essay_quantity)
+
     def get(self):
+        self.get_progress()
+
         self.render(
             'index.html',
             title='Essay Grading Annotation',
-            essay_id='001',
-            essay='Essay placeholder',
-            annotated_quantity=0,
+            essay_id=self.application.current_essay_id,
+            essay=self.application.current_essay,
+            annotated_quantity=self.application.annotated_quantity,
             sum=self.application.essay_quantity,
-            annotation_ratio=0,
+            annotation_ratio=self.application.annotation_ratio,
         )
 
 
