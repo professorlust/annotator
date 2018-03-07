@@ -86,7 +86,11 @@ class MainHandler(tornado.web.RequestHandler):
         progress = self.application.db.progress
         progress_record = progress.find_one()
         self.application.annotated_quantity = progress_record['annotated_quantity']
-        self.application.annotation_ratio = float(self.application.annotated_quantity / self.application.essay_quantity)
+        self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
+
+    def get_essay(self):
+        print()
+
 
     def get(self):
         self.get_progress()
@@ -135,6 +139,8 @@ class MarkHandler(tornado.web.RequestHandler):
         sentence_score = self.get_argument('sentence_score')
         structure_score = self.get_argument('structure_score')
         content_score = self.get_argument('content_score')
+
+        print(overall_score)
 
 
 
