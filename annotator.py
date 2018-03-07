@@ -44,24 +44,36 @@ class Application(tornado.web.Application):
         )
         super(Application, self).__init__(handlers, **settings)
 
-        # database
+        self.connect_db()
+
+    def connect_db(self):
         self.conn = MongoClient("localhost", 27017)
         self.db = self.conn.annotation
-        self.collection = self.db.collection
-        self.collection.drop()  # clear
         self.essay_path = "./data/essay.txt"
-        self.essays = []    # [{'essay_id': 1, 'essay': xxx}]
-        with open(self.essay_path, 'r') as essay_file:
-            essay_id = 1    # essay_id == line_num + 1
-            for line in essay_file:
-                essay_dict = {}
-                line = line.strip()
-                essay_dict['essay_id'] = essay_id
-                essay_dict['essay'] = line
-                self.essays.append(essay_dict)
-                essay_id += 1
-        self.collection.insert_many(self.essays)
+        self.essays = [line.strip() for line in open(self.essay_path)]
+        self.essay_quantity = len(self.essays)
 
+        if "candidate" not in self.db.collection_names():
+            self.candidate = self.db.candidate
+            candidates = []
+
+            with open(self.essay_path, 'r') as essay_file:
+                essay_id = 0       # essay_id == line_number
+                for line in essay_file:
+                    line = line.strip()
+                    candidate_record = {}
+                    candidate_record['essay_id'] = essay_id
+                    candidate_record['essay'] = line
+                    candidate_record['annotator_counter'] = 0
+                    candidates.append(candidate_record)
+                self.candidate.insert_many(candidates)
+
+        if "data" not in self.db.collection_names():
+            self.data = self.db.data
+        
+        if "progress" not in self.db.collection_names():
+            self.progress = self.db.progress
+            self.progress.insert_one({'annotated_quantity': 0})
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -72,7 +84,7 @@ class MainHandler(tornado.web.RequestHandler):
             essay_id='001',
             essay='Essay placeholder',
             annotated_quantity=0,
-            sum=60000,
+            sum=self.application.essay_quantity,
             annotation_ratio=0,
         )
 
