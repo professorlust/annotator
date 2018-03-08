@@ -22,6 +22,18 @@ ul {
     display: inline;
 }
 
+.annotated_quantity {
+    display: inline;
+}
+
+.essay_sum {
+    display: inline;
+}
+
+.ratio {
+    display: inline;
+}
+
 .essay {
     font-family: "Monaco";
     font-size: 14px;

@@ -1,10 +1,9 @@
 function previous(button) {
     console.log("Previous");
 
-    var essay_id = document.getElementById("essay_id").innerHTML;
-    console.log(essay_id)
+    var essay_id = Number(document.getElementById("essay_id").innerHTML);
 
-    if (essay_id == 0) {
+    if (essay_id <= 0) {
         alert("There is no previous essay!");
         return
     }
@@ -20,6 +19,10 @@ function previous(button) {
         cache: false,
         success: function(response) {
             console.log('Response received!');
+            var previous_essay_id = document.getElementById("essay_id");
+            previous_essay_id.innerHTML = essay_id - 1;
+            var essay = document.getElementById("essay");
+            essay.innerHTML = response;
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -32,10 +35,10 @@ function previous(button) {
 function next(button) {
     console.log("Next");
 
-    var essay_id = document.getElementById("essay_id").innerHTML;
+    var essay_id = Number(document.getElementById("essay_id").innerHTML);
     var essay_sum = 9
 
-    if (essay_id == essay_sum ) {
+    if (essay_id >= essay_sum ) {
         alert("There is no next essay!");
         return
     }
@@ -51,6 +54,10 @@ function next(button) {
         cache: false,
         success: function(response) {
             console.log('Response received!');
+            var next_essay_id = document.getElementById("essay_id");
+            next_essay_id.innerHTML = essay_id + 1;
+            var essay = document.getElementById("essay");
+            essay.innerHTML = response;
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -76,7 +83,7 @@ function submit(button) {
     console.log("Submit");
 
     if (isRadioChecked("overall_score")) {
-        var overall_score = document.querySelector('input[name="overall_score"]:checked').value;
+        var overall_score = Number(document.querySelector('input[name="overall_score"]:checked').value);
     }
     else {
         alert("Please choose the Overall Score!");
@@ -84,7 +91,7 @@ function submit(button) {
     }
 
     if (isRadioChecked("vocabulary_score")) {
-        var vocabulary_score = document.querySelector('input[name="vocabulary_score"]:checked').value;
+        var vocabulary_score = Number(document.querySelector('input[name="vocabulary_score"]:checked').value);
     }
     else {
         alert("Please choose the Vocabulary Score!");
@@ -92,7 +99,7 @@ function submit(button) {
     }
 
     if (isRadioChecked("sentence_score")) {
-        var sentence_score = document.querySelector('input[name="sentence_score"]:checked').value;
+        var sentence_score = Number(document.querySelector('input[name="sentence_score"]:checked').value);
     }
     else {
         alert("Please choose the Sentence Score!");
@@ -100,7 +107,7 @@ function submit(button) {
     }
     
     if (isRadioChecked("structure_score")) {
-        var structure_score = document.querySelector('input[name="structure_score"]:checked').value;
+        var structure_score = Number(document.querySelector('input[name="structure_score"]:checked').value);
     }
     else {
         alert("Please choose the Structure Score!");
@@ -108,14 +115,18 @@ function submit(button) {
     }
     
     if (isRadioChecked("content_score")) {
-        var content_score = document.querySelector('input[name="content_score"]:checked').value;
+        var content_score = Number(document.querySelector('input[name="content_score"]:checked').value);
     }
     else {
         alert("Please choose the Content Score!");
         return
     }
 
+    var essay_id = Number(document.getElementById("essay_id").innerHTML);
+
+
     var formData = new FormData();
+    formData.append('essay_id', essay_id);
     formData.append('overall_score', overall_score);
     formData.append('vocabulary_score', vocabulary_score);
     formData.append('sentence_score', sentence_score);
@@ -130,6 +141,16 @@ function submit(button) {
         cache: false,
         success: function(response) {
             console.log('Response received!');
+            var new_essay_id = document.getElementById("essay_id");
+            new_essay_id.innerHTML = essay_id + 1;
+            var annotated_quantity = document.getElementById("annotated_quantity");
+            annotated_quantity.innerHTML = response['annotated_quantity'];
+            var ratio = document.getElementById("ratio");
+            ratio.innerHTML = response['annotation_ratio'];
+            var essay = document.getElementById("essay");
+            essay.innerHTML = response['essay'];
+
+            clearAllRadios();
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -137,4 +158,19 @@ function submit(button) {
             console.log("Something went wrong:(");
         }
     });
+}
+
+function setRadioUnchecked(name) {
+    var radio = document.getElementsByName(name);
+    for (var i = 0; i < radio.length; i++) {
+        radio[i].checked = false;
+    }
+}
+
+function clearAllRadios() {
+    setRadioUnchecked("overall_score");
+    setRadioUnchecked("vocabulary_score");
+    setRadioUnchecked("sentence_score");
+    setRadioUnchecked("structure_score");
+    setRadioUnchecked("content_score");
 }

@@ -24,7 +24,7 @@ from pymongo import MongoClient
 from bson import json_util
 from bson.objectid import ObjectId
 
-define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
+define("address", default="10.200.26.84", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 
@@ -80,25 +80,13 @@ class Application(tornado.web.Application):
         if "progress" not in self.db.collection_names():
             self.db.progress
             # one annotator one record
-            self.db.progress.insert_one({'annotator:': 'sjyan', 'annotated_quantity': 0})
+            self.db.progress.insert_one({'annotator': 'sjyan', 'annotated_quantity': 0, 'annotation_list': []})
         
         if "marked" not in self.db.collection_names():
             self.db.marked
 
 
 class MainHandler(tornado.web.RequestHandler):
-    def get_progress(self):
-        progress = self.application.db.progress
-        progress_record = progress.find_one()
-        self.application.annotated_quantity = progress_record['annotated_quantity']
-        self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
-
-    def get_essay(self):
-        candidate = self.application.db.candidate
-        essay_record = candidate.find_one()
-        self.application.current_essay_id = essay_record['essay_id']
-        self.application.current_essay = essay_record['essay']
-
     def get(self):
         self.get_progress()
         self.get_essay()
@@ -113,72 +101,121 @@ class MainHandler(tornado.web.RequestHandler):
             annotation_ratio=self.application.annotation_ratio,
         )
 
+    def get_progress(self):
+        progress = self.application.db.progress
+        progress_record = progress.find_one()
+        self.application.annotated_quantity = progress_record['annotated_quantity']
+        self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
 
-class PreviousHandler(tornado.web.RequestHandler):
-    def get_essay(self, essay_id):
+    def get_essay(self):
         candidate = self.application.db.candidate
-        essay_record = candidate.find_one({"essay_id": essay_id})
+        essay_record = candidate.find_one()
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
 
+
+class PreviousHandler(tornado.web.RequestHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
 
         self.get_essay(essay_id - 1)
+        self.write(self.application.current_essay)
 
-        self.render(
-            'index.html',
-            title='Essay Grading Annotation',
-            essay_id=self.application.current_essay_id,
-            essay=self.application.current_essay,
-            annotated_quantity=self.application.annotated_quantity,
-            sum=self.application.essay_quantity,
-            annotation_ratio=self.application.annotation_ratio,
-        )
-
-
-class NextHandler(tornado.web.RequestHandler):
     def get_essay(self, essay_id):
         candidate = self.application.db.candidate
         essay_record = candidate.find_one({"essay_id": essay_id})
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
 
+
+class NextHandler(tornado.web.RequestHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
 
         self.get_essay(essay_id + 1)
+        self.write(self.application.current_essay)
 
-        self.render(
-            'index.html',
-            title='Essay Grading Annotation',
-            essay_id=self.application.current_essay_id,
-            essay=self.application.current_essay,
-            annotated_quantity=self.application.annotated_quantity,
-            sum=self.application.essay_quantity,
-            annotation_ratio=self.application.annotation_ratio,
-        )
+    def get_essay(self, essay_id):
+        candidate = self.application.db.candidate
+        essay_record = candidate.find_one({"essay_id": essay_id})
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
 
 
 class MarkHandler(tornado.web.RequestHandler):
     def post(self):
-        overall_score = self.get_argument('overall_score')
-        vocabulary_score = self.get_argument('vocabulary_score')
-        sentence_score = self.get_argument('sentence_score')
-        structure_score = self.get_argument('structure_score')
-        content_score = self.get_argument('content_score')
+        essay_id = int(self.get_argument('essay_id'))
+        overall_score = int(self.get_argument('overall_score'))
+        vocabulary_score = int(self.get_argument('vocabulary_score'))
+        sentence_score = int(self.get_argument('sentence_score'))
+        structure_score = int(self.get_argument('structure_score'))
+        content_score = int(self.get_argument('content_score'))
 
         mark_record = {}
+        mark_record['essay_id'] = essay_id
         mark_record['overall_score'] = overall_score
         mark_record['vocabulary_score'] = vocabulary_score
         mark_record['sentence_score'] = sentence_score
         mark_record['structure_score'] = structure_score
         mark_record['content_score'] = content_score
-    
-    def write_db(self, record):
-        candidate = self.application.db.candidate
 
+        self.get_essay(essay_id + 1)
+        self.write_db(mark_record)
+        self.get_progress()
+
+        response = {}
+        response['essay'] = self.application.current_essay
+        response['annotated_quantity'] = self.application.annotated_quantity
+        response['annotation_ratio'] = self.application.annotation_ratio
+
+        self.write(response)
+
+    def get_progress(self):
+        progress = self.application.db.progress
+        progress_record = progress.find_one()
+        self.application.annotated_quantity = progress_record['annotated_quantity']
+        self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
     
+    def get_essay(self, essay_id):
+        candidate = self.application.db.candidate
+        essay_record = candidate.find_one({"essay_id": essay_id})
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
+
+    def write_db(self, record):
+        data = self.application.db.data
+        candidate = self.application.db.candidate
+        progress = self.application.db.progress
+        essay_id = record['essay_id']
+
+        if data.find_one({'essay_id': essay_id}) == None:
+            data.insert_one(record)
+            progress.update_one(
+                {'annotator': 'sjyan'},
+                {'$inc': 
+                    {
+                        'annotated_quantity': 1
+                    }
+                }
+            )
+
+            progress_record = progress.find_one({'annotator': 'sjyan'})
+            annotation_list = progress_record['annotation_list']
+            annotation_list.append(essay_id)
+            progress.update_one(
+                {'annotator': 'sjyan'},
+                {'$set': 
+                    {
+                        'annotation_list': annotation_list
+                    }
+                }
+            )
+        else:
+            data.update_one(
+                {'essay_id': essay_id},
+                {'$set': record}
+            )
+
     def close_db(self):
         self.application.conn.close()
 
