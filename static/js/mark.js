@@ -84,7 +84,7 @@ function isRadioChecked(name) {
 }
 
 function submit(button) {
-    console.log("Submit annotation data...");
+    console.log("Submit essay annotation data...");
 
     if (isRadioChecked("overall_score")) {
         var overall_score = Number(document.querySelector('input[name="overall_score"]:checked').value);
@@ -138,7 +138,7 @@ function submit(button) {
     formData.append('content_score', content_score);
     $.ajax({
         type: 'POST',
-        url: '/mark',
+        url: '/mark_submit',
         data: formData,
         processData: false,
         contentType: false,
@@ -147,10 +147,10 @@ function submit(button) {
             console.log('Response received!');
             var new_essay_id = document.getElementById("essay_id");
             new_essay_id.innerHTML = essay_id + 1;
-            var annotated_quantity = document.getElementById("annotated_quantity");
-            annotated_quantity.innerHTML = response['annotated_quantity'];
+            var annotated_essay_quantity = document.getElementById("annotated_quantity");
+            annotated_essay_quantity.innerHTML = response['annotated_essay_quantity'];
             var ratio = document.getElementById("ratio");
-            ratio.innerHTML = response['annotation_ratio'];
+            ratio.innerHTML = response['annotation_essay_ratio'];
             var essay = document.getElementById("essay");
             essay.innerHTML = response['essay'];
 
