@@ -8,9 +8,6 @@
 import datetime
 import os.path
 import json
-import base64
-import requests
-from requests_toolbelt import MultipartEncoder
 import tornado.auth
 import tornado.escape
 import tornado.httpserver
@@ -54,6 +51,7 @@ class Application(tornado.web.Application):
         self.annotation_ratio = 0.0
         self.current_essay_id = 0
         self.current_essay = 'Essay Placeholder'
+        self.ocr_path = "./data/ocr.xml"
 
         self.connect_db()
 
@@ -61,8 +59,8 @@ class Application(tornado.web.Application):
         self.conn = MongoClient("localhost", 27017)
         self.db = self.conn.annotation
 
-        if "candidate" not in self.db.collection_names():
-            self.db.candidate
+        if "essay_candidates" not in self.db.collection_names():
+            self.db.essay_candidates
             candidates = []
 
             with open(self.essay_path, 'r') as essay_file:
@@ -75,74 +73,19 @@ class Application(tornado.web.Application):
                     candidate_record['annotator_counter'] = 0
                     candidates.append(candidate_record)
                     essay_id += 1
-                self.db.candidate.insert_many(candidates)
-
-        if "data" not in self.db.collection_names():
-            self.db.data
+                self.db.essay_candidates.insert_many(candidates)
         
-        if "progress" not in self.db.collection_names():
-            self.db.progress
+        if "essay_marked" not in self.db.collection_names():
+            self.db.essay_marked
+
+        if "essay_data" not in self.db.collection_names():
+            self.db.essay_data
+        
+        if "essay_progress" not in self.db.collection_names():
+            self.db.essay_progress
             # one annotator one record
-            self.db.progress.insert_one({'annotator': 'sjyan', 'annotated_quantity': 0, 'annotation_list': []})
-        
-        if "marked" not in self.db.collection_names():
-            self.db.marked
+            self.db.essay_progress.insert_one({'annotator': 'sjyan', 'annotated_quantity': 0, 'annotation_list': []})
 
-
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.get_progress()
-        self.get_essay()
-
-        self.render(
-            'mark.html',
-            title='Essay Grading Annotation',
-            essay_id=self.application.current_essay_id,
-            essay=self.application.current_essay,
-            annotated_quantity=self.application.annotated_quantity,
-            sum=self.application.essay_quantity,
-            annotation_ratio=self.application.annotation_ratio,
-        )
-
-    def get_progress(self):
-        progress = self.application.db.progress
-        progress_record = progress.find_one()
-        self.application.annotated_quantity = progress_record['annotated_quantity']
-        self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
-
-    def get_essay(self):
-        candidate = self.application.db.candidate
-        essay_record = candidate.find_one()
-        self.application.current_essay_id = essay_record['essay_id']
-        self.application.current_essay = essay_record['essay']
-
-
-class MarkPreviousHandler(tornado.web.RequestHandler):
-    def post(self):
-        essay_id = int(self.get_argument('essay_id'))
-
-        self.get_essay(essay_id - 1)
-        self.write(self.application.current_essay)
-
-    def get_essay(self, essay_id):
-        candidate = self.application.db.candidate
-        essay_record = candidate.find_one({"essay_id": essay_id})
-        self.application.current_essay_id = essay_record['essay_id']
-        self.application.current_essay = essay_record['essay']
-
-
-class MarkNextHandler(tornado.web.RequestHandler):
-    def post(self):
-        essay_id = int(self.get_argument('essay_id'))
-
-        self.get_essay(essay_id + 1)
-        self.write(self.application.current_essay)
-
-    def get_essay(self, essay_id):
-        candidate = self.application.db.candidate
-        essay_record = candidate.find_one({"essay_id": essay_id})
-        self.application.current_essay_id = essay_record['essay_id']
-        self.application.current_essay = essay_record['essay']
 
 
 class MarkHandler(tornado.web.RequestHandler):
@@ -164,7 +107,7 @@ class MarkHandler(tornado.web.RequestHandler):
 
         self.get_essay(essay_id + 1)
         self.write_db(mark_record)
-        self.get_progress()
+        self.update_progress()
 
         response = {}
         response['essay'] = self.application.current_essay
@@ -173,22 +116,22 @@ class MarkHandler(tornado.web.RequestHandler):
 
         self.write(response)
 
-    def get_progress(self):
-        progress = self.application.db.progress
+    def update_progress(self):
+        progress = self.application.db.essay_progress
         progress_record = progress.find_one()
         self.application.annotated_quantity = progress_record['annotated_quantity']
         self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
     
     def get_essay(self, essay_id):
-        candidate = self.application.db.candidate
+        candidate = self.application.db.essay_candidates
         essay_record = candidate.find_one({"essay_id": essay_id})
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
 
     def write_db(self, record):
-        data = self.application.db.data
-        candidate = self.application.db.candidate
-        progress = self.application.db.progress
+        data = self.application.db.essay_data
+        candidate = self.application.db.essay_candidates
+        progress = self.application.db.essay_progress
         essay_id = record['essay_id']
 
         if data.find_one({'essay_id': essay_id}) == None:
@@ -223,7 +166,74 @@ class MarkHandler(tornado.web.RequestHandler):
         self.application.conn.close()
 
 
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.get_progress()
+        self.get_essay()
 
+        self.render(
+            'mark.html',
+            title='Essay Grading Annotation',
+            essay_id=self.application.current_essay_id,
+            essay=self.application.current_essay,
+            annotated_quantity=self.application.annotated_quantity,
+            sum=self.application.essay_quantity,
+            annotation_ratio=self.application.annotation_ratio,
+        )
+
+    def get_progress(self):
+        progress = self.application.db.essay_progress
+        progress_record = progress.find_one()
+        self.application.annotated_quantity = progress_record['annotated_quantity']
+        self.application.annotation_ratio = float(100 * self.application.annotated_quantity / self.application.essay_quantity)
+
+    def get_essay(self):
+        candidate = self.application.db.essay_candidates
+        essay_record = candidate.find_one()
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
+
+
+class MarkPreviousHandler(tornado.web.RequestHandler):
+    def post(self):
+        essay_id = int(self.get_argument('essay_id'))
+
+        self.get_essay(essay_id - 1)
+        self.write(self.application.current_essay)
+
+    def get_essay(self, essay_id):
+        candidate = self.application.db.essay_candidates
+        essay_record = candidate.find_one({"essay_id": essay_id})
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
+
+
+class MarkNextHandler(tornado.web.RequestHandler):
+    def post(self):
+        essay_id = int(self.get_argument('essay_id'))
+
+        self.get_essay(essay_id + 1)
+        self.write(self.application.current_essay)
+
+    def get_essay(self, essay_id):
+        candidate = self.application.db.essay_candidates
+        essay_record = candidate.find_one({"essay_id": essay_id})
+        self.application.current_essay_id = essay_record['essay_id']
+        self.application.current_essay = essay_record['essay']
+
+
+class OCRHandler(tornado.web.RequestHandler):
+    def get(self):
+        print()
+
+class OCRPreviousHandler(tornado.web.RequestHandler):
+    def post(self):
+        print()
+
+
+class OCRNextHandler(tornado.web.RequestHandler):
+    def post(self):
+        print()
 
 
 
