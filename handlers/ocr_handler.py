@@ -5,10 +5,22 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
+import tornado.web
 
 class OCRHandler(tornado.web.RequestHandler):
     def get(self):
-        print()
+        self.get_progress()
+        self.get_ocr()
+
+        self.render(
+            'ocr.html',
+            title='OCR Result Correction',
+            essay_id=self.application.current_essay_id,
+            essay=self.application.current_essay,
+            annotated_essay_quantity=self.application.annotated_essay_quantity,
+            sum=self.application.essay_quantity,
+            annotation_essay_ratio=self.application.annotation_essay_ratio,
+        )
 
 
 class OCRSubmitHandler(tornado.web.RequestHandler):

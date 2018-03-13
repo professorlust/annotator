@@ -26,7 +26,7 @@ from bson import json_util
 from bson.objectid import ObjectId
 
 
-define("address", default="10.200.26.84", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
+define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 
@@ -51,14 +51,18 @@ class Application(tornado.web.Application):
         )
         super(Application, self).__init__(handlers, **settings)
 
-        self.essay_path = "./data/essay.txt"
+        self.mark_url = 'http://' + str(options.address) + ':' + str(options.port) + '/mark'
+        self.ocr_url = 'http://' + str(options.address) + ':' + str(options.port) + '/ocr'
+        self.essay_path = './data/essay.txt'
         self.essays = [line.strip() for line in open(self.essay_path)]
+        self.essay_flag = True  # True means essay_candidates is not empty
         self.essay_quantity = len(self.essays)
         self.annotated_essay_quantity = 0
         self.annotation_essay_ratio = 0.0
         self.current_essay_id = 0
         self.current_essay = 'Essay Placeholder'
-        self.ocr_path = "./data/ocr.txt"
+        self.ocr_path = './data/ocr.txt'
+        self.ocr_flag = True    # True means ocr_candidates is not empty
 
         self.connect_db()
 
@@ -97,9 +101,15 @@ class Application(tornado.web.Application):
         # ocr result correction
         if "ocr_candidates" not in self.db.collection_names():
             self.db.ocr_candidates
+            ocr_id = 0      # ocr_id starts from 0
 
             with open(self.ocr_path, 'r') as ocr_file:
                 ocr_candidates = json.load(ocr_file)
+
+                for ocr_dict in ocr_candidates:
+                    ocr_dict['ocr_id'] = ocr_id
+                    ocr_id += 1
+
                 self.db.ocr_candidates.insert_many(ocr_candidates)
         
         if "ocr_marked" not in self.db.collection_names():

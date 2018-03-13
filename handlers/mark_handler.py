@@ -5,6 +5,7 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
+import tornado.web
 
 class MarkHandler(tornado.web.RequestHandler):
     def get(self):
