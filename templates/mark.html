@@ -6,9 +6,9 @@
 	<meta name="description" content="Essay Grading Annotation">
     <meta name="author" content="Shengjia Yan">
 	<title>{{ title }}</title>
-    <link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
 	<link type="image/x-icon" href="{{ static_url("img/favicon.ico")}}" rel="shortcut icon"/>
-	<script type="text/javascript" src="{{ static_url("js/main.js")}}"></script>
+    <link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
+	<script type="text/javascript" src="{{ static_url("js/mark.js")}}"></script>
 	<script type="text/javascript" src="{{ static_url("js/jquery-3.3.1.min.js")}}"></script>
 </head>
 <body>
@@ -17,6 +17,8 @@
 		<div class="col left">
 			<b>Essay <div id="essay_id" name="essay_id" class="essay_id">{{ essay_id }}</div></b><br><br>
 			<div id="essay" name="essay" class="essay">{{ essay }}</div><br>
+			Current State:
+			<div id="state" name="state" class="state"></div>
 		</div>
 		<div class="col right">
 			<b>Annotation</b><br><br>
@@ -25,7 +27,6 @@
 				<div class="annotated_quantity" id="annotated_quantity" name="annotated_quantity">{{ annotated_quantity }}</div> /
 				<div class="essay_sum" id="essay_sum" name="essay_sum">{{ sum }}</div>,
 				<div class="ratio" id="ratio" name="ratio">{{ annotation_ratio }}</div>%<br>
-				革命尚未成功，同志仍需努力！
 			</div>
 			<br>
 			<div class="rule">

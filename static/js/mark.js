@@ -1,5 +1,5 @@
 function previous(button) {
-    console.log("Previous");
+    console.log("Jump tp previous essay...");
 
     var essay_id = Number(document.getElementById("essay_id").innerHTML);
 
@@ -12,7 +12,7 @@ function previous(button) {
     formData.append('essay_id', essay_id);
     $.ajax({
         type: 'POST',
-        url: '/previous',
+        url: '/mark_previous',
         data: formData,
         processData: false,
         contentType: false,
@@ -23,6 +23,8 @@ function previous(button) {
             previous_essay_id.innerHTML = essay_id - 1;
             var essay = document.getElementById("essay");
             essay.innerHTML = response;
+
+            clearAllRadios();
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -33,7 +35,7 @@ function previous(button) {
 }
 
 function next(button) {
-    console.log("Next");
+    console.log("Jump tp next essay...");
 
     var essay_id = Number(document.getElementById("essay_id").innerHTML);
     var essay_sum = 9
@@ -47,7 +49,7 @@ function next(button) {
     formData.append('essay_id', essay_id);
     $.ajax({
         type: 'POST',
-        url: '/next',
+        url: '/mark_next',
         data: formData,
         processData: false,
         contentType: false,
@@ -58,6 +60,8 @@ function next(button) {
             next_essay_id.innerHTML = essay_id + 1;
             var essay = document.getElementById("essay");
             essay.innerHTML = response;
+
+            clearAllRadios();
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -80,7 +84,7 @@ function isRadioChecked(name) {
 }
 
 function submit(button) {
-    console.log("Submit");
+    console.log("Submit annotation data...");
 
     if (isRadioChecked("overall_score")) {
         var overall_score = Number(document.querySelector('input[name="overall_score"]:checked').value);

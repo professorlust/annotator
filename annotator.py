@@ -33,9 +33,12 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/', MainHandler),
-            (r'/previous', PreviousHandler),
-            (r'/next', NextHandler),
             (r'/mark', MarkHandler),
+            (r'/mark_previous', MarkPreviousHandler),
+            (r'/mark_next', MarkNextHandler),
+            (r'/ocr', OCRHandler),
+            (r'/ocr_previous', OCRPreviousHandler),
+            (r'/ocr_next', OCRNextHandler),
         ]
         settings = dict(
             static_path=os.path.join(os.path.dirname(__file__), "static"),
@@ -92,7 +95,7 @@ class MainHandler(tornado.web.RequestHandler):
         self.get_essay()
 
         self.render(
-            'index.html',
+            'mark.html',
             title='Essay Grading Annotation',
             essay_id=self.application.current_essay_id,
             essay=self.application.current_essay,
@@ -114,7 +117,7 @@ class MainHandler(tornado.web.RequestHandler):
         self.application.current_essay = essay_record['essay']
 
 
-class PreviousHandler(tornado.web.RequestHandler):
+class MarkPreviousHandler(tornado.web.RequestHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
 
@@ -128,7 +131,7 @@ class PreviousHandler(tornado.web.RequestHandler):
         self.application.current_essay = essay_record['essay']
 
 
-class NextHandler(tornado.web.RequestHandler):
+class MarkNextHandler(tornado.web.RequestHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
 
