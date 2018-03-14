@@ -18,7 +18,17 @@ ul {
     font-family: "Arial";
 }
 
+.ocr_corrector {
+    margin: auto;
+    background: white;
+    font-family: "Arial";
+}
+
 .essay_id {
+    display: inline;
+}
+
+.ocr_id {
     display: inline;
 }
 
@@ -26,7 +36,7 @@ ul {
     display: inline;
 }
 
-.essay_sum {
+.sum {
     display: inline;
 }
 
@@ -35,6 +45,20 @@ ul {
 }
 
 .essay {
+    font-family: "Monaco";
+    font-size: 14px;
+    word-wrap: break-word;
+    width: 90%;
+}
+
+.ocr_essay {
+    font-family: "Monaco";
+    font-size: 14px;
+    word-wrap: break-word;
+    width: 90%;
+}
+
+.ocr_correction {
     font-family: "Monaco";
     font-size: 14px;
     word-wrap: break-word;

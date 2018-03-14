@@ -8,23 +8,34 @@
 	<title>{{ title }}</title>
 	<link type="image/x-icon" href="{{ static_url("img/favicon.ico")}}" rel="shortcut icon"/>
     <link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
-	<script type="text/javascript" src="{{ static_url("js/main.js")}}"></script>
+	<script type="text/javascript" src="{{ static_url("js/ocr.js")}}"></script>
 	<script type="text/javascript" src="{{ static_url("js/jquery-3.3.1.min.js")}}"></script>
 </head>
 <body>
 	<div class="ocr_corrector">
 		<h1 class="title">{{ title }}</h1>
 		<div class="col left">
-			<b>Image <div id="image_id" name="image_id" class="image_id">{{ image_id }}</div></b><br><br>
-			<a id="image_url" name="image_url" class="image_url" href="">Image URL</a><br>
-			Image:<br>
-
+			<b>Image <div id="ocr_id" name="ocr_id" class="ocr_id">{{ ocr_id }}</div></b><br><br>
+			<!-- <a id="image_url" name="image_url" class="image_url" href={{ image_url }}>Image URL</a><br><br> -->
+			<img id="image_url" name="image_url" class="image_url" width="90%" src={{ image_url }} alt="Image {{ ocr_id }}" />
 		</div>
 		<div class="col right">
 			<b>Annotation</b><br><br>
+			<div class="progress">
+				Annotation Progress:
+				<div class="annotated_quantity" id="annotated_quantity" name="annotated_quantity">{{ corrected_ocr_quantity }}</div> /
+				<div class="sum" id="sum" name="sum">{{ sum }}</div>,
+				<div class="ratio" id="ratio" name="ratio">{{ corrected_ocr_ratio }}</div>%<br>
+			</div>
+			<br>
 			OCR Result:<br>
-
+			<div id="ocr_essay" name="ocr_essay" class="ocr_essay">{{ ocr_essay }}</div><br>
 			Correction:<br>
+			<textarea rows="10" cols="100" id="ocr_correction" name="ocr_correction" class="ocr_correction">{{ ocr_correction }}</textarea>
+			<br><br>
+			<button id="previous" class="button_previous" onclick="previous(this);">Previous</button>
+			<button id="next" class="button_next" onclick="next(this);">Next</button>
+			<button id="subumit" class="button_submit" onclick="submit(this);">Submit</button>
 		</div>
 	</div>
 </body>

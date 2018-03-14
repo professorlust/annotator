@@ -29,8 +29,8 @@ class MarkHandler(tornado.web.RequestHandler):
         self.application.annotation_essay_ratio = float(100 * self.application.annotation_essay_ratio / self.application.essay_quantity)
 
     def get_essay(self):
-        candidate = self.application.db.essay_candidates
-        essay_record = candidate.find_one()
+        candidates = self.application.db.essay_candidates
+        essay_record = candidates.find_one()
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
 
@@ -70,8 +70,8 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
         self.application.annotation_essay_ratio = float(100 * self.application.annotated_essay_quantity / self.application.essay_quantity)
     
     def get_essay(self, essay_id):
-        candidate = self.application.db.essay_candidates
-        essay_record = candidate.find_one({"essay_id": essay_id})
+        candidates = self.application.db.essay_candidates
+        essay_record = candidates.find_one({"essay_id": essay_id})
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
 
@@ -121,8 +121,8 @@ class MarkPreviousHandler(tornado.web.RequestHandler):
         self.write(self.application.current_essay)
 
     def get_essay(self, essay_id):
-        candidate = self.application.db.essay_candidates
-        essay_record = candidate.find_one({"essay_id": essay_id})
+        candidates = self.application.db.essay_candidates
+        essay_record = candidates.find_one({"essay_id": essay_id})
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
 
@@ -135,7 +135,7 @@ class MarkNextHandler(tornado.web.RequestHandler):
         self.write(self.application.current_essay)
 
     def get_essay(self, essay_id):
-        candidate = self.application.db.essay_candidates
-        essay_record = candidate.find_one({"essay_id": essay_id})
+        candidates = self.application.db.essay_candidates
+        essay_record = candidates.find_one({"essay_id": essay_id})
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
