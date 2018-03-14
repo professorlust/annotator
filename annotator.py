@@ -73,7 +73,7 @@ class Application(tornado.web.Application):
         self.current_ocr_id = 0
         self.current_image_url = ''
         self.image_url_prefix = 'http://klximg.oss-cn-beijing.aliyuncs.com/scanimage/'
-        self.current_ocr = 'OCR Result Placeholder'
+        self.current_ocr_essay = 'OCR Result Placeholder'
 
         self.connect_db()
 

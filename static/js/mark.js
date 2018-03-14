@@ -38,7 +38,7 @@ function next(button) {
     console.log("Jump tp next essay...");
 
     var essay_id = Number(document.getElementById("essay_id").innerHTML);
-    var essay_sum = 9
+    var essay_sum = Number(document.getElementById("sum").innerHTML) - 1;
 
     if (essay_id >= essay_sum ) {
         alert("There is no next essay!");
