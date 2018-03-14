@@ -27,10 +27,10 @@ function previous(button) {
             previous_image_url.src = response["image_url"];
 
             var previous_ocr_essay = document.getElementById("ocr_essay");
-            previous_ocr_essay.innerHTML = response["ocr_essay"];
+            previous_ocr_essay.value = response["ocr_essay"];
 
             var previous_ocr_correction = document.getElementById("ocr_correction");
-            previous_ocr_correction.innerHTML = response["ocr_essay"];
+            previous_ocr_correction.value = response["ocr_essay"];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -70,10 +70,10 @@ function next(button) {
             next_image_url.src = response["image_url"];
 
             var next_ocr_essay = document.getElementById("ocr_essay");
-            next_ocr_essay.innerHTML = response["ocr_essay"];
+            next_ocr_essay.value = response["ocr_essay"];
 
             var next_ocr_correction = document.getElementById("ocr_correction");
-            next_ocr_correction.innerHTML = response["ocr_essay"];
+            next_ocr_correction.value = response["ocr_essay"];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {

@@ -15,7 +15,7 @@ class OCRHandler(tornado.web.RequestHandler):
 
         self.render(
             'ocr.html',
-            title='OCR Result Correction',
+            title='OCR Result Annotation',
             ocr_id=self.application.current_ocr_id,
             image_url=self.application.current_image_url,
             ocr_essay=self.application.current_ocr_essay,
