@@ -9,7 +9,6 @@ from handlers.main_handler import MainHandler
 from handlers.mark_handler import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
 from handlers.ocr_handler import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
 
-import datetime
 import os.path
 import json
 import tornado.auth
@@ -86,7 +85,6 @@ class Application(tornado.web.Application):
             self.db.essay_candidates
             essay_candidates = []
             essay_id = 0       # essay_id == line_number
-
             for essay in self.essays:
                 candidate_record = {}
                 candidate_record['essay_id'] = essay_id
@@ -95,13 +93,10 @@ class Application(tornado.web.Application):
                 essay_candidates.append(candidate_record)
                 essay_id += 1
             self.db.essay_candidates.insert_many(essay_candidates)
-        
         if "essay_marked" not in self.db.collection_names():
             self.db.essay_marked
-
         if "essay_data" not in self.db.collection_names():
             self.db.essay_data
-        
         if "essay_progress" not in self.db.collection_names():
             self.db.essay_progress
             # one annotator one record
@@ -111,19 +106,14 @@ class Application(tornado.web.Application):
         if "ocr_candidates" not in self.db.collection_names():
             self.db.ocr_candidates
             ocr_id = 0      # ocr_id starts from 0
-
             for ocr_dict in self.ocrs:
                 ocr_dict['ocr_id'] = ocr_id
                 ocr_id += 1
-
             self.db.ocr_candidates.insert_many(self.ocrs)
-        
         if "ocr_marked" not in self.db.collection_names():
             self.db.ocr_marked
-
         if "ocr_data" not in self.db.collection_names():
             self.db.ocr_data
-        
         if "ocr_progress" not in self.db.collection_names():
             self.db.ocr_progress
             # anonymous annotation

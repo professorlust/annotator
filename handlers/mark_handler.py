@@ -52,37 +52,40 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
         mark_record['structure_score'] = structure_score
         mark_record['content_score'] = content_score
 
-        self.get_essay(essay_id + 1)
         self.write_db(mark_record)
-        self.update_progress()
+        self.get_essay()
+        self.get_progress()
 
         response = {}
         response['essay'] = self.application.current_essay
+        response['essay_id'] = self.application.current_essay_id
         response['annotated_essay_quantity'] = self.application.annotated_essay_quantity
         response['annotation_essay_ratio'] = self.application.annotation_essay_ratio
 
         self.write(response)
 
-    def update_progress(self):
+    def get_progress(self):
         progress = self.application.db.essay_progress
         progress_record = progress.find_one()
         self.application.annotated_essay_quantity = progress_record['annotated_essay_quantity']
         self.application.annotation_essay_ratio = float(100 * self.application.annotated_essay_quantity / self.application.essay_quantity)
     
-    def get_essay(self, essay_id):
+    def get_essay(self):
         candidates = self.application.db.essay_candidates
-        essay_record = candidates.find_one({"essay_id": essay_id})
+        essay_record = candidates.find_one()
         self.application.current_essay_id = essay_record['essay_id']
         self.application.current_essay = essay_record['essay']
 
     def write_db(self, record):
         data = self.application.db.essay_data
-        candidate = self.application.db.essay_candidates
+        candidates = self.application.db.essay_candidates
         progress = self.application.db.essay_progress
         essay_id = record['essay_id']
 
         if data.find_one({'essay_id': essay_id}) == None:
             data.insert_one(record)
+
+            # annotated_essay_quantity + 1
             progress.update_one(
                 {'annotator': 'sjyan'},
                 {'$inc': 
@@ -92,6 +95,7 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
                 }
             )
 
+            # update annotation list
             progress_record = progress.find_one({'annotator': 'sjyan'})
             annotation_list = progress_record['annotation_list']
             annotation_list.append(essay_id)

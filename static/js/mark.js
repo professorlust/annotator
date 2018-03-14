@@ -146,7 +146,7 @@ function submit(button) {
         success: function(response) {
             console.log('Response received!');
             var new_essay_id = document.getElementById("essay_id");
-            new_essay_id.innerHTML = essay_id + 1;
+            new_essay_id.innerHTML = response["essay_id"];
             var annotated_essay_quantity = document.getElementById("annotated_quantity");
             annotated_essay_quantity.innerHTML = response['annotated_essay_quantity'];
             var ratio = document.getElementById("ratio");
