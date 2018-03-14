@@ -51,8 +51,8 @@ class Application(tornado.web.Application):
         )
         super(Application, self).__init__(handlers, **settings)
 
+        # essay grading annotation
         self.mark_url = 'http://' + str(options.address) + ':' + str(options.port) + '/mark'
-        self.ocr_url = 'http://' + str(options.address) + ':' + str(options.port) + '/ocr'
         self.essay_path = './data/essay.txt'
         self.essays = [line.strip() for line in open(self.essay_path)]
         self.essay_flag = True  # True means essay_candidates is not empty
@@ -61,6 +61,9 @@ class Application(tornado.web.Application):
         self.annotation_essay_ratio = 0.0
         self.current_essay_id = 0
         self.current_essay = 'Essay Placeholder'
+
+        # ocr result correction
+        self.ocr_url = 'http://' + str(options.address) + ':' + str(options.port) + '/ocr'
         self.ocr_path = './data/ocr.txt'
         self.ocr_flag = True    # True means ocr_candidates is not empty
 
@@ -74,18 +77,16 @@ class Application(tornado.web.Application):
         if "essay_candidates" not in self.db.collection_names():
             self.db.essay_candidates
             essay_candidates = []
+            essay_id = 0       # essay_id == line_number
 
-            with open(self.essay_path, 'r') as essay_file:
-                essay_id = 0       # essay_id == line_number
-                for line in essay_file:
-                    line = line.strip()
-                    candidate_record = {}
-                    candidate_record['essay_id'] = essay_id
-                    candidate_record['essay'] = line
-                    candidate_record['annotator_counter'] = 0
-                    essay_candidates.append(candidate_record)
-                    essay_id += 1
-                self.db.essay_candidates.insert_many(essay_candidates)
+            for essay in self.essays:
+                candidate_record = {}
+                candidate_record['essay_id'] = essay_id
+                candidate_record['essay'] = essay
+                candidate_record['annotator_counter'] = 0
+                essay_candidates.append(candidate_record)
+                essay_id += 1
+            self.db.essay_candidates.insert_many(essay_candidates)
         
         if "essay_marked" not in self.db.collection_names():
             self.db.essay_marked

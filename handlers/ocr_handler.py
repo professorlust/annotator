@@ -9,17 +9,17 @@ import tornado.web
 
 class OCRHandler(tornado.web.RequestHandler):
     def get(self):
-        self.get_progress()
-        self.get_ocr()
+        # self.get_progress()
+        # self.get_ocr()
 
         self.render(
             'ocr.html',
             title='OCR Result Correction',
-            essay_id=self.application.current_essay_id,
-            essay=self.application.current_essay,
-            annotated_essay_quantity=self.application.annotated_essay_quantity,
-            sum=self.application.essay_quantity,
-            annotation_essay_ratio=self.application.annotation_essay_ratio,
+            image_id=self.application.current_iamge_id,
+            image_url=self.application.current_iamge_url,
+            corrected_ocr_quantity=self.application.corrected_ocr_quantity,
+            sum=self.application.ocr_quantity,
+            corrected_ocr_ratio=self.application.corrected_ocr_ratio,
         )
 
 
