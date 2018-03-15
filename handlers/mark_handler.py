@@ -26,7 +26,7 @@ class MarkHandler(tornado.web.RequestHandler):
         progress = self.application.db.essay_progress
         progress_record = progress.find_one()
         self.application.annotated_essay_quantity = progress_record['annotated_essay_quantity']
-        self.application.annotation_essay_ratio = float(100 * self.application.annotation_essay_ratio / self.application.essay_quantity)
+        self.application.annotation_essay_ratio = float(100 * self.application.annotated_essay_quantity / self.application.essay_quantity)
 
     def get_essay(self):
         candidates = self.application.db.essay_candidates

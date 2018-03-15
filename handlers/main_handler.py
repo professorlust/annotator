@@ -11,7 +11,20 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render(
             'main.html',
-            title='17zuoye NLP Annotation Platform',
+            title='17ZY NLP Annotation Platform',
             mark_url=self.application.mark_url,
             ocr_url=self.application.ocr_url,
+            annotation_essay_ratio=self.application.annotation_essay_ratio,
+            corrected_ocr_ratio=self.application.corrected_ocr_ratio,
         )
+    
+    def get_progress(self):
+        essay_progress = self.application.db.essay_progress
+        essay_progress_record = essay_progress.find_one()
+        self.application.annotated_essay_quantity = essay_progress_record['annotated_essay_quantity']
+        self.application.annotation_essay_ratio = float(100 * self.application.annotated_essay_quantity / self.application.essay_quantity)
+
+        ocr_progress = self.application.db.ocr_progress
+        ocr_progress_record = ocr_progress.find_one()
+        self.application.corrected_ocr_quantity = ocr_progress_record['corrected_ocr_quantity']
+        self.application.corrected_ocr_ratio = float(100 * self.application.corrected_ocr_quantity / self.application.ocr_quantity)

@@ -99,8 +99,7 @@ class Application(tornado.web.Application):
             self.db.essay_data
         if "essay_progress" not in self.db.collection_names():
             self.db.essay_progress
-            # one annotator one record
-            self.db.essay_progress.insert_one({'annotator': 'sjyan', 'annotated_essay_quantity': 0, 'annotation_list': []})
+            self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': []})
 
         # ocr result correction
         if "ocr_candidates" not in self.db.collection_names():
@@ -116,7 +115,6 @@ class Application(tornado.web.Application):
             self.db.ocr_data
         if "ocr_progress" not in self.db.collection_names():
             self.db.ocr_progress
-            # anonymous annotation
             self.db.ocr_progress.insert_one({'corrected_ocr_quantity': 0, 'annotation_list': []})
 
 
