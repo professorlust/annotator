@@ -4,6 +4,10 @@ label {
     width: 110px;
 }
 
+a {
+    font-size: 25px;
+}
+
 ul {
     margin-top: 0px;
 }

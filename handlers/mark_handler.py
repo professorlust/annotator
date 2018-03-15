@@ -45,6 +45,7 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
         content_score = int(self.get_argument('content_score'))
 
         mark_record = {}
+        mark_record['annotator'] = 'sjyan'
         mark_record['essay_id'] = essay_id
         mark_record['overall_score'] = overall_score
         mark_record['vocabulary_score'] = vocabulary_score
@@ -87,7 +88,7 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
 
             # annotated_essay_quantity + 1
             progress.update_one(
-                {'annotator': 'sjyan'},
+                {},
                 {'$inc': 
                     {
                         'annotated_essay_quantity': 1
@@ -96,11 +97,11 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
             )
 
             # update annotation list
-            progress_record = progress.find_one({'annotator': 'sjyan'})
+            progress_record = progress.find_one()
             annotation_list = progress_record['annotation_list']
             annotation_list.append(essay_id)
             progress.update_one(
-                {'annotator': 'sjyan'},
+                {},
                 {'$set': 
                     {
                         'annotation_list': annotation_list
