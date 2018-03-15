@@ -7,23 +7,24 @@
     <meta name="author" content="Shengjia Yan">
 	<title>{{ title }}</title>
 	<link type="image/x-icon" href="{{ static_url("img/favicon.ico")}}" rel="shortcut icon"/>
-    <link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
 	<script type="text/javascript" src="{{ static_url("js/jquery-3.3.1.min.js")}}"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
 </head>
 <body>
 	<div class="essay_annotator">
 		<h1 class="platform_title">{{ title }}</h1>
+		<br>
 		<div class="projects">
 			<a href= {{ mark_url }}>Essay Grading Annotation</a>
 			<div class="progress">
-				<div class="progress-bar" role="progressbar" style="width: {{ annotation_essay_ratio }}%;" aria-valuenow="{{ annotation_essay_ratio }}" aria-valuemin="0" aria-valuemax="100">{{ annotation_essay_ratio }}%</div>
+				<div class="progress-bar progress-bar-striped progress-bar-animated massive-font" role="progressbar" style="width: {{ annotation_essay_ratio }}%" aria-valuenow="{{ annotation_essay_ratio }}" aria-valuemin="0" aria-valuemax="100">{{ annotation_essay_ratio }}%</div>
 			</div>
 			<br>
 			<a href= {{ ocr_url }}>OCR Result Annotation</a>
 			<div class="progress">
-				<div class="progress-bar" role="progressbar" style="width: {{ corrected_ocr_ratio }}%;" aria-valuenow="{{ corrected_ocr_ratio }}" aria-valuemin="0" aria-valuemax="100">{{ corrected_ocr_ratio }}%</div>
+				<div class="progress-bar progress-bar-striped progress-bar-animated massive-font" role="progressbar" style="width: {{ corrected_ocr_ratio }}%" aria-valuenow="{{ corrected_ocr_ratio }}" aria-valuemin="0" aria-valuemax="100">{{ corrected_ocr_ratio }}%</div>
 			</div>
 		</div>
 	</div>

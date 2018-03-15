@@ -9,6 +9,8 @@ import tornado.web
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        self.get_progress()
+
         self.render(
             'main.html',
             title='17zuoye NLP Annotation Platform',

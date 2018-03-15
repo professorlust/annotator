@@ -26,6 +26,13 @@ ul {
     margin-right: 20%;
 }
 
+.massive-font {
+    font-size: 25px;
+}
+
+.progress {
+    height: 30px;
+}
 
 .essay_annotator {
     margin: auto;
