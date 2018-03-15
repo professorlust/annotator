@@ -5,7 +5,7 @@ label {
 }
 
 a {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 ul {
@@ -15,6 +15,17 @@ ul {
 .title {
     font-family: "Arial";
 }
+
+.platform_title {
+    font-family: "Arial";
+    text-align: center;
+}
+
+.projects {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 
 .essay_annotator {
     margin: auto;
