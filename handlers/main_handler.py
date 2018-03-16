@@ -14,8 +14,8 @@ class MainHandler(tornado.web.RequestHandler):
         self.render(
             'main.html',
             title='17zuoye NLP Annotation Platform',
-            annotation_essay_ratio=self.application.annotation_essay_ratio,
-            corrected_ocr_ratio=self.application.corrected_ocr_ratio,
+            annotation_essay_ratio=str(round(self.application.annotation_essay_ratio, 3)),
+            corrected_ocr_ratio=str(round(self.application.corrected_ocr_ratio, 3)),
         )
     
     def get_progress(self):
