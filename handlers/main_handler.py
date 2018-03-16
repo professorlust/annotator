@@ -14,8 +14,6 @@ class MainHandler(tornado.web.RequestHandler):
         self.render(
             'main.html',
             title='17zuoye NLP Annotation Platform',
-            mark_url=self.application.mark_url,
-            ocr_url=self.application.ocr_url,
             annotation_essay_ratio=self.application.annotation_essay_ratio,
             corrected_ocr_ratio=self.application.corrected_ocr_ratio,
         )

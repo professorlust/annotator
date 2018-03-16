@@ -18,7 +18,7 @@
 	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
 		<h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
 		<nav class="my-2 my-md-0 mr-md-3">
-			<a class="p-2 text-dark" href="{{ homepage_url }}">首页</a>
+			<a class="p-2 text-dark" href="/">首页</a>
 			<a class="p-2 text-dark" href="#">标注规则</a>
 			<a class="p-2 text-dark" href="#">仲裁机制</a>
 		</nav>
@@ -48,9 +48,9 @@
 				</div>
 				
 				<div class="ocr_corrector">
-					OCR Result:<br>
+					<h5 class="mb-3">OCR Result</h5>
 					<textarea readonly rows="10" id="ocr_essay" name="ocr_essay" class="ocr_essay">{{ ocr_essay }}</textarea><br><br>
-					Correction:<br>
+					<h5 class="mb-3">OCR Correction</h5>
 					<textarea rows="10" id="ocr_correction" name="ocr_correction" class="ocr_correction">{{ ocr_correction }}</textarea>
 					<br><br>
 					<button id="button_previous" class="btn btn-outline-primary" onclick="previousImage(this);">Previous</button>

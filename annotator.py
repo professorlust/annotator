@@ -50,10 +50,7 @@ class Application(tornado.web.Application):
         )
         super(Application, self).__init__(handlers, **settings)
 
-        self.homepage_url = 'http://' + str(options.address) + ":" + str(options.port)
-
         # essay grading annotation
-        self.mark_url = 'http://' + str(options.address) + ':' + str(options.port) + '/mark'
         self.essay_path = './data/essay.txt'
         self.essays = [line.strip() for line in open(self.essay_path, 'r')]
         self.essay_flag = True  # True means essay_candidates is not empty
@@ -64,7 +61,6 @@ class Application(tornado.web.Application):
         self.current_essay = 'Essay Placeholder'
 
         # ocr result correction
-        self.ocr_url = 'http://' + str(options.address) + ':' + str(options.port) + '/ocr'
         self.ocr_path = './data/ocr.txt'
         self.ocrs = json.load(open(self.ocr_path, 'r'))
         self.ocr_flag = True    # True means ocr_candidates is not empty
