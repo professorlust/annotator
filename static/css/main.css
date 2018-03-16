@@ -66,8 +66,17 @@ ul {
 }
 
 .container {
-    max-width: 80%;
+    max-width: 90%;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: grey;
+    text-align: center;
+ }
   
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }

@@ -83,7 +83,6 @@ function nextImage(button) {
     });
 }
 
-
 function submitOCRCorrection(button) {
     console.log("Submit OCR result correction data...");
 
@@ -129,7 +128,6 @@ function submitOCRCorrection(button) {
         }
     });
 }
-
 
 function clearCorrection(button) {
     console.log("Clear OCR correction data");
