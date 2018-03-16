@@ -131,3 +131,9 @@ function submitOCRCorrection(button) {
 }
 
 
+function clearCorrection(button) {
+    console.log("Clear OCR correction data");
+
+    var ocr_correction = document.getElementById("ocr_correction");
+    ocr_correction.innerHTML = "";
+}

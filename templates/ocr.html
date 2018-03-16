@@ -32,7 +32,9 @@
 					Image
 					<div id="ocr_id" name="ocr_id" class="ocr_id">{{ ocr_id }}</div>
 				</h4>
-				<img id="image_url" name="image_url" class="image_url" width="90%" src={{ image_url }} alt="Image {{ ocr_id }}" />
+				<div class="image">
+					<img id="image_url" name="image_url" class="image_url" width="90%" src={{ image_url }} alt="Image {{ ocr_id }}" />
+				</div>
 			</div>
 
 			<div class="col-md-5 order-md-2 mb-4">
@@ -55,6 +57,7 @@
 					<br><br>
 					<button id="button_previous" class="btn btn-outline-primary" onclick="previousImage(this);">Previous</button>
 					<button id="button_next" class="btn btn-outline-primary" onclick="nextImage(this);">Next</button>
+					<button id="button_clear" class="btn btn-outline-primary" onclick="clearCorrection(this);">Clear</button>
 					<button id="button_submit" class="btn btn-outline-primary" onclick="submitOCRCorrection(this);">Submit</button>
 				</div>
 			</div>
