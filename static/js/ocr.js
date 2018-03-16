@@ -1,4 +1,4 @@
-function previous(button) {
+function previousImage(button) {
     console.log("Jump tp previous image...");
 
     var ocr_id = Number(document.getElementById("ocr_id").innerHTML);
@@ -40,7 +40,7 @@ function previous(button) {
     });
 }
 
-function next(button) {
+function nextImage(button) {
     console.log("Jump tp next image...");
 
     var ocr_id = Number(document.getElementById("ocr_id").innerHTML);
@@ -84,7 +84,7 @@ function next(button) {
 }
 
 
-function submit(button) {
+function submitOCRCorrection(button) {
     console.log("Submit OCR result correction data...");
 
     var ocr_id = Number(document.getElementById("ocr_id").innerHTML);

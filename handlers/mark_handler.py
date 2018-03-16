@@ -15,6 +15,7 @@ class MarkHandler(tornado.web.RequestHandler):
         self.render(
             'mark.html',
             title='Essay Grading Annotation',
+            homepage_url=self.application.homepage_url,
             essay_id=self.application.current_essay_id,
             essay=self.application.current_essay,
             annotated_essay_quantity=self.application.annotated_essay_quantity,

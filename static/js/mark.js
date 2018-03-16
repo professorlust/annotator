@@ -1,4 +1,4 @@
-function previous(button) {
+function previousEssay(button) {
     console.log("Jump tp previous essay...");
 
     var essay_id = Number(document.getElementById("essay_id").innerHTML);
@@ -34,7 +34,7 @@ function previous(button) {
     });
 }
 
-function next(button) {
+function nextEssay(button) {
     console.log("Jump tp next essay...");
 
     var essay_id = Number(document.getElementById("essay_id").innerHTML);
@@ -83,7 +83,7 @@ function isRadioChecked(name) {
     return is_checked;
 }
 
-function submit(button) {
+function submitEssayMark(button) {
     console.log("Submit essay annotation data...");
 
     if (isRadioChecked("overall_score")) {

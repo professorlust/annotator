@@ -25,7 +25,7 @@ from bson import json_util
 from bson.objectid import ObjectId
 
 
-define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
+define("address", default="10.200.26.84", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 
@@ -49,6 +49,8 @@ class Application(tornado.web.Application):
             debug=options.debug
         )
         super(Application, self).__init__(handlers, **settings)
+
+        self.homepage_url = 'http://' + str(options.address) + ":" + str(options.port)
 
         # essay grading annotation
         self.mark_url = 'http://' + str(options.address) + ':' + str(options.port) + '/mark'

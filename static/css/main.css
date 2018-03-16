@@ -1,24 +1,9 @@
-label {
-    display: block;
-    float: left;
-    width: 110px;
-}
-
 a {
     font-size: 20px;
 }
 
 ul {
     margin-top: 0px;
-}
-
-.title {
-    font-family: "Arial";
-}
-
-.platform_title {
-    font-family: "Arial";
-    text-align: center;
 }
 
 .projects {
@@ -34,16 +19,8 @@ ul {
     height: 30px;
 }
 
-.essay_annotator {
-    margin: auto;
-    background: white;
-    font-family: "Arial";
-}
-
-.ocr_corrector {
-    margin: auto;
-    background: white;
-    font-family: "Arial";
+.progress_detail {
+    display: none;
 }
 
 .essay_id {
@@ -68,7 +45,7 @@ ul {
 
 .essay {
     font-family: "Monaco";
-    font-size: 14px;
+    font-size: 16px;
     word-wrap: break-word;
     width: 90%;
 }
@@ -87,63 +64,14 @@ ul {
     width: 90%;
 }
 
-.col {
-    margin: auto;
-    float: left;
+.container {
+    max-width: 80%;
 }
+  
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top-gray { border-top-color: #adb5bd; }
 
-.left {
-    font-family: "Arial";
-    width: 50%;
-}
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
-.right {
-    font-family: "Arial";
-    width: 50%;
-}
-
-.log {
-    display: none;
-    font-family: "Arial";
-    font-size: 14px;
-}
-
-.string { color: blue; }
-.number { color: red; }
-.boolean { color: green; }
-.null { color: magenta; }
-.key { color: black; }
-
-
-.button_previous {
-    font-size: 14px;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-
-.button_previous:hover {
-    background-color: rgb(40, 223, 255);
-    color: white;
-}
-
-.button_next {
-    font-size: 14px;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-
-.button_next:hover {
-    background-color: rgb(40, 223, 255);
-    color: white;
-}
-
-.button_submit {
-    font-size: 14px;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-
-.button_submit:hover {
-    background-color: rgb(40, 223, 255);
-    color: white;
-}
+.lh-condensed { line-height: 1.25; }
