@@ -5,9 +5,11 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
-from handlers.main_handler import MainHandler
-from handlers.mark_handler import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
-from handlers.ocr_handler import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
+from handlers.main import MainHandler
+from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
+from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
+from handlers.signin import SigninHandler
+from handlers.billing import BillingHandler
 
 import os.path
 import json
@@ -42,6 +44,8 @@ class Application(tornado.web.Application):
             (r'/ocr_submit', OCRSubmitHandler),
             (r'/ocr_previous', OCRPreviousHandler),
             (r'/ocr_next', OCRNextHandler),
+            (r'/signin', SigninHandler),
+            (r'/billing', BillingHandler),
         ]
         settings = dict(
             static_path=os.path.join(os.path.dirname(__file__), "static"),

@@ -18,18 +18,18 @@
 			<h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
 			<nav class="my-2 my-md-0 mr-md-3">
 				<a class="p-2 text-dark" data-toggle="modal" href="#support">Support</a>
-				<a class="p-2 text-dark" href="#">Billing</a>
+				<a class="p-2 text-dark" href="/billing">Billing</a>
 			</nav>
-			<a class="btn btn-outline-primary" href="#">Sign in</a>
+			<a class="btn btn-outline-primary" href="/signin">Sign in</a>
 		</div>
 		<br>
 		<div class="projects">
-			<a href="/mark">Essay Grading Annotation</a>
+			<a style="font-size: 20px;" href="/mark">Essay Grading Annotation</a>
 			<div class="progress">
 				<div class="progress-bar progress-bar-striped progress-bar-animated massive-font" role="progressbar" style="width: {{ annotation_essay_ratio }}%" aria-valuenow="{{ annotation_essay_ratio }}" aria-valuemin="0" aria-valuemax="100">{{ annotation_essay_ratio }}%</div>
 			</div>
 			<br>
-			<a href="ocr">OCR Result Annotation</a>
+			<a style="font-size: 20px;" href="ocr">OCR Result Annotation</a>
 			<div class="progress">
 				<div class="progress-bar progress-bar-striped progress-bar-animated massive-font" role="progressbar" style="width: {{ corrected_ocr_ratio }}%" aria-valuenow="{{ corrected_ocr_ratio }}" aria-valuemin="0" aria-valuemax="100">{{ corrected_ocr_ratio }}%</div>
 			</div>
@@ -42,7 +42,7 @@
 
 	<!-- modal support -->
 	<div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="support_title" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="support_long_title">Support</h5>
@@ -51,7 +51,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					If you have any question, please contact <a href="mailto:i@yanshengjia.com">i@yanshengjia.com</a>
+					If you have any question, please contact <a href="mailto:i@yanshengjia.com">i@yanshengjia.com</a> :)
 				</div>
 				<!-- <div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>

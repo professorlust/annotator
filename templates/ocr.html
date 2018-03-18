@@ -19,10 +19,10 @@
 		<h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
 		<nav class="my-2 my-md-0 mr-md-3">
 			<a class="p-2 text-dark" href="/">首页</a>
-			<a class="p-2 text-dark" href="#">标注规则</a>
-			<a class="p-2 text-dark" href="#">仲裁机制</a>
+			<a class="p-2 text-dark" data-toggle="modal" href="#rules">标注规则</a>
+			<a class="p-2 text-dark" data-toggle="modal" href="#qc">质量控制</a>
 		</nav>
-		<a class="btn btn-outline-primary" href="#">Sign in</a>
+		<a class="btn btn-outline-primary" href="signin">Sign in</a>
 	</div>
 
 	<div class="container">
@@ -62,5 +62,47 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- modal rules -->
+	<div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rules_title" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="rules_long_title">标注规则</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					修正 OCR 的结果，保证你提交的作文文本与图片中完全一致。
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- modal qc -->
+	<div class="modal fade" id="qc" tabindex="-1" role="dialog" aria-labelledby="qc_title" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="rules_long_title">质量控制机制</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					机制一<br>
+					机制二<br>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
