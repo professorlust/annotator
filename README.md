@@ -1,2 +1,2 @@
-# Essay Annotator
-A Crowdsourcing Essay Annotation Platform powered by Tornado and MongoDB
+# Annotator
+A Crowdsourcing NLP Annotation Platform powered by Tornado and MongoDB
