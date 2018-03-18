@@ -11,4 +11,5 @@ class SigninHandler(tornado.web.RequestHandler):
     def get(self):
         self.render(
             'signin.html',
+            title='Sign in',
         )

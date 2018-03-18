@@ -11,4 +11,5 @@ class BillingHandler(tornado.web.RequestHandler):
     def get(self):
         self.render(
             'billing.html',
+            title='Billing System',
         )
