@@ -116,10 +116,10 @@ function submitOCRCorrection(button) {
             ratio.innerHTML = response['corrected_ocr_ratio'];
             
             var new_ocr_essay = document.getElementById("ocr_essay");
-            new_ocr_essay.innerHTML = response["ocr_essay"];
+            new_ocr_essay.value = response["ocr_essay"];
 
             var new_ocr_correction = document.getElementById("ocr_correction");
-            new_ocr_correction.innerHTML = response["ocr_essay"];
+            new_ocr_correction.value = response["ocr_essay"];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
