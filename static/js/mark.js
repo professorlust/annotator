@@ -164,6 +164,10 @@ function submitEssayMark(button) {
     });
 }
 
+function clearMark(button) {
+    clearAllRadios();
+}
+
 function setRadioUnchecked(name) {
     var radio = document.getElementsByName(name);
     for (var i = 0; i < radio.length; i++) {
