@@ -1,5 +1,5 @@
 # Annotator
-A Crowdsourcing NLP Annotation Platform with Multiple Quality Control Mechanisms powered by Tornado and MongoDB.
+A Crowdsourcing NLP Annotation Platform with Multiple Quality Control Mechanisms powered by Tornado and MongoDB
 
 ## Environment
 
