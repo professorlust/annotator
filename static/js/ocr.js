@@ -27,9 +27,11 @@ function previousImage(button) {
             previous_image_url.src = response["image_url"];
 
             var previous_ocr_essay = document.getElementById("ocr_essay");
+            previous_ocr_essay.innerHTML = response["ocr_essay"];
             previous_ocr_essay.value = response["ocr_essay"];
 
             var previous_ocr_correction = document.getElementById("ocr_correction");
+            previous_ocr_correction.innerHTML = response["ocr_essay"];
             previous_ocr_correction.value = response["ocr_essay"];
         },
         error: function(jqXHR, textStatus, errorThrown)
@@ -70,9 +72,11 @@ function nextImage(button) {
             next_image_url.src = response["image_url"];
 
             var next_ocr_essay = document.getElementById("ocr_essay");
+            next_ocr_essay.innerHTML = response["ocr_essay"];
             next_ocr_essay.value = response["ocr_essay"];
 
             var next_ocr_correction = document.getElementById("ocr_correction");
+            next_ocr_correction.innerHTML = response["ocr_essay"];
             next_ocr_correction.value = response["ocr_essay"];
         },
         error: function(jqXHR, textStatus, errorThrown)
@@ -88,7 +92,7 @@ function submitOCRCorrection(button) {
 
     var ocr_id = Number(document.getElementById("ocr_id").innerHTML);
     var image_url = document.getElementById("image_url").src;
-    var ocr_correction = document.getElementById("ocr_correction").innerHTML;
+    var ocr_correction = $("textarea#ocr_correction").val();
 
     var formData = new FormData();
     formData.append('ocr_id', ocr_id);
@@ -116,9 +120,11 @@ function submitOCRCorrection(button) {
             ratio.innerHTML = response['corrected_ocr_ratio'];
             
             var new_ocr_essay = document.getElementById("ocr_essay");
+            new_ocr_essay.innerHTML = response["ocr_essay"];
             new_ocr_essay.value = response["ocr_essay"];
 
             var new_ocr_correction = document.getElementById("ocr_correction");
+            new_ocr_correction.innerHTML = response["ocr_essay"];
             new_ocr_correction.value = response["ocr_essay"];
         },
         error: function(jqXHR, textStatus, errorThrown)

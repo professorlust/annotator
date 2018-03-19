@@ -94,7 +94,7 @@ class OCRSubmitHandler(tornado.web.RequestHandler):
                     {
                         'corrected_ocr_quantity': 1
                     }
-                }
+                },
             )
 
             # update annotation list
@@ -117,7 +117,8 @@ class OCRSubmitHandler(tornado.web.RequestHandler):
         else:
             data.update_one(
                 {'ocr_id': ocr_id},
-                {'$set': record}
+                {'$set': record},
+                upsert=False
             )
 
     def close_db(self):

@@ -111,7 +111,8 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
         else:
             data.update_one(
                 {'essay_id': essay_id},
-                {'$set': record}
+                {'$set': record},
+                upsert=False
             )
 
     def close_db(self):
