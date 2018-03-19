@@ -26,11 +26,11 @@ from pymongo import MongoClient
 from bson import json_util
 from bson.objectid import ObjectId
 
-
 define("address", default="10.200.26.84", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
-
+define("xsrf", default=True, help="use xsrf protection", type=bool)
+define("cookie", default="bZJc2sWbQLKos6GkHn/VB9oXwQt8S0R0kRvJ5/xJ89E=", help="cookie secret", type=str)
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -47,11 +47,14 @@ class Application(tornado.web.Application):
             (r'/signin', SigninHandler),
             (r'/billing', BillingHandler),
         ]
-        settings = dict(
-            static_path=os.path.join(os.path.dirname(__file__), "static"),
-            template_path=os.path.join(os.path.dirname(__file__), "templates"),
-            debug=options.debug
-        )
+        settings = {
+            'static_path': os.path.join(os.path.dirname(__file__), "static"),
+            'template_path': os.path.join(os.path.dirname(__file__), "templates"),
+            'login_url': "/login",
+            'debug': options.debug,
+            'cookie_secret': options.cookie,
+            # 'xsrf_cookies': options.xsrf,
+        }
         super(Application, self).__init__(handlers, **settings)
 
         # essay grading annotation
