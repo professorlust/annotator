@@ -30,7 +30,7 @@ define("address", default="localhost", help="run on the given address", type=str
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 define("xsrf", default=True, help="use xsrf protection", type=bool)
-define("cookie", default="bZJc2sWbQLKos6GkHn/VB9oXwQt8S0R0kRvJ5/xJ89E=", help="cookie secret", type=str)
+define("cookie", default="8Vz8CPxFTlGl2YYqKtD0btnWEsZjDUtJklRHc7p85yA=", help="cookie secret", type=str)
 
 class Application(tornado.web.Application):
     def __init__(self):
