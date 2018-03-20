@@ -4,7 +4,7 @@ A Crowdsourcing NLP Annotation Platform with Multiple Quality Control Mechanisms
 ## Environment
 
 - python 3.6.2
-- tornado 4.5.2
+- tornado 5.0.1
 - pymongo 3.6.1
 - MongoDB 3.6
 

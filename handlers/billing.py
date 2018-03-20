@@ -5,9 +5,9 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
-import tornado.web
+from .base import BaseHandler
 
-class BillingHandler(tornado.web.RequestHandler):
+class BillingHandler(BaseHandler):
     def get(self):
         self.render(
             'billing.html',

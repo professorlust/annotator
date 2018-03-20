@@ -8,7 +8,7 @@
 from handlers.main import MainHandler
 from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
 from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
-from handlers.signin import SigninHandler
+from handlers.sign import SigninHandler, SignoutHandler
 from handlers.billing import BillingHandler
 
 import os.path
@@ -50,7 +50,7 @@ class Application(tornado.web.Application):
         settings = {
             'static_path': os.path.join(os.path.dirname(__file__), "static"),
             'template_path': os.path.join(os.path.dirname(__file__), "templates"),
-            'login_url': "/login",
+            "login_url": "/signin",
             'debug': options.debug,
             'cookie_secret': options.cookie,
             # 'xsrf_cookies': options.xsrf,

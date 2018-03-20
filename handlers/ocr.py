@@ -5,10 +5,10 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
-import tornado.web
+from .base import BaseHandler
 from time import time
 
-class OCRHandler(tornado.web.RequestHandler):
+class OCRHandler(BaseHandler):
     def get(self):
         self.get_progress()
         self.get_ocr()
@@ -39,7 +39,7 @@ class OCRHandler(tornado.web.RequestHandler):
         self.application.current_ocr_essay = ocr_record['essay']
 
 
-class OCRSubmitHandler(tornado.web.RequestHandler):
+class OCRSubmitHandler(BaseHandler):
     def post(self):
         ocr_id = int(self.get_argument('ocr_id'))
         image_url = self.get_argument('image_url')
@@ -125,7 +125,7 @@ class OCRSubmitHandler(tornado.web.RequestHandler):
         self.application.conn.close()
 
 
-class OCRPreviousHandler(tornado.web.RequestHandler):
+class OCRPreviousHandler(BaseHandler):
     def post(self):
         ocr_id = int(self.get_argument('ocr_id'))
         self.get_ocr(ocr_id - 1)
@@ -142,7 +142,7 @@ class OCRPreviousHandler(tornado.web.RequestHandler):
         self.application.current_ocr_essay = ocr_record['essay']
 
 
-class OCRNextHandler(tornado.web.RequestHandler):
+class OCRNextHandler(BaseHandler):
     def post(self):
         ocr_id = int(self.get_argument('ocr_id'))
         self.get_ocr(ocr_id + 1)

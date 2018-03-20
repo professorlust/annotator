@@ -5,9 +5,9 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
-import tornado.web
+from .base import BaseHandler
 
-class MainHandler(tornado.web.RequestHandler):
+class MainHandler(BaseHandler):
     def get(self):
         self.get_progress()
 

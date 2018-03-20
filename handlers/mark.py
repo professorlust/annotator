@@ -5,9 +5,9 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
-import tornado.web
+from .base import BaseHandler
 
-class MarkHandler(tornado.web.RequestHandler):
+class MarkHandler(BaseHandler):
     def get(self):
         self.get_progress()
         self.get_essay()
@@ -35,7 +35,7 @@ class MarkHandler(tornado.web.RequestHandler):
         self.application.current_essay = essay_record['essay']
 
 
-class MarkSubmitHandler(tornado.web.RequestHandler):
+class MarkSubmitHandler(BaseHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
         overall_score = int(self.get_argument('overall_score'))
@@ -119,7 +119,7 @@ class MarkSubmitHandler(tornado.web.RequestHandler):
         self.application.conn.close()
 
 
-class MarkPreviousHandler(tornado.web.RequestHandler):
+class MarkPreviousHandler(BaseHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
 
@@ -133,7 +133,7 @@ class MarkPreviousHandler(tornado.web.RequestHandler):
         self.application.current_essay = essay_record['essay']
 
 
-class MarkNextHandler(tornado.web.RequestHandler):
+class MarkNextHandler(BaseHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
 
