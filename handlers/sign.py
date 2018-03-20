@@ -11,7 +11,7 @@ class SigninHandler(BaseHandler):
     @tornado.gen.coroutine
     def get(self):
         incorrect = self.get_secure_cookie("incorrect")
-        if incorrect and int(incorrect) > 20:
+        if incorrect and int(incorrect) > 5:
             self.write('blocked')
             return
         
@@ -23,14 +23,14 @@ class SigninHandler(BaseHandler):
     @tornado.gen.coroutine
     def post(self):
         incorrect = self.get_secure_cookie("incorrect")
-        if incorrect and int(incorrect) > 20:
+        if incorrect and int(incorrect) > 5:
             self.write('blocked')
             return
         
-        getusername = tornado.escape.xhtml_escape(self.get_argument("account"))
-        getpassword = tornado.escape.xhtml_escape(self.get_argument("password"))
+        account = tornado.escape.xhtml_escape(self.get_argument("account"))
+        password = tornado.escape.xhtml_escape(self.get_argument("password"))
         
-        if "demo" == getusername and "demo" == getpassword:
+        if account == "master" and password == "17zuoye":
             self.set_secure_cookie("user", self.get_argument("account"))
             self.set_secure_cookie("incorrect", "0")
             self.redirect('/')
