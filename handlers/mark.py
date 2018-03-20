@@ -5,9 +5,10 @@
 # @email: i@yanshengjia.com
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
-from .base import BaseHandler
+from .base import *
 
 class MarkHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
         self.get_progress()
         self.get_essay()

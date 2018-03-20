@@ -45,6 +45,7 @@ class Application(tornado.web.Application):
             (r'/ocr_previous', OCRPreviousHandler),
             (r'/ocr_next', OCRNextHandler),
             (r'/signin', SigninHandler),
+            (r'/signout', SignoutHandler),
             (r'/billing', BillingHandler),
         ]
         settings = {
@@ -80,6 +81,7 @@ class Application(tornado.web.Application):
         self.current_ocr_essay = 'OCR Result Placeholder'
 
         self.connect_db()
+        self.load_account()
 
     def connect_db(self):
         self.conn = MongoClient("localhost", 27017)
@@ -121,6 +123,19 @@ class Application(tornado.web.Application):
         if "ocr_progress" not in self.db.collection_names():
             self.db.ocr_progress
             self.db.ocr_progress.insert_one({'corrected_ocr_quantity': 0, 'annotation_list': []})
+
+    def load_account(self):
+        self.account_path = './data/account.txt'
+        self.accounts = []  # [{account: password}]
+        with open(self.account_path, 'r') as accounts_file:
+            for line in accounts_file:
+                line = line.strip()
+                account_dict = {}
+                account_info = line.split('\t')
+                account = account_info[0]
+                password = account_info[1]
+                account_dict[account] = password
+                self.accounts.append(account_dict)
 
 
 def main():
