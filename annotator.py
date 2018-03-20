@@ -26,7 +26,7 @@ from pymongo import MongoClient
 from bson import json_util
 from bson.objectid import ObjectId
 
-define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84
+define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84    docker: 10.0.5.40:8888
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 define("xsrf", default=True, help="use xsrf protection", type=bool)

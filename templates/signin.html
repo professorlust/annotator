@@ -12,13 +12,13 @@
   	</head>
 
   	<body class="text-center">
-		<form class="form-signin">
+		<form class="form-signin" action="/signin" method="POST">
 		<img class="mb-4" src="{{ static_url("img/favicon.ico")}}" alt="17zuoye" width="72" height="72">
 		<h1 class="h3 mb-3 font-weight-normal">Sign in to Annotator</h1>
 		<label for="inputAccount" class="sr-only">Account</label>
-		<input type="account" id="inputAccount" class="form-control" placeholder="Account" required autofocus>
+		<input type="account" name="account" id="inputAccount" class="form-control" placeholder="Account" required autofocus>
 		<label for="inputPassword" class="sr-only">Password</label>
-		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 		<div class="checkbox mb-3">
 			<label>
 				<input type="checkbox" value="remember-me"> Remember me
