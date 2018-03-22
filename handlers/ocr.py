@@ -9,6 +9,7 @@ from .base import *
 from time import time
 
 class OCRHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
         self.get_progress()
         self.get_ocr()

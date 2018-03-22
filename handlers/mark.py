@@ -8,6 +8,7 @@
 from .base import *
 
 class MarkHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
         self.get_progress()
         self.get_essay()
