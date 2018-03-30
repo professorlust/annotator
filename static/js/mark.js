@@ -22,7 +22,9 @@ function previousEssay(button) {
             var previous_essay_id = document.getElementById("essay_id");
             previous_essay_id.innerHTML = essay_id - 1;
             var essay = document.getElementById("essay");
-            essay.innerHTML = response;
+            essay.innerHTML = response['essay'];
+            var essay_annotator_mark = document.getElementById("essay_annotator_mark");
+            essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
 
             clearAllRadios();
         },
@@ -59,7 +61,9 @@ function nextEssay(button) {
             var next_essay_id = document.getElementById("essay_id");
             next_essay_id.innerHTML = essay_id + 1;
             var essay = document.getElementById("essay");
-            essay.innerHTML = response;
+            essay.innerHTML = response['essay'];
+            var essay_annotator_mark = document.getElementById("essay_annotator_mark");
+            essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
 
             clearAllRadios();
         },
@@ -145,6 +149,13 @@ function submitEssayMark(button) {
         cache: false,
         success: function(response) {
             console.log('Response received!');
+
+            var flag = response['empty_flag'];
+            if (flag) {
+                alert("All the essays have been marked");
+                return
+            }
+
             var new_essay_id = document.getElementById("essay_id");
             new_essay_id.innerHTML = response["essay_id"];
             var annotated_essay_quantity = document.getElementById("annotated_quantity");
@@ -153,6 +164,8 @@ function submitEssayMark(button) {
             ratio.innerHTML = response['annotation_essay_ratio'];
             var essay = document.getElementById("essay");
             essay.innerHTML = response['essay'];
+            var essay_annotator_mark = document.getElementById("essay_annotator_mark");
+            essay_annotator_mark.innerHTML = response['essay_annotator_mark'];            
 
             clearAllRadios();
         },
