@@ -14,7 +14,7 @@ class MainHandler(BaseHandler):
 
         self.render(
             'main.html',
-            title='17zuoye NLP Annotation Platform',
+            title='17Tech NLP Annotation Platform',
             annotation_essay_ratio=str(round(self.application.annotation_essay_ratio, 3)),
             corrected_ocr_ratio=str(round(self.application.corrected_ocr_ratio, 3)),
         )
