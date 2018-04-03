@@ -32,6 +32,7 @@ define("debug", default=True, help="run in debug mode", type=bool)
 define("xsrf", default=True, help="use xsrf protection", type=bool)
 define("cookie", default="8Vz8CPxFTlGl2YYqKtD0btnWEsZjDUtJklRHc7p85yA=", help="cookie secret", type=str)
 
+
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
