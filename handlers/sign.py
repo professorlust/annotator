@@ -30,18 +30,34 @@ class SigninHandler(BaseHandler):
         account = tornado.escape.xhtml_escape(self.get_argument("account"))
         password = tornado.escape.xhtml_escape(self.get_argument("password"))
         
-        if account == "master" and password == "17zuoye":
-            self.set_secure_cookie("user", self.get_argument("account"))
-            self.set_secure_cookie("incorrect", "0")
-            self.redirect('/')
+        #if account == "master" and password == "17zuoye":
+        #    self.set_secure_cookie("user", self.get_argument("account"), expires_days = None)
+        #    self.set_secure_cookie("incorrect", "0")
+        #    self.redirect('/')
+        
+        if account in self.application.accounts:
+            if self.application.accounts[account] == password:
+                self.set_secure_cookie("user", self.get_argument("account"), expires_days = None)
+                self.set_secure_cookie("incorrect", "0")
+                self.redirect('/')   
+            else:
+                incorrect = self.get_secure_cookie("incorrect") or 0
+                increased = str(int(incorrect)+1)
+                self.set_secure_cookie("incorrect", increased)
+                self.write(
+                    """
+                        Invalid password
+                        <a href="/signin">Back</a>
+                    """
+                )
         else:
             incorrect = self.get_secure_cookie("incorrect") or 0
             increased = str(int(incorrect)+1)
             self.set_secure_cookie("incorrect", increased)
             self.write(
                 """
-                    Invalid account or password
-                    <a href="/">Back</a>
+                    Invalid account
+                    <a href="/signin">Back</a>
                 """
             )
 

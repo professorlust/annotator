@@ -68,9 +68,10 @@ class Application(tornado.web.Application):
         self.annotation_essay_ratio = 0.0
         self.current_essay_id = 0
         self.current_essay = 'Essay Placeholder'
+        self.essay_annotator_mark = '' # how many people have annotated this essay
 
         # ocr result correction
-        self.ocr_path = './data/ocr.txt'
+        self.ocr_path = './data/ocr_new.txt'
         self.ocrs = json.load(open(self.ocr_path, 'r'))
         self.ocr_flag = True    # True means ocr_candidates is not empty
         self.ocr_quantity = len(self.ocrs)
@@ -81,8 +82,9 @@ class Application(tornado.web.Application):
         self.image_url_prefix = 'http://klximg.oss-cn-beijing.aliyuncs.com/scanimage/'
         self.current_ocr_essay = 'OCR Result Placeholder'
 
+        self.accounts = self.load_account()
         self.connect_db()
-        self.load_account()
+        
 
     def connect_db(self):
         self.conn = MongoClient("localhost", 27017)
@@ -98,6 +100,7 @@ class Application(tornado.web.Application):
                 candidate_record['essay_id'] = essay_id
                 candidate_record['essay'] = essay
                 candidate_record['annotator_counter'] = 0
+                candidate_record['annotator'] = ''
                 essay_candidates.append(candidate_record)
                 essay_id += 1
             self.db.essay_candidates.insert_many(essay_candidates)
@@ -107,8 +110,9 @@ class Application(tornado.web.Application):
             self.db.essay_data
         if "essay_progress" not in self.db.collection_names():
             self.db.essay_progress
-            self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': []})
-
+            for account in self.accounts.keys():
+                self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': [], 'annotator':account})
+            
         # ocr result correction
         if "ocr_candidates" not in self.db.collection_names():
             self.db.ocr_candidates
@@ -127,17 +131,15 @@ class Application(tornado.web.Application):
 
     def load_account(self):
         self.account_path = './data/account.txt'
-        self.accounts = []  # [{account: password}]
+        self.accounts = {}  # [{account: password}]
         with open(self.account_path, 'r') as accounts_file:
             for line in accounts_file:
-                line = line.strip()
+                line = line.strip()            
                 account_dict = {}
-                account_info = line.split('\t')
-                account = account_info[0]
-                password = account_info[1]
-                account_dict[account] = password
-                self.accounts.append(account_dict)
-
+                (account,password) = line.split('\t')
+                self.accounts[account] = password
+        print(self.accounts)
+        return self.accounts
 
 def main():
     print("Server Running on http://" + str(options.address) + ":" + str(options.port))

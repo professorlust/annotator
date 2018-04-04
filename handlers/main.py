@@ -20,10 +20,9 @@ class MainHandler(BaseHandler):
         )
     
     def get_progress(self):
-        essay_progress = self.application.db.essay_progress
-        essay_progress_record = essay_progress.find_one()
-        self.application.annotated_essay_quantity = essay_progress_record['annotated_essay_quantity']
-        self.application.annotation_essay_ratio = float(100 * self.application.annotated_essay_quantity / self.application.essay_quantity)
+        essay_candidates = self.application.db.essay_candidates
+        self.application.annotated_essay_quantity = essay_candidates.find().count()
+        self.application.annotation_essay_ratio = 100-float(100 * self.application.annotated_essay_quantity / self.application.essay_quantity)
 
         ocr_progress = self.application.db.ocr_progress
         ocr_progress_record = ocr_progress.find_one()

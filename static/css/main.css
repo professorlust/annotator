@@ -15,9 +15,9 @@ ul {
     height: 30px;
 }
 
-.progress_detail {
+/* .progress_detail {
     display: none;
-}
+} */
 
 .essay_id {
     display: inline;
@@ -39,12 +39,21 @@ ul {
     display: inline;
 }
 
+.essay_annotator_mark {
+    display: inline;
+    color:red;
+}
+
 .essay {
     font-family: "Monaco";
     font-size: 16px;
     line-height: 24px;
     word-wrap: break-word;
     width: 90%;
+}
+
+.essay_annotation_mark {
+    margin-top:2rem;
 }
 
 textarea {
