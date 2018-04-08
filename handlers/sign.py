@@ -39,7 +39,7 @@ class SigninHandler(BaseHandler):
             if self.application.accounts[account] == password:
                 self.set_secure_cookie("user", self.get_argument("account"), expires_days = None)
                 self.set_secure_cookie("incorrect", "0")
-                self.redirect('/')   
+                self.redirect('/')
             else:
                 incorrect = self.get_secure_cookie("incorrect") or 0
                 increased = str(int(incorrect)+1)
