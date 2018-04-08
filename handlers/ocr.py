@@ -47,6 +47,7 @@ class OCRSubmitHandler(BaseHandler):
         ocr_correction = self.get_argument('ocr_correction')
 
         ocr_record = {}
+        ocr_record['annotator'] = (self.current_user).decode('ascii')
         ocr_record['ocr_id'] = ocr_id
         ocr_record['image_url'] = image_url
         ocr_record['ocr_correction'] = ocr_correction
