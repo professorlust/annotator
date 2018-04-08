@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="{{ static_url("js/bootstrap.min.js")}}"></script>
 	<link type="text/css" href="{{ static_url("css/bootstrap.min.css")}}" rel="stylesheet" media="screen, projection"/>
 	<link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
+	<link type="text/css" href="{{ static_url("css/billing.css")}}" rel="stylesheet" media="screen, projection"/>
 </head>
 <body class="bg-light">
 
@@ -18,8 +19,26 @@
         <h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="/">Home</a>
-        </nav>
-    </div>
+		</nav>
+	</div>
+	<div class="container">
+		<table>
+			<tr>
+				<th width="150"></th>
+				<th width="100">mark</th>
+				<th width="100">ocr</th>
+				<th width="100">all</th>
+			</tr>
+		    {% for annotator in annotators %}
+		    <tr>
+				<td>{{annotator}}</td>
+				<td>{{essay_quantity_for_billing[annotator]}}</td>
+				<td>{{ocr_quantity_for_billing[annotator]}}</td>
+				<td>{{essay_quantity_for_billing[annotator] + ocr_quantity_for_billing[annotator]}}</td>
+			</tr>
+		    {% end %}
+		</table>
+	</div>
 
 </body>
 </html>

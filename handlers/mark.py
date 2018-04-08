@@ -40,9 +40,8 @@ class MarkHandler(BaseHandler):
             self.application.current_essay_id = essay_record['essay_id']
             self.application.current_essay = essay_record['essay']
         else:
-            essay_record = self.application.essays[self.application.essay_quantity-1]
             self.application.current_essay_id = self.application.essay_quantity-1
-            self.application.current_essay = essay_record
+            self.application.current_essay = self.application.essays[self.application.essay_quantity-1]
     
     def get_mark(self):
         candidates = self.application.db.essay_candidates
@@ -51,10 +50,7 @@ class MarkHandler(BaseHandler):
         if essay_record == None:
             self.application.essay_annotator_mark = 'both'
         else:
-            if essay_record['annotator'] == '':
-                self.application.essay_annotator_mark = 'no one'
-            else:
-                self.application.essay_annotator_mark = essay_record['annotator']
+            self.application.essay_annotator_mark = essay_record['annotator']
 
 
 class MarkSubmitHandler(BaseHandler):
@@ -75,19 +71,25 @@ class MarkSubmitHandler(BaseHandler):
         mark_record['structure_score'] = structure_score
         mark_record['content_score'] = content_score
 
-        self.write_db(mark_record)
+        response = {}
+
+        if self.application.db.essay_candidates.find_one({'essay_id':self.application.current_essay_id}) != None:
+            self.write_db(mark_record)
+            response['invalid_flag'] = False
+        else:
+            response['invalid_flag'] = True
+            
         self.get_essay()
         self.get_progress()
         self.get_mark()
 
-        # check db
-        response = {}
         response['essay'] = self.application.current_essay
         response['essay_id'] = self.application.current_essay_id
         response['annotated_essay_quantity'] = self.application.annotated_essay_quantity
         response['annotation_essay_ratio'] = self.application.annotation_essay_ratio
         response['essay_annotator_mark'] = self.application.essay_annotator_mark
-
+        
+        # check db
         candidates = self.application.db.essay_candidates
         annotator = (self.current_user).decode('ascii')
         essay_record = candidates.find_one({'annotator': {'$ne': annotator}})
@@ -113,9 +115,8 @@ class MarkSubmitHandler(BaseHandler):
             self.application.current_essay_id = essay_record['essay_id']
             self.application.current_essay = essay_record['essay']
         else:
-            essay_record = self.application.essays[self.application.essay_quantity-1]
             self.application.current_essay_id = self.application.essay_quantity-1
-            self.application.current_essay = essay_record
+            self.application.current_essay = self.application.essays[self.application.essay_quantity-1]
     
     def get_mark(self):
         candidates = self.application.db.essay_candidates
@@ -125,10 +126,7 @@ class MarkSubmitHandler(BaseHandler):
         if essay_record == None:
             self.application.essay_annotator_mark = 'both'
         else:
-            if essay_record['annotator'] == '':
-                self.application.essay_annotator_mark = 'no one'
-            else:
-                self.application.essay_annotator_mark = essay_record['annotator']
+            self.application.essay_annotator_mark = essay_record['annotator']
 
     def write_db(self, record):
         data = self.application.db.essay_data
@@ -220,10 +218,7 @@ class MarkPreviousHandler(BaseHandler):
         if essay_record == None:
             self.application.essay_annotator_mark = 'both'
         else:
-            if essay_record['annotator'] == '':
-                self.application.essay_annotator_mark = 'no one'
-            else:
-                self.application.essay_annotator_mark = essay_record['annotator']
+            self.application.essay_annotator_mark = essay_record['annotator']
 
 class MarkNextHandler(BaseHandler):
     def post(self):
@@ -248,7 +243,4 @@ class MarkNextHandler(BaseHandler):
         if essay_record == None:
             self.application.essay_annotator_mark = 'both'
         else:
-            if essay_record['annotator'] == '':
-                self.application.essay_annotator_mark = 'no one'
-            else:
-                self.application.essay_annotator_mark = essay_record['annotator']
+            self.application.essay_annotator_mark = essay_record['annotator']

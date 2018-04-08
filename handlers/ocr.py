@@ -13,6 +13,7 @@ class OCRHandler(BaseHandler):
     def get(self):
         self.get_progress()
         self.get_ocr()
+        self.get_mark()
 
         self.render(
             'ocr.html',
@@ -24,6 +25,7 @@ class OCRHandler(BaseHandler):
             corrected_ocr_quantity=self.application.corrected_ocr_quantity,
             sum=self.application.ocr_quantity,
             corrected_ocr_ratio=self.application.corrected_ocr_ratio,
+            ocr_annotator_mark = self.application.ocr_annotator_mark
         )
     
     def get_progress(self):
@@ -35,10 +37,24 @@ class OCRHandler(BaseHandler):
     def get_ocr(self):
         candidates = self.application.db.ocr_candidates
         ocr_record = candidates.find_one()
-        self.application.current_ocr_id = ocr_record['ocr_id']
-        self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
-        self.application.current_ocr_essay = ocr_record['essay']
-
+        if ocr_record != None:
+            self.application.current_ocr_id = ocr_record['ocr_id']
+            self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
+            self.application.current_ocr_essay = ocr_record['essay']
+        else:
+            ocr_record = self.application.ocrs[self.application.ocr_quantity-1]
+            self.application.current_ocr_id = self.application.ocr_quantity-1
+            self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
+            self.application.current_ocr_essay = ocr_record
+    
+    def get_mark(self):
+        data = self.application.db.ocr_data
+        ocr_id = self.application.current_ocr_id
+        ocr_record = data.find_one({'ocr_id':ocr_id})
+        if ocr_record == None:
+            self.application.ocr_annotator_mark = ''
+        else:
+            self.application.ocr_annotator_mark = ocr_record['annotator']
 
 class OCRSubmitHandler(BaseHandler):
     def post(self):
@@ -47,6 +63,7 @@ class OCRSubmitHandler(BaseHandler):
         ocr_correction = self.get_argument('ocr_correction')
 
         ocr_record = {}
+        ocr_record['annotator'] = (self.current_user).decode('ascii')
         ocr_record['ocr_id'] = ocr_id
         ocr_record['image_url'] = image_url
         ocr_record['ocr_correction'] = ocr_correction
@@ -55,6 +72,7 @@ class OCRSubmitHandler(BaseHandler):
         self.write_db(ocr_record)
         self.get_ocr()
         self.get_progress()
+        self.get_mark()
 
         response = {}
         response['ocr_id'] = self.application.current_ocr_id
@@ -62,7 +80,15 @@ class OCRSubmitHandler(BaseHandler):
         response['ocr_essay'] = self.application.current_ocr_essay
         response['corrected_ocr_quantity'] = self.application.corrected_ocr_quantity
         response['corrected_ocr_ratio'] = self.application.corrected_ocr_ratio
+        response['ocr_annotator_mark'] = self.application.ocr_annotator_mark
 
+        # check db
+        candidates = self.application.db.ocr_candidates
+        ocr_record = candidates.find_one()
+        if ocr_record == None:
+            response['empty_flag'] = True
+        else:
+            response['empty_flag'] = False
         self.write(response)
 
     def get_progress(self):
@@ -74,9 +100,25 @@ class OCRSubmitHandler(BaseHandler):
     def get_ocr(self):
         candidates = self.application.db.ocr_candidates
         ocr_record = candidates.find_one()
-        self.application.current_ocr_id = ocr_record["ocr_id"]
-        self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
-        self.application.current_ocr_essay = ocr_record['essay']
+        if ocr_record != None:
+            self.application.current_ocr_id = ocr_record['ocr_id']
+            self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
+            self.application.current_ocr_essay = ocr_record['essay']
+        else:
+            ocr_record = self.application.ocrs[self.application.ocr_quantity-1]
+            self.application.current_ocr_id = self.application.ocr_quantity-1
+            self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
+            self.application.current_ocr_essay = ocr_record
+
+    def get_mark(self):
+        data = self.application.db.ocr_data
+        ocr_id = self.application.current_ocr_id
+        ocr_record = data.find_one({'ocr_id':ocr_id})
+        if ocr_record == None:
+            self.application.ocr_annotator_mark = ''
+        else:
+            self.application.ocr_annotator_mark = ocr_record['annotator']
+
 
     def write_db(self, record):
         data = self.application.db.ocr_data
@@ -84,6 +126,7 @@ class OCRSubmitHandler(BaseHandler):
         progress = self.application.db.ocr_progress
         marked = self.application.db.ocr_marked
         ocr_id = record['ocr_id']
+        annotator = record['annotator']
 
         if data.find_one({'ocr_id': ocr_id}) == None:
             data.insert_one(record)
@@ -130,10 +173,12 @@ class OCRPreviousHandler(BaseHandler):
     def post(self):
         ocr_id = int(self.get_argument('ocr_id'))
         self.get_ocr(ocr_id - 1)
+        self.get_mark()
 
         response = {}
         response['image_url'] = self.application.current_image_url
         response['ocr_essay'] = self.application.current_ocr_essay
+        response['ocr_annotator_mark'] = self.application.ocr_annotator_mark
         self.write(response)
 
     def get_ocr(self, ocr_id):
@@ -141,16 +186,26 @@ class OCRPreviousHandler(BaseHandler):
         self.application.current_ocr_id = ocr_id
         self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
         self.application.current_ocr_essay = ocr_record['essay']
-
+    
+    def get_mark(self):
+        data = self.application.db.ocr_data
+        ocr_id = self.application.current_ocr_id
+        ocr_record = data.find_one({'ocr_id':ocr_id})
+        if ocr_record == None:
+            self.application.ocr_annotator_mark = ''
+        else:
+            self.application.ocr_annotator_mark = ocr_record['annotator']
 
 class OCRNextHandler(BaseHandler):
     def post(self):
         ocr_id = int(self.get_argument('ocr_id'))
         self.get_ocr(ocr_id + 1)
+        self.get_mark()
 
         response = {}
         response['image_url'] = self.application.current_image_url
         response['ocr_essay'] = self.application.current_ocr_essay
+        response['ocr_annotator_mark'] = self.application.ocr_annotator_mark
         self.write(response)
 
     def get_ocr(self, ocr_id):
@@ -158,4 +213,13 @@ class OCRNextHandler(BaseHandler):
         self.application.current_ocr_id = ocr_id
         self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
         self.application.current_ocr_essay = ocr_record['essay']
+    
+    def get_mark(self):
+        data = self.application.db.ocr_data
+        ocr_id = self.application.current_ocr_id
+        ocr_record = data.find_one({'ocr_id':ocr_id})
+        if ocr_record == None:
+            self.application.ocr_annotator_mark = ''
+        else:
+            self.application.ocr_annotator_mark = ocr_record['annotator']
     

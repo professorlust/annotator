@@ -39,7 +39,7 @@ ul {
     display: inline;
 }
 
-.essay_annotator_mark {
+.annotator_mark {
     display: inline;
     color:red;
 }
@@ -52,8 +52,8 @@ ul {
     width: 90%;
 }
 
-.essay_annotation_mark {
-    margin-top:2rem;
+.annotation_mark {
+    margin-top:1rem;
 }
 
 textarea {
