@@ -23,7 +23,7 @@ function previousEssay(button) {
             previous_essay_id.innerHTML = essay_id - 1;
             var essay = document.getElementById("essay");
             essay.innerHTML = response['essay'];
-            var essay_annotator_mark = document.getElementById("essay_annotator_mark");
+            var essay_annotator_mark = document.getElementById("annotator_mark");
             essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
 
             clearAllRadios();
@@ -62,7 +62,7 @@ function nextEssay(button) {
             next_essay_id.innerHTML = essay_id + 1;
             var essay = document.getElementById("essay");
             essay.innerHTML = response['essay'];
-            var essay_annotator_mark = document.getElementById("essay_annotator_mark");
+            var essay_annotator_mark = document.getElementById("annotator_mark");
             essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
 
             clearAllRadios();
@@ -150,9 +150,15 @@ function submitEssayMark(button) {
         success: function(response) {
             console.log('Response received!');
 
-            var flag = response['empty_flag'];
-            if (flag) {
+            var empty_flag = response['empty_flag'];
+            if (empty_flag) {
                 alert("All the essays have been marked");
+                return
+            }
+
+            var invalid_flag = response['invalid_flag'];
+            if (invalid_flag) {
+                alert("Submission invalid! This essay has been marked by two persons");
                 return
             }
 
@@ -164,7 +170,7 @@ function submitEssayMark(button) {
             ratio.innerHTML = response['annotation_essay_ratio'];
             var essay = document.getElementById("essay");
             essay.innerHTML = response['essay'];
-            var essay_annotator_mark = document.getElementById("essay_annotator_mark");
+            var essay_annotator_mark = document.getElementById("annotator_mark");
             essay_annotator_mark.innerHTML = response['essay_annotator_mark'];            
 
             clearAllRadios();

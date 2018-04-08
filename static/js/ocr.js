@@ -33,6 +33,9 @@ function previousImage(button) {
             var previous_ocr_correction = document.getElementById("ocr_correction");
             previous_ocr_correction.innerHTML = response["ocr_essay"];
             previous_ocr_correction.value = response["ocr_essay"];
+
+            var ocr_annotator_mark = document.getElementById("annotator_mark");
+            ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -78,6 +81,9 @@ function nextImage(button) {
             var next_ocr_correction = document.getElementById("ocr_correction");
             next_ocr_correction.innerHTML = response["ocr_essay"];
             next_ocr_correction.value = response["ocr_essay"];
+
+            var ocr_annotator_mark = document.getElementById("annotator_mark");
+            ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -126,6 +132,9 @@ function submitOCRCorrection(button) {
             var new_ocr_correction = document.getElementById("ocr_correction");
             new_ocr_correction.innerHTML = response["ocr_essay"];
             new_ocr_correction.value = response["ocr_essay"];
+
+            var ocr_annotator_mark = document.getElementById("annotator_mark");
+            ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {

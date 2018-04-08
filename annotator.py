@@ -69,6 +69,7 @@ class Application(tornado.web.Application):
         self.current_essay_id = 0
         self.current_essay = 'Essay Placeholder'
         self.essay_annotator_mark = '' # how many people have annotated this essay
+        self.essay_quantity_for_billing = {}
 
         # ocr result correction
         self.ocr_path = './data/ocr_new.txt'
@@ -81,6 +82,8 @@ class Application(tornado.web.Application):
         self.current_image_url = ''
         self.image_url_prefix = 'http://klximg.oss-cn-beijing.aliyuncs.com/scanimage/'
         self.current_ocr_essay = 'OCR Result Placeholder'
+        self.ocr_annotator_mark = ''
+        self.ocr_quantity_for_billing = {}
 
         self.accounts = self.load_account()
         self.connect_db()
@@ -112,6 +115,10 @@ class Application(tornado.web.Application):
             self.db.essay_progress
             for account in self.accounts.keys():
                 self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': [], 'annotator':account})
+        else:
+            for account in self.accounts.keys():
+                if self.db.essay_progress.find_one({'annotator':account}) == None:
+                    self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': [], 'annotator':account})
             
         # ocr result correction
         if "ocr_candidates" not in self.db.collection_names():
