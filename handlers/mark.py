@@ -6,6 +6,7 @@
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
 from .base import *
+from time import time
 
 class MarkHandler(BaseHandler):
     @tornado.web.authenticated
@@ -70,6 +71,7 @@ class MarkSubmitHandler(BaseHandler):
         mark_record['sentence_score'] = sentence_score
         mark_record['structure_score'] = structure_score
         mark_record['content_score'] = content_score
+        mark_record['time'] = time()
 
         response = {}
 

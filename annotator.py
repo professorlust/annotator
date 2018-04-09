@@ -70,8 +70,9 @@ class Application(tornado.web.Application):
         self.current_essay = 'Essay Placeholder'
         self.essay_annotator_mark = '' # how many people have annotated this essay
         self.essay_quantity_for_billing = {}
+        self.screened_essay_quantity_for_billing = {}
 
-        # ocr result correction
+        # ocr result annotation
         self.ocr_path = './data/ocr_new.txt'
         self.ocrs = json.load(open(self.ocr_path, 'r'))
         self.ocr_flag = True    # True means ocr_candidates is not empty
@@ -84,11 +85,11 @@ class Application(tornado.web.Application):
         self.current_ocr_essay = 'OCR Result Placeholder'
         self.ocr_annotator_mark = ''
         self.ocr_quantity_for_billing = {}
+        self.screened_ocr_quantity_for_billing = {}
 
         self.accounts = self.load_account()
         self.connect_db()
         
-
     def connect_db(self):
         self.conn = MongoClient("localhost", 27017)
         self.db = self.conn.annotation
@@ -143,7 +144,7 @@ class Application(tornado.web.Application):
             for line in accounts_file:
                 line = line.strip()            
                 account_dict = {}
-                (account,password) = line.split('\t')
+                (account, password) = line.split('\t')
                 self.accounts[account] = password
         print(self.accounts)
         return self.accounts

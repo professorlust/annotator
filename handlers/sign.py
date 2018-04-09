@@ -30,11 +30,6 @@ class SigninHandler(BaseHandler):
         account = tornado.escape.xhtml_escape(self.get_argument("account"))
         password = tornado.escape.xhtml_escape(self.get_argument("password"))
         
-        #if account == "master" and password == "17zuoye":
-        #    self.set_secure_cookie("user", self.get_argument("account"), expires_days = None)
-        #    self.set_secure_cookie("incorrect", "0")
-        #    self.redirect('/')
-        
         if account in self.application.accounts:
             if self.application.accounts[account] == password:
                 self.set_secure_cookie("user", self.get_argument("account"), expires_days = None)

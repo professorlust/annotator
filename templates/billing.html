@@ -7,11 +7,14 @@
     <meta name="author" content="Shengjia Yan">
 	<title>{{ title }}</title>
 	<link type="image/x-icon" href="{{ static_url("img/favicon.ico")}}" rel="shortcut icon"/>
+	<script type="text/javascript" src="{{ static_url("js/billing.js")}}"></script>
 	<script type="text/javascript" src="{{ static_url("js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{ static_url("js/bootstrap.min.js")}}"></script>
-	<link type="text/css" href="{{ static_url("css/bootstrap.min.css")}}" rel="stylesheet" media="screen, projection"/>
+	<script type="text/javascript" src="{{ static_url("js/bootstrap-datetimepicker.min.js")}}"></script>
 	<link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
 	<link type="text/css" href="{{ static_url("css/billing.css")}}" rel="stylesheet" media="screen, projection"/>
+	<link type="text/css" href="{{ static_url("css/bootstrap-datetimepicker.min.css")}}" rel="stylesheet" media="screen, projection"/>
+	<link type="text/css" href="{{ static_url("css/bootstrap.min.css")}}" rel="stylesheet" media="screen, projection"/>
 </head>
 <body class="bg-light">
 
@@ -21,24 +24,38 @@
             <a class="p-2 text-dark" href="/">Home</a>
 		</nav>
 	</div>
-	<div class="container">
-		<table class="center">
-			<tr>
-				<th width="150"></th>
-				<th width="250">Essay Grading Annotation</th>
-				<th width="250">OCR Result Annotation</th>
-				<th width="150">ALL</th>
-			</tr>
-		    {% for annotator in annotators %}
-		    <tr>
-				<td>{{annotator}}</td>
-				<td>{{essay_quantity_for_billing[annotator]}}</td>
-				<td>{{ocr_quantity_for_billing[annotator]}}</td>
-				<td>{{essay_quantity_for_billing[annotator] + ocr_quantity_for_billing[annotator]}}</td>
-			</tr>
-		    {% end %}
-		</table>
-	</div>
 
+	<div class="projects">
+		<div id="datepicker" class="input-daterange">
+			Start Date:
+			<input class="form-control" type="text" name="start_date" id="start_date" placeholder="YYYY/MM/DD"/>{{ start_date }}<br>
+			End Date:
+			<input class="form-control" type="text" name="end_date" id="end_date" placeholder="YYYY/MM/DD"/>{{ end_date }}<br>
+			<button id="button_screen" class="btn btn-outline-primary form-control" onclick="screen(this);">Screen</button>
+		</div>
+		
+		<br>
+		<table id="bill_table" class="table table-striped table-dark">
+			<thead>
+				<tr>
+				<th scope="col">#</th>
+				<th scope="col">Essay Grading Annotation</th>
+				<th scope="col">OCR Result Annotation</th> 
+				<th scope="col">ALL</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for annotator in annotators %}
+				<tr>
+					<th scope="row">{{ annotator }}</th>
+					<td>{{ essay_quantity_for_billing[annotator] }}</td>
+					<td>{{ ocr_quantity_for_billing[annotator] }}</td>
+					<td>{{ essay_quantity_for_billing[annotator] + ocr_quantity_for_billing[annotator] }}</td>
+				</tr>
+				{% end %}
+			</tbody>
+		</table>
+
+	</div>
 </body>
 </html>
