@@ -26,7 +26,8 @@ function screen(button) {
             console.log(response['annotators']);
             console.log(response['essay_progress']);
             console.log(response['ocr_progress']);
-            
+            alert('Essay Grading Annotation:\n' + JSON.stringify(response['essay_progress']) + '\n\nOCR Result Annotation:\n' + JSON.stringify(response['essay_progress']));
+    
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
