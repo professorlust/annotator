@@ -19,9 +19,16 @@ http://mark.17zuoye.net/
 > python3 annotator.py
 ```
 
+## Tasks
+
+* Essay Grading Annotation
+* OCR Result Annotation
+* Grammar Error Annotation
+
 ## Preview
 
 ![demo0](https://raw.githubusercontent.com/yanshengjia/photo/master/annotator_demo_0.png)
 ![demo4](https://raw.githubusercontent.com/yanshengjia/photo/master/annotator_demo_4.png)
 ![demo1](https://raw.githubusercontent.com/yanshengjia/photo/master/annotator_demo_1.png)
 ![demo3](https://raw.githubusercontent.com/yanshengjia/photo/master/annotator_demo_3.png)
+![demo6](https://raw.githubusercontent.com/yanshengjia/photo/master/annotator_demo_6.png)
