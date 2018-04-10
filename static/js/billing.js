@@ -23,15 +23,12 @@ function screen(button) {
         cache: false,
         success: function(response) {
             console.log('Response received!');
-            console.log(response['annotators']);
-            console.log(response['essay_progress']);
-            console.log(response['ocr_progress']);
             alert('Essay Grading Annotation:\n' + JSON.stringify(response['essay_progress']) + '\n\nOCR Result Annotation:\n' + JSON.stringify(response['essay_progress']));
     
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
-            alert(textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
+            alert('Please check the date format!\n\n' + textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
             console.log("Something went wrong:(");
         }
     });

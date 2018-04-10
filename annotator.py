@@ -6,10 +6,11 @@
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
 from handlers.main import MainHandler
-from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
-from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
 from handlers.sign import SigninHandler, SignoutHandler
 from handlers.billing import BillingHandler
+from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
+from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
+from handlers.grammar import GrammarHandler
 
 import os.path
 import json
@@ -20,7 +21,6 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 from tornado.options import define, options, parse_command_line
-from pprint import pprint
 import pymongo
 from pymongo import MongoClient
 from bson import json_util
@@ -37,6 +37,9 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/', MainHandler),
+            (r'/signin', SigninHandler),
+            (r'/signout', SignoutHandler),
+            (r'/billing', BillingHandler),
             (r'/mark', MarkHandler),
             (r'/mark_submit', MarkSubmitHandler),
             (r'/mark_previous', MarkPreviousHandler),
@@ -45,9 +48,7 @@ class Application(tornado.web.Application):
             (r'/ocr_submit', OCRSubmitHandler),
             (r'/ocr_previous', OCRPreviousHandler),
             (r'/ocr_next', OCRNextHandler),
-            (r'/signin', SigninHandler),
-            (r'/signout', SignoutHandler),
-            (r'/billing', BillingHandler),
+            (r'/grammar', GrammarHandler),
         ]
         settings = {
             'static_path': os.path.join(os.path.dirname(__file__), "static"),
@@ -58,6 +59,9 @@ class Application(tornado.web.Application):
             # 'xsrf_cookies': options.xsrf,
         }
         super(Application, self).__init__(handlers, **settings)
+
+        self.accounts = self.load_account()
+        self.connect_db()
 
         # essay grading annotation
         self.essay_path = './data/essay.txt'
@@ -87,14 +91,18 @@ class Application(tornado.web.Application):
         self.ocr_quantity_for_billing = {}
         self.screened_ocr_quantity_for_billing = {}
 
-        self.accounts = self.load_account()
-        self.connect_db()
+        # grammar check annotation
+        self.checked_grammar_ratio = 0.0
         
     def connect_db(self):
         self.conn = MongoClient("localhost", 27017)
         self.db = self.conn.annotation
+        self.init_mark_db()
+        self.init_ocr_db()
+        self.init_grammar_db()
 
-        # essay mark annotation
+    def init_mark_db(self):
+        '''essay mark annotation'''
         if "essay_candidates" not in self.db.collection_names():
             self.db.essay_candidates
             essay_candidates = []
@@ -120,8 +128,9 @@ class Application(tornado.web.Application):
             for account in self.accounts.keys():
                 if self.db.essay_progress.find_one({'annotator':account}) == None:
                     self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': [], 'annotator':account})
-            
-        # ocr result correction
+    
+    def init_ocr_db(self):
+        '''ocr result correction'''
         if "ocr_candidates" not in self.db.collection_names():
             self.db.ocr_candidates
             ocr_id = 0      # ocr_id starts from 0
@@ -137,6 +146,9 @@ class Application(tornado.web.Application):
             self.db.ocr_progress
             self.db.ocr_progress.insert_one({'corrected_ocr_quantity': 0, 'annotation_list': []})
 
+    def init_grammar_db(self):
+        pass
+
     def load_account(self):
         self.account_path = './data/account.txt'
         self.accounts = {}  # [{account: password}]
@@ -146,7 +158,8 @@ class Application(tornado.web.Application):
                 account_dict = {}
                 (account, password) = line.split('\t')
                 self.accounts[account] = password
-        print(self.accounts)
+        print('Accounts:')
+        print(json.dumps(self.accounts, indent=4, sort_keys=True))
         return self.accounts
 
 def main():

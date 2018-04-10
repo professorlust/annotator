@@ -17,6 +17,7 @@ class MainHandler(BaseHandler):
             title='17Tech NLP Annotation Platform',
             annotation_essay_ratio=str(round(self.application.annotation_essay_ratio, 3)),
             corrected_ocr_ratio=str(round(self.application.corrected_ocr_ratio, 3)),
+            checked_grammar_ratio=str(round(self.application.checked_grammar_ratio, 3)),
         )
     
     def get_progress(self):

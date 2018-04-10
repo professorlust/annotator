@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" charset="utf-8" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+	<meta name="description" content="Grammar Check Correction">
+    <meta name="author" content="Shengjia Yan">
+	<title>{{ title }}</title>
+	<link type="image/x-icon" href="{{ static_url("img/favicon.ico")}}" rel="shortcut icon"/>
+	<script type="text/javascript" src="{{ static_url("js/grammar.js")}}"></script>
+	<script type="text/javascript" src="{{ static_url("js/popper.min.js")}}"></script>
+	<script type="text/javascript" src="{{ static_url("js/jquery.min.js")}}"></script>
+	<script type="text/javascript" src="{{ static_url("js/bootstrap.min.js")}}"></script>
+	<link type="text/css" href="{{ static_url("css/bootstrap.min.css")}}" rel="stylesheet" media="screen, projection"/>
+	<link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
+</head>
+<body class="bg-light">
+
+	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+		<h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
+		<nav class="my-2 my-md-0 mr-md-3">
+			<a class="p-2 text-dark" href="/">Home</a>
+			<a class="p-2 text-dark" data-toggle="modal" href="#rules">Rules</a>
+			<a class="p-2 text-dark" data-toggle="modal" href="#qc">QC</a>
+		</nav>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{{ current_user }}
+			</button>
+			<div class="dropdown-menu dropdown-menu-right">
+				<a class="dropdown-item" href="#">Profile</a>
+				<a class="dropdown-item" href="#">Contributions</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Help</a>
+				<a class="dropdown-item" href="#">Settings</a>
+				<a class="dropdown-item" href="/signout">Sign out</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+	</div>
+
+	<!-- modal rules -->
+	<div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rules_title" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="rules_long_title">Annotation Rules</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					标注规则
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modal qc -->
+	<div class="modal fade" id="qc" tabindex="-1" role="dialog" aria-labelledby="qc_title" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="rules_long_title">Quality Control Mechanisms</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul>
+						<li>Mechanism 1</li>
+						<li>Mechanism 2</li>
+						<li>Mechanism 3</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
