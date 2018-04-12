@@ -13,13 +13,15 @@
 	<link type="text/css" href="{{ static_url("css/bootstrap.min.css")}}" rel="stylesheet" media="screen, projection"/>
 	<link type="text/css" href="{{ static_url("css/main.css")}}" rel="stylesheet" media="screen, projection"/>
 </head>
-<body>
+<body  class="bg-light">
 	<div class="wrapper">
 		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
 			<h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
 			<nav class="my-2 my-md-0 mr-md-3">
 				<a class="p-2 text-dark" data-toggle="modal" href="#support">Support</a>
+				<a class="p-2 text-dark" data-toggle="modal" href="#credit">Credit</a>
 				<a class="p-2 text-dark" href="/billing">Billing</a>
+				<a class="p-2 text-dark" href="/view">View</a>
 			</nav>
 			<!-- <a class="btn btn-outline-primary" href="/signin">Sign in</a> -->
 			<div class="btn-group">
@@ -56,7 +58,7 @@
 	</div>
 
 	<div class="footer">
-		<p class="mb-1">&copy; 2018 Shengjia Yan</p>
+		<p class="mb-1">&copy; 17Tech NLP</p>
 	</div>
 
 	<!-- modal support -->
@@ -72,11 +74,31 @@
 				<div class="modal-body">
 					If you have any question, please contact <a href="mailto:i@yanshengjia.com">i@yanshengjia.com</a> :)
 				</div>
-				<!-- <div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
-				</div> -->
 			</div>
 		</div>
 	</div>
+
+	<!-- modal credit -->
+	<div class="modal fade" id="credit" tabindex="-1" role="dialog" aria-labelledby="credit_title" aria-hidden="true">
+	    <div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="credit_long_title">Credit</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Contributors:
+					<ul>
+						<li>Shengjia Yan</li>
+						<li>Chen Dong</li>
+						<li>Xi Yang</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

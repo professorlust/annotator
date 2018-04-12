@@ -8,6 +8,7 @@
 from handlers.main import MainHandler
 from handlers.sign import SigninHandler, SignoutHandler
 from handlers.billing import BillingHandler
+from handlers.view import ViewHandler
 from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
 from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
 from handlers.grammar import GrammarHandler
@@ -40,6 +41,7 @@ class Application(tornado.web.Application):
             (r'/signin', SigninHandler),
             (r'/signout', SignoutHandler),
             (r'/billing', BillingHandler),
+            (r'/view', ViewHandler),
             (r'/mark', MarkHandler),
             (r'/mark_submit', MarkSubmitHandler),
             (r'/mark_previous', MarkPreviousHandler),
