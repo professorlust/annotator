@@ -47,7 +47,7 @@
 			<tbody>
 				{% for annotator in annotators %}
 				<tr>
-					<th scope="row" id="name">{{ annotator }}</th>
+					<th scope="row">{{ annotator }}</th>
 					<td>{{ essay_quantity_for_billing[annotator] }}</td>
 					<td>{{ ocr_quantity_for_billing[annotator] }}</td>
 					<td>{{ essay_quantity_for_billing[annotator] + ocr_quantity_for_billing[annotator] }}</td>
