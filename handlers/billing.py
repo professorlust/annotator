@@ -63,7 +63,7 @@ class BillingHandler(BaseHandler):
             self.application.screened_essay_quantity_for_billing[annotator] = data.find({'annotator':annotator, "time": {"$gte": start, "$lt": end}}).count()
     
     def screen_ocr_quantity(self, start, end):
-        data = self.application.db.essay_data
+        data = self.application.db.ocr_data
         annotators = self.application.accounts.keys()
         for annotator in annotators:
             self.application.screened_ocr_quantity_for_billing[annotator] = data.find({'annotator':annotator, "time": {"$gte": start, "$lt": end}}).count()
