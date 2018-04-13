@@ -8,6 +8,7 @@
 from handlers.main import MainHandler
 from handlers.sign import SigninHandler, SignoutHandler
 from handlers.billing import BillingHandler
+from handlers.qc import QCHandler
 from handlers.view import ViewHandler
 from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
 from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
@@ -27,6 +28,16 @@ from pymongo import MongoClient
 from bson import json_util
 from bson.objectid import ObjectId
 
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(levelname)s] (%(name)s) %(message)s',
+    handlers=[
+        logging.FileHandler('./data/log/annotator.log', encoding='utf8'),
+        logging.StreamHandler()
+    ])
+logger = logging.getLogger(__name__)
+
 define("address", default="localhost", help="run on the given address", type=str)    # 17zuoye office: 10.200.26.84    docker: 10.0.5.40
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
@@ -41,6 +52,7 @@ class Application(tornado.web.Application):
             (r'/signin', SigninHandler),
             (r'/signout', SignoutHandler),
             (r'/billing', BillingHandler),
+            (r'/qc', QCHandler),
             (r'/view', ViewHandler),
             (r'/mark', MarkHandler),
             (r'/mark_submit', MarkSubmitHandler),
@@ -66,7 +78,7 @@ class Application(tornado.web.Application):
         self.connect_db()
 
         # essay grading annotation
-        self.essay_path = './data/essay.txt'
+        self.essay_path = './data/essay/essay.txt'
         self.essays = [line.strip() for line in open(self.essay_path, 'r')]
         self.essay_flag = True  # True means essay_candidates is not empty
         self.essay_quantity = len(self.essays)
@@ -79,7 +91,7 @@ class Application(tornado.web.Application):
         self.screened_essay_quantity_for_billing = {}
 
         # ocr result annotation
-        self.ocr_path = './data/ocr_new.txt'
+        self.ocr_path = './data/ocr/ocr.txt'
         self.ocrs = json.load(open(self.ocr_path, 'r'))
         self.ocr_flag = True    # True means ocr_candidates is not empty
         self.ocr_quantity = len(self.ocrs)
