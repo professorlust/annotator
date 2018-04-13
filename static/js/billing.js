@@ -28,8 +28,6 @@ function screen(button) {
         cache: false,
         success: function(response) {
             console.log("Response received.");
-            // var billing_table_title = document.getElementById('billing_table_title');
-            // billing_table_title.innerHTML = document.getElementById("start_date").value+'-'+document.getElementById("end_date").value;
             
             var billing_table = document.getElementById('billing_table');
             var td = billing_table.getElementsByTagName("td");

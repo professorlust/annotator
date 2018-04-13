@@ -16,11 +16,11 @@ class BillingHandler(BaseHandler):
         self.render(
             'billing.html',
             title='Billing System',
-            start_date = '',
-            end_date = '',
-            annotators = self.application.accounts.keys(),
-            essay_quantity_for_billing = self.application.essay_quantity_for_billing,
-            ocr_quantity_for_billing = self.application.ocr_quantity_for_billing,
+            start_date='',
+            end_date='',
+            annotators=self.application.accounts.keys(),
+            essay_quantity_for_billing=self.application.essay_quantity_for_billing,
+            ocr_quantity_for_billing=self.application.ocr_quantity_for_billing,
         )
     
     def post(self):
