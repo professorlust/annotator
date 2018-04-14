@@ -11,11 +11,6 @@ function screen(button) {
         return
     }
 
-    if (start_date > end_date) {
-        alert("Start Date > End Date!");
-        return
-    }
-
     var formData = new FormData();
     formData.append('start_date', start_date);
     formData.append('end_date', end_date);
@@ -28,7 +23,15 @@ function screen(button) {
         cache: false,
         success: function(response) {
             console.log("Response received.");
-            
+
+            var start_timestamp = response['start_timestamp'];
+            var end_timestamp = response['end_timestamp'];
+
+            if (start_timestamp > end_timestamp) {
+                alert("Start Date > End Date!");
+                return
+            }
+
             var billing_table = document.getElementById('billing_table');
             var td = billing_table.getElementsByTagName("td");
 

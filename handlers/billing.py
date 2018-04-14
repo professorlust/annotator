@@ -7,17 +7,20 @@
 
 from .base import BaseHandler
 import calendar
+import datetime
 from datetime import date
 
 class BillingHandler(BaseHandler):
     def get(self):
+        a_week_ago_date, today_date = self.get_default_date()
+
         self.get_essay_quantity()
         self.get_ocr_quantity()
         self.render(
             'billing.html',
             title='Billing System',
-            start_date='',
-            end_date='',
+            start_date=a_week_ago_date,
+            end_date=today_date,
             annotators=self.application.accounts.keys(),
             essay_quantity_for_billing=self.application.essay_quantity_for_billing,
             ocr_quantity_for_billing=self.application.ocr_quantity_for_billing,
@@ -38,12 +41,21 @@ class BillingHandler(BaseHandler):
         self.screen_ocr_quantity(start_timestamp, end_timestamp)
 
         response = {}
+        response['start_timestamp'] = start_timestamp
+        response['end_timestamp'] = end_timestamp
         response['annotators'] = self.application.accounts
         response['essay_progress'] = self.application.screened_essay_quantity_for_billing
         response['ocr_progress'] = self.application.screened_ocr_quantity_for_billing
         self.write(response)
         
-    
+    def get_default_date(self):
+        today = datetime.datetime.now()
+        today_date = str(today.year) + '/' + str(today.month) + '/' + str(today.day)
+        a_week_ago = today - datetime.timedelta(days=7)
+        a_week_ago_date = str(a_week_ago.year) + '/' + str(a_week_ago.month) + '/' + str(a_week_ago.day)
+
+        return a_week_ago_date, today_date
+
     def get_essay_quantity(self):
         data = self.application.db.essay_data
         annotators = self.application.accounts.keys()

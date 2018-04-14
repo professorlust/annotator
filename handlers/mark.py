@@ -193,15 +193,15 @@ class MarkSubmitHandler(BaseHandler):
                 upsert=False
             )
 
-    def check_mark(self,essay_id):
+    def check_mark(self, essay_id):
         data = self.application.db.essay_data
         unchecked = self.application.db.essay_unchecked
         check_data = []
-        for d in data.find({'essay_id':essay_id}):
+        for d in data.find({'essay_id': essay_id}):
             check_data.append(d)
-        score1 = int(check_data[0]['vocabulary_score'])+int(check_data[0]['sentence_score'])+int(check_data[0]['structure_score'])+int(check_data[0]['content_score'])
-        score2 = int(check_data[1]['vocabulary_score'])+int(check_data[1]['sentence_score'])+int(check_data[1]['structure_score'])+int(check_data[1]['content_score'])
-        if abs(score1-score2) > round(0.1*8):
+        score1 = int(check_data[0]['vocabulary_score']) + int(check_data[0]['sentence_score']) + int(check_data[0]['structure_score']) + int(check_data[0]['content_score'])
+        score2 = int(check_data[1]['vocabulary_score']) + int(check_data[1]['sentence_score']) + int(check_data[1]['structure_score']) + int(check_data[1]['content_score'])
+        if abs(score1 - score2) > round(0.1 * 8):
             record = {}
             record['essay_id'] = essay_id
             del check_data[0]['essay_id']

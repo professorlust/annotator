@@ -75,7 +75,7 @@ class Application(tornado.web.Application):
         super(Application, self).__init__(handlers, **settings)
 
         self.accounts = self.load_account()
-        
+        self.connect_db()
 
         # essay grading annotation
         self.essay_path = './data/essay/essay.txt'
@@ -107,7 +107,6 @@ class Application(tornado.web.Application):
 
         # grammar check annotation
         self.checked_grammar_ratio = 0.0
-        self.connect_db()
 
 
     def connect_db(self):
@@ -147,7 +146,6 @@ class Application(tornado.web.Application):
                 if self.db.essay_progress.find_one({'annotator':account}) == None:
                     self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': [], 'annotator':account})
         
-    
     def init_ocr_db(self):
         '''ocr result correction'''
         if "ocr_candidates" not in self.db.collection_names():
@@ -174,13 +172,14 @@ class Application(tornado.web.Application):
         with open(self.account_path, 'r') as accounts_file:
             for line in accounts_file:
                 line = line.strip()
-                (account, password) = line.split('\t')
+                (account, password) = line.split(' ')
                 self.accounts[account] = password
         print('Accounts:')
         print(json.dumps(self.accounts, indent=4, sort_keys=True))
         return self.accounts
 
 def main():
+    print("--------------------------------------------------------------------------------")
     print("Server Running on http://" + str(options.address) + ":" + str(options.port))
     print("Press Ctrl+C to Close")
     tornado.options.parse_command_line()
