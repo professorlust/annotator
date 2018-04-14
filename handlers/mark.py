@@ -124,7 +124,6 @@ class MarkSubmitHandler(BaseHandler):
         candidates = self.application.db.essay_candidates
         essay_id = self.application.current_essay_id
         essay_record = candidates.find_one({'essay_id':essay_id})
-        print(essay_id)
         if essay_record == None:
             self.application.essay_annotator_mark = 'both'
         else:
@@ -184,6 +183,7 @@ class MarkSubmitHandler(BaseHandler):
                 )
             #if the essay has been corrected by the other annotator
             else:
+                self.check_mark(essay_id) #check the scores of the essay marked by two persons
                 candidates.delete_one({'essay_id': essay_id})
 
         else:
@@ -192,6 +192,25 @@ class MarkSubmitHandler(BaseHandler):
                 {'$set': record},
                 upsert=False
             )
+
+    def check_mark(self,essay_id):
+        data = self.application.db.essay_data
+        unchecked = self.application.db.essay_unchecked
+        check_data = []
+        for d in data.find({'essay_id':essay_id}):
+            check_data.append(d)
+        score1 = int(check_data[0]['vocabulary_score'])+int(check_data[0]['sentence_score'])+int(check_data[0]['structure_score'])+int(check_data[0]['content_score'])
+        score2 = int(check_data[1]['vocabulary_score'])+int(check_data[1]['sentence_score'])+int(check_data[1]['structure_score'])+int(check_data[1]['content_score'])
+        if abs(score1-score2) > round(0.1*8):
+            record = {}
+            record['essay_id'] = essay_id
+            del check_data[0]['essay_id']
+            del check_data[1]['essay_id']
+            record['annotator1'] = check_data[0]
+            record['annotator2'] = check_data[1]
+            unchecked.insert_one(record)
+        else:
+            return
 
     def close_db(self):
         self.application.conn.close()
