@@ -76,7 +76,6 @@ class MarkSubmitHandler(BaseHandler):
         response = {}
 
         if self.application.db.essay_candidates.find_one({'essay_id':self.application.current_essay_id}) != None:
-            print(self.application.current_essay_id)
             self.write_db(mark_record)
             response['invalid_flag'] = False
         else:
