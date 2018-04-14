@@ -16,4 +16,5 @@ class QCHandler(BaseHandler):
             annotator='', 
             start_date='',
             end_date='',
+            qwk=0.0,
         )

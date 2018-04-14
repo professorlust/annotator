@@ -168,8 +168,7 @@ class Application(tornado.web.Application):
         self.accounts = {}  # [{account: password}]
         with open(self.account_path, 'r') as accounts_file:
             for line in accounts_file:
-                line = line.strip()            
-                account_dict = {}
+                line = line.strip()
                 (account, password) = line.split('\t')
                 self.accounts[account] = password
         print('Accounts:')
