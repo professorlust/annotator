@@ -75,7 +75,7 @@ class Application(tornado.web.Application):
         super(Application, self).__init__(handlers, **settings)
 
         self.accounts = self.load_account()
-        self.connect_db()
+        
 
         # essay grading annotation
         self.essay_path = './data/essay/essay.txt'
@@ -107,7 +107,9 @@ class Application(tornado.web.Application):
 
         # grammar check annotation
         self.checked_grammar_ratio = 0.0
-        
+        self.connect_db()
+
+
     def connect_db(self):
         self.conn = MongoClient("localhost", 27017)
         self.db = self.conn.annotation
@@ -134,6 +136,8 @@ class Application(tornado.web.Application):
             self.db.essay_marked
         if "essay_data" not in self.db.collection_names():
             self.db.essay_data
+        if "essay_unchecked" not in self.db.collection_names():
+            self.db.essay_unchecked
         if "essay_progress" not in self.db.collection_names():
             self.db.essay_progress
             for account in self.accounts.keys():
@@ -142,6 +146,7 @@ class Application(tornado.web.Application):
             for account in self.accounts.keys():
                 if self.db.essay_progress.find_one({'annotator':account}) == None:
                     self.db.essay_progress.insert_one({'annotated_essay_quantity': 0, 'annotation_list': [], 'annotator':account})
+        
     
     def init_ocr_db(self):
         '''ocr result correction'''
