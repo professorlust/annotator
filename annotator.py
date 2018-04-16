@@ -74,7 +74,7 @@ class Application(tornado.web.Application):
         }
         super(Application, self).__init__(handlers, **settings)
 
-        self.accounts = self.load_account()
+        self.load_accounts()
         self.connect_db()
 
         # essay grading annotation
@@ -166,7 +166,7 @@ class Application(tornado.web.Application):
     def init_grammar_db(self):
         pass
 
-    def load_account(self):
+    def load_accounts(self):
         self.account_path = './data/account.txt'
         self.accounts = {}  # [{account: password}]
         with open(self.account_path, 'r') as accounts_file:
@@ -174,9 +174,8 @@ class Application(tornado.web.Application):
                 line = line.strip()
                 (account, password) = line.split(' ')
                 self.accounts[account] = password
-        print('Accounts:')
-        print(json.dumps(self.accounts, indent=4, sort_keys=True))
-        return self.accounts
+        # print('Accounts:')
+        # print(json.dumps(self.accounts, indent=4, sort_keys=True))
 
 def main():
     print("--------------------------------------------------------------------------------")
