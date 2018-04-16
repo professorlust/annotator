@@ -132,6 +132,7 @@ class MarkSubmitHandler(BaseHandler):
     def write_db(self, record):
         data = self.application.db.essay_data
         candidates = self.application.db.essay_candidates
+        marked = self.application.db.essay_marked
         progress = self.application.db.essay_progress
         essay_id = record['essay_id']
         annotator = record['annotator']
@@ -169,7 +170,7 @@ class MarkSubmitHandler(BaseHandler):
             # update candidates annotator
             candidates_record = candidates.find_one({'essay_id': essay_id})
             last_annotator = candidates_record['annotator']
-            #if the essay has never been corrected
+            # if the essay has never been corrected
             if last_annotator == '':
                 candidates.update_one(
                     {
@@ -183,8 +184,9 @@ class MarkSubmitHandler(BaseHandler):
                 )
             #if the essay has been corrected by the other annotator
             else:
-                self.check_mark(essay_id) #check the scores of the essay marked by two persons
+                self.check_mark(essay_id) # check the scores of the essay marked by two persons
                 candidates.delete_one({'essay_id': essay_id})
+                marked.insert_one(candidates_record)
 
         else:
             data.update_one(

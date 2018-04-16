@@ -1,0 +1,168 @@
+[INFO] (tornado.access) 304 GET /qc (::1) 17.68ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 31.68ms
+[INFO] (tornado.access) 200 POST /qc (::1) 4.88ms
+[INFO] (tornado.access) 304 GET / (::1) 17.02ms
+[INFO] (tornado.access) 200 GET /qc (::1) 19.63ms
+[INFO] (tornado.access) 304 GET / (::1) 11.08ms
+[INFO] (tornado.access) 200 GET /billing (::1) 33.91ms
+[INFO] (tornado.access) 304 GET / (::1) 13.15ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 304 GET /qc (::1) 38.11ms
+[INFO] (tornado.access) 200 POST /qc (::1) 8.61ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 200 GET /qc (::1) 19.47ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 15.59ms
+[INFO] (tornado.access) 200 POST /qc (::1) 5.37ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 200 GET /qc (::1) 17.16ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 23.35ms
+[INFO] (tornado.access) 200 POST /qc (::1) 5.13ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 200 GET /qc (::1) 19.15ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 15.34ms
+[INFO] (tornado.access) 200 POST /qc (::1) 5.67ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 200 GET /qc (::1) 12.89ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 8.19ms
+[INFO] (tornado.access) 200 POST /qc (::1) 6.78ms
+[INFO] (tornado.access) 304 GET / (::1) 12.49ms
+[INFO] (tornado.access) 304 GET /billing (::1) 32.50ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 304 GET /billing (::1) 21.16ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 17.32ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 304 GET / (::1) 15.43ms
+[INFO] (tornado.access) 200 GET /qc (::1) 22.98ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 304 GET /qc (::1) 19.66ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 13.72ms
+[INFO] (tornado.access) 200 POST /qc (::1) 6.92ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception GET /qc (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/qc', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 25, in get
+    qwk=self.calculate_qwk(yesterday_date, today_date, option='default'),
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 57, in calculate_qwk
+    all_progress_essay_grading = self.get_all_progress()
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 45, in get_all_progress
+    progress = essay_progress_collection.find({'annotator': account})['annotation_list']
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pymongo/cursor.py", line 615, in __getitem__
+    "instances" % index)
+TypeError: index 'annotation_list' cannot be applied to Cursor instances
+[ERROR] (tornado.access) 500 GET /qc (::1) 6.75ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception GET /qc (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/qc', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 25, in get
+    qwk=self.calculate_qwk(yesterday_date, today_date, option='default'),
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 57, in calculate_qwk
+    all_progress_essay_grading = self.get_all_progress()
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 46, in get_all_progress
+    progress_essay_grading.append(progress['annotation_list'])
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pymongo/cursor.py", line 615, in __getitem__
+    "instances" % index)
+TypeError: index 'annotation_list' cannot be applied to Cursor instances
+[ERROR] (tornado.access) 500 GET /qc (::1) 3.87ms
+[ERROR] (tornado.application) Uncaught exception GET /qc (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/qc', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 25, in get
+    qwk=self.calculate_qwk(yesterday_date, today_date, option='default'),
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 57, in calculate_qwk
+    all_progress_essay_grading = self.get_all_progress()
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 46, in get_all_progress
+    progress_essay_grading.append(progress['annotation_list'])
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pymongo/cursor.py", line 615, in __getitem__
+    "instances" % index)
+TypeError: index 'annotation_list' cannot be applied to Cursor instances
+[ERROR] (tornado.access) 500 GET /qc (::1) 1.67ms
+[ERROR] (tornado.application) Uncaught exception GET /qc (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/qc', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 25, in get
+    qwk=self.calculate_qwk(yesterday_date, today_date, option='default'),
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 57, in calculate_qwk
+    all_progress_essay_grading = self.get_all_progress()
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 46, in get_all_progress
+    progress_essay_grading.append(progress['annotation_list'])
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pymongo/cursor.py", line 615, in __getitem__
+    "instances" % index)
+TypeError: index 'annotation_list' cannot be applied to Cursor instances
+[ERROR] (tornado.access) 500 GET /qc (::1) 8.75ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception GET /qc (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/qc', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 25, in get
+    qwk=self.calculate_qwk(yesterday_date, today_date, option='default'),
+  File "/Users/yanshengjia/GitHub/annotator/handlers/qc.py", line 84, in calculate_qwk
+    del essay_data[key]
+UnboundLocalError: local variable 'key' referenced before assignment
+[ERROR] (tornado.access) 500 GET /qc (::1) 12.89ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.access) 200 GET /qc (::1) 19.58ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 27.47ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/qc.py modified; restarting server
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/mark.py modified; restarting server
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/mark.py modified; restarting server
+[INFO] (tornado.access) 304 GET / (::1) 16.49ms
+[INFO] (tornado.access) 304 GET / (::1) 13.12ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 9.60ms
+[INFO] (tornado.access) 200 GET /mark (::1) 34.81ms
+[INFO] (tornado.access) 304 GET / (::1) 23.42ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 4.47ms
+[INFO] (tornado.access) 304 GET / (::1) 15.01ms
+[INFO] (tornado.access) 304 GET /mark (::1) 10.18ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 2.10ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.26ms
+[INFO] (tornado.access) 304 GET / (::1) 14.85ms
+[INFO] (tornado.access) 304 GET / (::1) 21.80ms
+[INFO] (tornado.access) 304 GET / (::1) 23.35ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 52.43ms
+[INFO] (tornado.access) 304 GET / (::1) 10.06ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 4.56ms
+[INFO] (tornado.access) 304 GET /mark (::1) 29.35ms
+[INFO] (tornado.access) 200 GET /billing (::1) 36.51ms
+[INFO] (tornado.access) 304 GET / (::1) 8.84ms
+[INFO] (tornado.access) 304 GET /mark (::1) 26.17ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/main.py modified; restarting server
+[INFO] (tornado.access) 200 GET / (::1) 34.54ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 14.65ms
+[INFO] (tornado.access) 304 GET /qc (::1) 43.10ms
+[INFO] (tornado.access) 304 GET / (::1) 14.54ms
+[INFO] (tornado.access) 200 GET /mark (::1) 24.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 42.89ms
+[INFO] (tornado.access) 302 GET /signout (::1) 2.30ms
+[INFO] (tornado.access) 302 GET / (::1) 3.39ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 6.11ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.21ms
+[INFO] (tornado.access) 200 GET / (::1) 7.93ms
+[INFO] (tornado.access) 200 GET /mark (::1) 11.81ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 77.21ms
+[INFO] (tornado.access) 200 GET / (::1) 11.17ms

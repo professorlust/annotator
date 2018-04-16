@@ -43,26 +43,32 @@ class QCHandler(BaseHandler):
         essay_progress_collection = self.application.db.essay_progress
         for account in self.application.accounts:
             progress = essay_progress_collection.find_one({'annotator': account})['annotation_list']
+            print(progress)
             progress_essay_grading.append(progress)
 
         all_progress_essay_grading = set(progress_essay_grading[0])
-        for progress in progress_essay_grading:
-            all_progress_essay_grading = set(progress).intersection(all_progress_essay_grading)
-        return all_progress_essay_grading
+        for p in progress_essay_grading:
+            all_progress_essay_grading = set(p).intersection(all_progress_essay_grading)
+        return list(all_progress_essay_grading)
 
     def calculate_qwk(self, start_date, end_date, option=None):
         start_timestamp = self.convert_date(start_date)
         end_timestamp = self.convert_date(end_date)
         essay_data_collection = self.application.db.essay_data
         all_progress_essay_grading = self.get_all_progress()
+        
         y1 = []
         y2 = []
+
+        for essay_id in all_progress_essay_grading:
+            for data in essay_data_collection.find({'essay_id': essay_id}):
+                print(data)
 
         if option == 'default':
             essay_data = {}
             for essay_id in all_progress_essay_grading:
                 for data in essay_data_collection.find({'essay_id': essay_id}):
-                    print(date)
+                    print(data)
                     data_id = str(data['_id'])
                     del data['_id']
                     essay_data[data_id] = data
@@ -86,7 +92,7 @@ class QCHandler(BaseHandler):
             essay_data = {}
             for essay_id in all_progress_essay_grading:
                 for data in essay_data_collection.find({'essay_id': essay_id}):
-                    print(date)
+                    print(data)
                     data_id = str(data['_id'])
                     del data['_id']
                     essay_data[data_id] = data

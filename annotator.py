@@ -74,9 +74,6 @@ class Application(tornado.web.Application):
         }
         super(Application, self).__init__(handlers, **settings)
 
-        self.load_accounts()
-        self.connect_db()
-
         # essay grading annotation
         self.essay_path = './data/essay/essay.txt'
         self.essays = [line.strip() for line in open(self.essay_path, 'r')]
@@ -107,6 +104,9 @@ class Application(tornado.web.Application):
 
         # grammar check annotation
         self.checked_grammar_ratio = 0.0
+
+        self.load_accounts()
+        self.connect_db()
 
 
     def connect_db(self):
