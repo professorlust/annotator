@@ -22,7 +22,7 @@ class QCHandler(BaseHandler):
             title='Quality Control',
             start_date=yesterday_date,
             end_date=today_date,
-            qwk=self.calculate_qwk(yesterday_date, today_date),
+            qwk=self.calculate_qwk(yesterday_date, today_date, option='default'),
         )
     
     def get_default_date(self):
@@ -50,48 +50,20 @@ class QCHandler(BaseHandler):
             all_progress_essay_grading = set(progress).intersection(all_progress_essay_grading)
         return all_progress_essay_grading
 
-    def calculate_qwk(self, start_date, end_date):
+    def calculate_qwk(self, start_date, end_date, option=None):
         start_timestamp = self.convert_date(start_date)
         end_timestamp = self.convert_date(end_date)
-
-
-
-        essay_data_db = db.essay_data
-        essay_data = {}
-        for essay_id in total_progress:
-            for data in essay_data_db.find({'essay_id':essay_id}):
-                data_id = str(data['_id'])
-                del data['_id']
-                essay_data[data_id] = data
-                pprint.pprint(data)
-        
-        # get y1 for cohen_kappa_score
+        essay_data_collection = self.application.db.essay_data
+        all_progress_essay_grading = self.get_all_progress()
         y1 = []
-        for essay_id in total_progress:
-            for key in essay_data:
-                if essay_data[key]['essay_id'] == essay_id:
-                    y1.append(essay_data[key]['content_score'])
-                    y1.append(essay_data[key]['sentence_score'])
-                    y1.append(essay_data[key]['structure_score'])
-                    y1.append(essay_data[key]['vocabulary_score'])
-                    break
-            del essay_data[key]
-        
-        # get y2 for cohen_kappa_score
         y2 = []
-        for key in essay_data:
-            y2.append(essay_data[key]['content_score'])
-            y2.append(essay_data[key]['sentence_score'])
-            y2.append(essay_data[key]['structure_score'])
-            y2.append(essay_data[key]['vocabulary_score'])
 
-        kappa_score = cohen_kappa_score(y1, y2, weights='quadratic')
-        kappa = {}
-        kappa['time'] = time.time()
-        kappa['kappa'] = kappa_score
+        if option == 'default':
+            pass
+        else:
+            pass
 
-
-        qwk = 0.0
+        qwk = cohen_kappa_score(y1, y2, weights='quadratic')
         return qwk
     
 
