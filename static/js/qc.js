@@ -38,7 +38,7 @@ function qc(button) {
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
-            alert('Please check the date format!\n\n' + textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
+            alert(textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
             console.log("Something went wrong:(");
         }
     });

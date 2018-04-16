@@ -59,18 +59,65 @@ class QCHandler(BaseHandler):
         y2 = []
 
         if option == 'default':
-            pass
+            essay_data = {}
+            for essay_id in all_progress_essay_grading:
+                for data in essay_data_collection.find({'essay_id': essay_id}):
+                    print(date)
+                    data_id = str(data['_id'])
+                    del data['_id']
+                    essay_data[data_id] = data
+            
+            for essay_id in all_progress_essay_grading:
+                for key in essay_data:
+                    if essay_data[key]['essay_id'] == essay_id:
+                        y1.append(essay_data[key]['content_score'])
+                        y1.append(essay_data[key]['sentence_score'])
+                        y1.append(essay_data[key]['structure_score'])
+                        y1.append(essay_data[key]['vocabulary_score'])
+                        break
+                del essay_data[key]
+            
+            for key in essay_data:
+                y2.append(essay_data[key]['content_score'])
+                y2.append(essay_data[key]['sentence_score'])
+                y2.append(essay_data[key]['structure_score'])
+                y2.append(essay_data[key]['vocabulary_score'])
         else:
-            pass
+            essay_data = {}
+            for essay_id in all_progress_essay_grading:
+                for data in essay_data_collection.find({'essay_id': essay_id}):
+                    print(date)
+                    data_id = str(data['_id'])
+                    del data['_id']
+                    essay_data[data_id] = data
+            
+            for essay_id in all_progress_essay_grading:
+                for key in essay_data:
+                    if essay_data[key]['essay_id'] == essay_id:
+                        y1.append(essay_data[key]['content_score'])
+                        y1.append(essay_data[key]['sentence_score'])
+                        y1.append(essay_data[key]['structure_score'])
+                        y1.append(essay_data[key]['vocabulary_score'])
+                        break
+                del essay_data[key]
+            
+            for key in essay_data:
+                y2.append(essay_data[key]['content_score'])
+                y2.append(essay_data[key]['sentence_score'])
+                y2.append(essay_data[key]['structure_score'])
+                y2.append(essay_data[key]['vocabulary_score'])
 
         qwk = cohen_kappa_score(y1, y2, weights='quadratic')
         return qwk
     
 
     def post(self):
-        start_date_str = self.get_argument('start_date')
-        end_date_str = self.get_argument('end_date')
-        qwk = self.calculate_qwk(start_timestamp, end_timestamp)
+        start_date = self.get_argument('start_date')
+        end_date = self.get_argument('end_date')
+        qwk = self.calculate_qwk(start_date, end_date, option='screen')
+
+        start_timestamp = self.convert_date(start_date)
+        end_timestamp = self.convert_date(end_date)
 
         response = {}
         response['start_timestamp'] = start_timestamp

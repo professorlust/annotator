@@ -4,6 +4,7 @@
 *.pyc
 *.o
 *.exe
+*.log
 
 # ignored directories
 /data/mongodb/*
