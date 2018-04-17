@@ -42,15 +42,16 @@ class OCRHandler(BaseHandler):
             self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
             self.application.current_ocr_essay = ocr_record['essay']
         else:
-            ocr_record = self.application.ocrs[self.application.ocr_quantity-1]
-            self.application.current_ocr_id = self.application.ocr_quantity-1
+            # get last one record
+            ocr_record = self.application.ocrs[self.application.ocr_quantity - 1]
+            self.application.current_ocr_id = self.application.ocr_quantity - 1
             self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
             self.application.current_ocr_essay = ocr_record
     
     def get_mark(self):
         data = self.application.db.ocr_data
         ocr_id = self.application.current_ocr_id
-        ocr_record = data.find_one({'ocr_id':ocr_id})
+        ocr_record = data.find_one({'ocr_id': ocr_id})
         if ocr_record == None:
             self.application.ocr_annotator_mark = ''
         else:
@@ -200,6 +201,34 @@ class OCRNextHandler(BaseHandler):
     def post(self):
         ocr_id = int(self.get_argument('ocr_id'))
         self.get_ocr(ocr_id + 1)
+        self.get_mark()
+
+        response = {}
+        response['image_url'] = self.application.current_image_url
+        response['ocr_essay'] = self.application.current_ocr_essay
+        response['ocr_annotator_mark'] = self.application.ocr_annotator_mark
+        self.write(response)
+
+    def get_ocr(self, ocr_id):
+        ocr_record = self.application.ocrs[ocr_id]
+        self.application.current_ocr_id = ocr_id
+        self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
+        self.application.current_ocr_essay = ocr_record['essay']
+    
+    def get_mark(self):
+        data = self.application.db.ocr_data
+        ocr_id = self.application.current_ocr_id
+        ocr_record = data.find_one({'ocr_id':ocr_id})
+        if ocr_record == None:
+            self.application.ocr_annotator_mark = ''
+        else:
+            self.application.ocr_annotator_mark = ocr_record['annotator']
+
+
+class OCRJumpHandler(BaseHandler):
+    def post(self):
+        jump_id = int(self.get_argument('jump_id'))
+        self.get_ocr(jump_id)
         self.get_mark()
 
         response = {}

@@ -93,6 +93,54 @@ function nextImage(button) {
     });
 }
 
+function jumpImage(button) {
+    console.log("Jump tp a image...");
+
+    var jump_id = Number(document.getElementById("jump_id").value);
+    var ocr_sum = Number(document.getElementById("sum").innerHTML) - 1;
+
+    if (jump_id >= ocr_sum || jump_id < 0) {
+        alert("There is no such image!");
+        return
+    }
+
+    var formData = new FormData();
+    formData.append('jump_id', jump_id);
+    $.ajax({
+        type: 'POST',
+        url: '/ocr_jump',
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(response) {
+            console.log('Response received!');
+
+            var jump_ocr_id = document.getElementById("ocr_id");
+            jump_ocr_id.innerHTML = jump_id;
+
+            var jump_image_url = document.getElementById("image_url");
+            jump_image_url.src = response["image_url"];
+
+            var jump_ocr_essay = document.getElementById("ocr_essay");
+            jump_ocr_essay.innerHTML = response["ocr_essay"];
+            jump_ocr_essay.value = response["ocr_essay"];
+
+            var jump_ocr_correction = document.getElementById("ocr_correction");
+            jump_ocr_correction.innerHTML = response["ocr_essay"];
+            jump_ocr_correction.value = response["ocr_essay"];
+
+            var ocr_annotator_mark = document.getElementById("annotator_mark");
+            ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            alert(textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
+            console.log("Something went wrong:(");
+        }
+    });
+}
+
 function submitOCRCorrection(button) {
     console.log("Submit OCR result correction data...");
 

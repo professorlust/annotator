@@ -11,7 +11,7 @@ from handlers.billing import BillingHandler
 from handlers.qc import QCHandler
 from handlers.view import ViewHandler
 from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
-from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler
+from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler, OCRJumpHandler
 from handlers.grammar import GrammarHandler
 
 import os.path
@@ -62,6 +62,7 @@ class Application(tornado.web.Application):
             (r'/ocr_submit', OCRSubmitHandler),
             (r'/ocr_previous', OCRPreviousHandler),
             (r'/ocr_next', OCRNextHandler),
+            (r'/ocr_jump', OCRJumpHandler),
             (r'/grammar', GrammarHandler),
         ]
         settings = {

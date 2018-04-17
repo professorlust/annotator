@@ -364,3 +364,87 @@ NameError: name 'all_progress_essay_grading' is not defined
 [INFO] (tornado.access) 200 GET /qc (::1) 32.59ms
 [INFO] (tornado.access) 304 GET / (::1) 7.87ms
 [INFO] (tornado.access) 200 GET /billing (::1) 34.09ms
+[INFO] (tornado.access) 304 GET / (::1) 28.64ms
+[INFO] (tornado.access) 304 GET /ocr (::1) 11.22ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 2.28ms
+[INFO] (tornado.access) 200 POST /ocr_previous (::1) 2.21ms
+[INFO] (tornado.access) 200 GET /ocr (::1) 30.65ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 20.97ms
+[INFO] (tornado.access) 200 GET /ocr (::1) 12.37ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 7.56ms
+[INFO] (tornado.access) 200 GET /ocr (::1) 11.88ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 1.81ms
+[INFO] (tornado.access) 200 GET /ocr (::1) 20.89ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 3.20ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/ocr.py modified; restarting server
+[INFO] (tornado.access) 200 GET /ocr (::1) 14.88ms
+[INFO] (tornado.access) 200 GET /static/js/ocr.js?v=ac5d8ebc6b66d46259eb7ca1c8d6fc06 (::1) 21.17ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 1.93ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 9.49ms
+[ERROR] (tornado.application) Uncaught exception POST /ocr_jump (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/ocr_jump', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/ocr.py", line 230, in post
+    jump_id = int(self.get_argument('jump_id'))
+ValueError: invalid literal for int() with base 10: '[object HTMLDivElement]'
+[ERROR] (tornado.access) 500 POST /ocr_jump (::1) 4.75ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/ocr.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception POST /ocr_jump (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/ocr_jump', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/ocr.py", line 231, in post
+    self.get_ocr(jump_id)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/ocr.py", line 241, in get_ocr
+    ocr_record = self.application.ocrs[ocr_id]
+TypeError: list indices must be integers or slices, not str
+[ERROR] (tornado.access) 500 POST /ocr_jump (::1) 3.75ms
+[INFO] (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/ocr.py modified; restarting server
+[INFO] (tornado.access) 304 GET /ocr (::1) 28.15ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 36.31ms
+[INFO] (tornado.access) 304 GET /ocr (::1) 27.10ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 2.50ms
+[ERROR] (tornado.application) Uncaught exception POST /ocr_jump (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/ocr_jump', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/ocr.py", line 230, in post
+    jump_id = int(self.get_argument('jump_id'))
+ValueError: invalid literal for int() with base 10: '[object HTMLDivElement]'
+[ERROR] (tornado.access) 500 POST /ocr_jump (::1) 5.14ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 8.10ms
+[ERROR] (tornado.application) Uncaught exception POST /ocr_jump (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/ocr_jump', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/ocr.py", line 230, in post
+    jump_id = int(self.get_argument('jump_id'))
+ValueError: invalid literal for int() with base 10: '[object HTMLDivElement]'
+[ERROR] (tornado.access) 500 POST /ocr_jump (::1) 2.44ms
+[INFO] (tornado.access) 200 GET /ocr (::1) 14.98ms
+[INFO] (tornado.access) 200 GET /static/js/ocr.js?v=6dbff1dec295bb7a05593566f2235a09 (::1) 4.40ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js.map (::1) 5.01ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 1.90ms
+[ERROR] (tornado.application) Uncaught exception POST /ocr_jump (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/ocr_jump', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/ocr.py", line 230, in post
+    jump_id = int(self.get_argument('jump_id'))
+ValueError: invalid literal for int() with base 10: '[object HTMLDivElement]'
+[ERROR] (tornado.access) 500 POST /ocr_jump (::1) 8.45ms
+[INFO] (tornado.access) 200 GET /ocr (::1) 42.05ms
+[INFO] (tornado.access) 200 GET /static/js/ocr.js?v=9c72f62e281bf30ccdbd82d2caf3a594 (::1) 6.98ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 2.30ms
+[INFO] (tornado.access) 200 POST /ocr_jump (::1) 1.45ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 1.97ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 2.12ms
+[INFO] (tornado.access) 200 POST /ocr_previous (::1) 1.67ms
+[INFO] (tornado.access) 200 POST /ocr_previous (::1) 1.92ms
+[INFO] (tornado.access) 200 POST /ocr_jump (::1) 1.79ms

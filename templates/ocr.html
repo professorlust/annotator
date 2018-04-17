@@ -40,17 +40,25 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-7 order-md-1">
+			<div class="col-md-6 order-md-1">
 				<h4 class="mb-3">
 					Image
 					<div id="ocr_id" name="ocr_id" class="ocr_id">{{ ocr_id }}</div>
 				</h4>
+				
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<button id="button_jump" class="btn btn-outline-secondary" onclick="jumpImage(this);">Jump</button>
+					</div>
+					<input id="jump_id" type="text" class="form-control" placeholder="Enter the Image ID which you want to jump to" aria-label="" aria-describedby="basic-addon1">
+				</div>
+
 				<div class="image">
-					<img id="image_url" name="image_url" class="image_url" width="90%" src={{ image_url }} alt="Image {{ ocr_id }}" />
+					<img id="image_url" name="image_url" class="image_url" width="100%" src={{ image_url }} alt="Image {{ ocr_id }}" />
 				</div>
 			</div>
 
-			<div class="col-md-5 order-md-2 mb-4">
+			<div class="col-md-6 order-md-2 mb-4">
 				<h4 class="d-flex justify-content-between align-items-center mb-3">
 					<span class="text-muted">Annotation</span>
 				</h4>
