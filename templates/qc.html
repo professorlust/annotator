@@ -19,6 +19,7 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
         <h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
         <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" data-toggle="modal" href="#metrics">Metrics</a>
             <a class="p-2 text-dark" href="/">Home</a>
         </nav>
         <div class="btn-group">
@@ -63,6 +64,30 @@
 			</tbody>
 		</table>
 
+    </div>
+
+    <!-- modal metrics -->
+	<div class="modal fade" id="metrics" tabindex="-1" role="dialog" aria-labelledby="metrics_title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="metrics_long_title">Metrics</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Quadratic Weighted Kappa:
+                            calculates the quadratic weighted kappa value, which is a measure of inter-rater agreement between two raters that provide discrete numeric ratings.  Potential values range from -1 (representing complete disagreement) to 1 (representing complete agreement).  A kappa value of 0 is expected if all agreement is due to chance.
+                        </li>
+                        <li>Linear Weighted Kappa:
+                            calculates the linear weighted kappa value, which is a measure of inter-rater agreement between two raters that provide discrete numeric ratings.  Potential values range from -1 (representing complete disagreement) to 1 (representing complete agreement).  A kappa value of 0 is expected if all agreement is due to chance.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

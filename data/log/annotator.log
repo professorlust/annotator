@@ -351,3 +351,16 @@ NameError: name 'all_progress_essay_grading' is not defined
 [INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 27.69ms
 [INFO] (tornado.access) 200 POST /qc (::1) 11.51ms
 [INFO] (tornado.access) 200 POST /qc (::1) 8.67ms
+[INFO] (tornado.access) 200 GET /qc (::1) 27.84ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 4.05ms
+[INFO] (tornado.access) 200 GET /qc (::1) 29.23ms
+[INFO] (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 2.23ms
+[INFO] (tornado.access) 200 POST /qc (::1) 8.97ms
+[INFO] (tornado.access) 302 GET /signout (::1) 1.59ms
+[INFO] (tornado.access) 302 GET / (::1) 0.79ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 7.87ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.38ms
+[INFO] (tornado.access) 200 GET / (::1) 9.22ms
+[INFO] (tornado.access) 200 GET /qc (::1) 32.59ms
+[INFO] (tornado.access) 304 GET / (::1) 7.87ms
+[INFO] (tornado.access) 200 GET /billing (::1) 34.09ms
