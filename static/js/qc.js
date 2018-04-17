@@ -33,8 +33,9 @@ function qc(button) {
             }
 
             var qc_table = document.getElementById('qc_table');
-            var td = billing_table.getElementsByTagName("td");
+            var td = qc_table.getElementsByTagName("td");
             td[0].innerHTML = response['qwk'];
+            td[1].innerHTML = response['lwk'];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {

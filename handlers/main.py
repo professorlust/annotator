@@ -21,8 +21,8 @@ class MainHandler(BaseHandler):
         )
     
     def get_progress(self):
-        essay_candidates = self.application.db.essay_candidates
-        self.application.annotated_essay_quantity = self.application.essay_quantity - essay_candidates.find().count()
+        essay_marked = self.application.db.essay_marked
+        self.application.annotated_essay_quantity = essay_marked.find().count()
         self.application.annotation_essay_ratio = float(100 * self.application.annotated_essay_quantity / self.application.essay_quantity)
 
         ocr_progress = self.application.db.ocr_progress
