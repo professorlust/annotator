@@ -47,14 +47,7 @@ function screen(button) {
 
             if (essay_record_length > ocr_record_length){
                 for(i=0;i<ocr_record_length;i++){
-                    var tr = document.createElement("tr");
-                    var td_essay_record = document.createElement("td");
-                    var td_ocr_record = document.createElement("td");
-                    td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'][i],null, 4);
-                    td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);
-                    tr.appendChild(td_essay_record);
-                    tr.appendChild(td_ocr_record);
-                    record_area.appendChild(tr);
+                    add_tr_to_table(response['screen_essay_record'][i],response['screen_ocr_record'][i])
                 }
                 for(i=ocr_record_length;i<essay_record_length;i++){
                     var tr = document.createElement("tr");
@@ -70,75 +63,38 @@ function screen(button) {
             else{
                 if(essay_record_length < ocr_record_length){
                     for(i=0;i<essay_record_length;i++){
-                        var tr = document.createElement("tr");
-                        var td_essay_record = document.createElement("td");
-                        var td_ocr_record = document.createElement("td");
-                        td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'][i],null, 4);
-                        td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);
-                        tr.appendChild(td_essay_record);
-                        tr.appendChild(td_ocr_record);
-                        record_area.appendChild(tr);
+                        add_tr_to_table(response['screen_essay_record'][i],response['screen_ocr_record'][i])
                     }
                     for(i=essay_record_length;i<ocr_record_length;i++){
                         var tr = document.createElement("tr");
                         var td_essay_record = document.createElement("td");
                         var td_ocr_record = document.createElement("td");
+                        var td_ocr_image = document.createElement("td");
+                        var a_ocr_image = document.createElement("a");
+                        var img_ocr_image = document.createElement("img");
                         td_essay_record.innerHTML = "";
-                        td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);;
+                        td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);
+
+                        a_ocr_image.setAttribute("href",response['screen_ocr_record'][i]['image_url']);
+                        a_ocr_image.setAttribute("target","view_window");
+                    
+                        img_ocr_image.setAttribute("src",response['screen_ocr_record'][i]['image_url']);
+                        img_ocr_image.setAttribute("width","70%");
+
+                        a_ocr_image.appendChild(img_ocr_image);
+                        td_ocr_image.appendChild(a_ocr_image);
                         tr.appendChild(td_essay_record);
                         tr.appendChild(td_ocr_record);
+                        tr.appendChild(td_ocr_image);
                         record_area.appendChild(tr);
                     }
                 }
                 else{
                     for(i=0;i<essay_record_length;i++){
-                        var tr = document.createElement("tr");
-                        var td_essay_record = document.createElement("td");
-                        var td_ocr_record = document.createElement("td");
-                        td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'][i],null, 4);
-                        td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);
-                        tr.appendChild(td_essay_record);
-                        tr.appendChild(td_ocr_record);
-                        record_area.appendChild(tr);
+                        add_tr_to_table(response['screen_essay_record'][i],response['screen_ocr_record'][i])
                     }
                 }
-            }
-
-            // if (essay_record_length == 0){
-            //     screen_essay_record.innerHTML = 'null';
-            // }
-            // else{
-            //     screen_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'],null, 4);
-            // }
-            // if (ocr_record_length == 0){
-            //     screen_ocr_record.innerHTML = 'null';
-            // }
-            // else{
-            //     screen_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'],null, 4);
-            // }
-            
-            // var tr = document.createElement("tr");
-            // var td_essay_record = document.createElement("td");
-            // var td_ocr_record = document.createElement("td");
-
-            // if (essay_record_length == 0){
-            //     td_essay_record.innerHTML = 'null';
-            // }
-            // else{
-            //     td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'],null, 4);
-            // }
-            // if (ocr_record_length == 0){
-            //     td_ocr_record.innerHTML = 'null';
-            // }
-            // else{
-            //     td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'],null, 4);
-            // }
-            
-            // tr.appendChild(td_essay_record);
-            // tr.appendChild(td_ocr_record);
-            // god_view_table.appendChild(tr);
-
-            
+            }            
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -154,4 +110,28 @@ function clean_screen_record(){
     for(i=len-1;i>=0;i--){
         tr[i].parentNode.removeChild(tr[i]);
     }
+}
+function add_tr_to_table(screen_essay_record, screen_ocr_record){
+    var tr = document.createElement("tr");
+    var td_essay_record = document.createElement("td");
+    var td_ocr_record = document.createElement("td");
+    var td_ocr_image = document.createElement("td");
+    var a_ocr_image = document.createElement("a");
+    var img_ocr_image = document.createElement("img");
+
+    td_essay_record.innerHTML = JSON.stringify(screen_essay_record,null, 4);
+    td_ocr_record.innerHTML = JSON.stringify(screen_ocr_record,null, 4);
+
+    a_ocr_image.setAttribute("href",screen_ocr_record['image_url']);
+    a_ocr_image.setAttribute("target","view_window");
+                    
+    img_ocr_image.setAttribute("src",screen_ocr_record['image_url']);
+    img_ocr_image.setAttribute("width","70%");
+
+    a_ocr_image.appendChild(img_ocr_image);
+    td_ocr_image.appendChild(a_ocr_image);
+    tr.appendChild(td_essay_record);
+    tr.appendChild(td_ocr_record);
+    tr.appendChild(td_ocr_image);
+    record_area.appendChild(tr);
 }

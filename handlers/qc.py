@@ -21,8 +21,14 @@ class QCHandler(BaseHandler):
             title='Quality Control',
             start_date=yesterday_date,
             end_date=today_date,
-            qwk=self.calculate_qwk(option='default'),
-            lwk=self.calculate_lwk(option='default'),
+            vocabulary_qwk=self.calculate_qwk(option='default', dim_name='vocabulary_score'),
+            vocabulary_lwk=self.calculate_lwk(option='default', dim_name='vocabulary_score'),
+            sentence_qwk=self.calculate_qwk(option='default', dim_name='sentence_score'),
+            sentence_lwk=self.calculate_lwk(option='default', dim_name='sentence_score'),
+            structure_qwk=self.calculate_qwk(option='default', dim_name='structure_score'),
+            structure_lwk=self.calculate_lwk(option='default', dim_name='structure_score'),
+            content_qwk=self.calculate_qwk(option='default', dim_name='content_score'),
+            content_lwk=self.calculate_lwk(option='default', dim_name='content_score'),
         )
     
     def get_default_date(self):
@@ -47,7 +53,7 @@ class QCHandler(BaseHandler):
         
         return marked_essay_list
 
-    def get_two_ratings(self, start_date=None, end_date=None, option=None):
+    def get_two_ratings(self, start_date=None, end_date=None, option=None, dim_name=None):
         y0 = []
         y1 = []
         marked_essay_list = self.get_marked_essays()
@@ -60,17 +66,8 @@ class QCHandler(BaseHandler):
                     annotation0 = annotations[0]
                     annotation1 = annotations[1]
 
-                    y0.append(annotation0['overall_score'])
-                    y0.append(annotation0['vocabulary_score'])
-                    y0.append(annotation0['sentence_score'])
-                    y0.append(annotation0['structure_score'])
-                    y0.append(annotation0['content_score'])
-
-                    y1.append(annotation1['overall_score'])
-                    y1.append(annotation1['vocabulary_score'])
-                    y1.append(annotation1['sentence_score'])
-                    y1.append(annotation1['structure_score'])
-                    y1.append(annotation1['content_score'])
+                    y0.append(annotation0[dim_name])
+                    y1.append(annotation1[dim_name])
         else:
             start_timestamp = self.convert_date(start_date)
             end_timestamp = self.convert_date(end_date)
@@ -81,36 +78,33 @@ class QCHandler(BaseHandler):
                     annotation0 = annotations[0]
                     annotation1 = annotations[1]
 
-                    y0.append(annotation0['overall_score'])
-                    y0.append(annotation0['vocabulary_score'])
-                    y0.append(annotation0['sentence_score'])
-                    y0.append(annotation0['structure_score'])
-                    y0.append(annotation0['content_score'])
-
-                    y1.append(annotation1['overall_score'])
-                    y1.append(annotation1['vocabulary_score'])
-                    y1.append(annotation1['sentence_score'])
-                    y1.append(annotation1['structure_score'])
-                    y1.append(annotation1['content_score'])
+                    y0.append(annotation0[dim_name])
+                    y1.append(annotation1[dim_name])
 
         assert(len(y0) == len(y1))
         return y0, y1
 
-    def calculate_qwk(self, start_date=None, end_date=None, option=None):
+    def calculate_qwk(self, start_date=None, end_date=None, option=None, dim_name=None):
         if option == 'default':
-            y0, y1 = self.get_two_ratings(option='default')
+            y0, y1 = self.get_two_ratings(option='default', dim_name=dim_name)
         else:
-            y0, y1 = self.get_two_ratings(start_date, end_date, option='screen')
+            y0, y1 = self.get_two_ratings(start_date, end_date, option='screen', dim_name=dim_name)
         qwk = cohen_kappa_score(y0, y1, weights='quadratic')
         return qwk
     
-    def calculate_lwk(self, start_date=None, end_date=None, option=None):
+    def calculate_lwk(self, start_date=None, end_date=None, option=None, dim_name=None):
         if option == 'default':
-            y0, y1 = self.get_two_ratings(option='default')
+            y0, y1 = self.get_two_ratings(option='default', dim_name=dim_name)
         else:
-            y0, y1 = self.get_two_ratings(start_date, end_date, option='screen')
+            y0, y1 = self.get_two_ratings(start_date, end_date, option='screen', dim_name=dim_name)
         lwk = cohen_kappa_score(y0, y1, weights='linear')
         return lwk
+    
+    def handle_NaN(self, calculate_result):
+        if(calculate_result != calculate_result):
+            return 'nan'
+        else:
+            return calculate_result
 
     def post(self):
         start_date = self.get_argument('start_date')
@@ -121,7 +115,17 @@ class QCHandler(BaseHandler):
         response = {}
         response['start_timestamp'] = start_timestamp
         response['end_timestamp'] = end_timestamp
-        response['qwk'] = self.calculate_qwk(start_date, end_date, option='screen')
-        response['lwk'] = self.calculate_lwk(start_date, end_date, option='screen')
+
+        response['vocabulary_qwk'] = self.handle_NaN(self.calculate_qwk(start_date, end_date, option='screen',dim_name='vocabulary_score'))
+        response['vocabulary_lwk'] = self.handle_NaN(self.calculate_lwk(start_date, end_date, option='screen',dim_name='vocabulary_score'))
+        response['sentence_qwk'] = self.handle_NaN(self.calculate_qwk(start_date, end_date, option='screen',dim_name='sentence_score'))
+        response['sentence_lwk'] = self.handle_NaN(self.calculate_lwk(start_date, end_date, option='screen',dim_name='sentence_score'))
+        response['structure_qwk'] = self.handle_NaN(self.calculate_qwk(start_date, end_date, option='screen',dim_name='structure_score'))
+        response['structure_lwk'] = self.handle_NaN(self.calculate_lwk(start_date, end_date, option='screen',dim_name='structure_score'))
+        response['content_qwk'] = self.handle_NaN(self.calculate_qwk(start_date, end_date, option='screen',dim_name='content_score'))
+        response['content_lwk'] = self.handle_NaN(self.calculate_lwk(start_date, end_date, option='screen',dim_name='content_score'))
+
+
+        
         self.write(response)
 

@@ -34,8 +34,15 @@ function qc(button) {
 
             var qc_table = document.getElementById('qc_table');
             var td = qc_table.getElementsByTagName("td");
-            td[0].innerHTML = response['qwk'];
-            td[1].innerHTML = response['lwk'];
+
+            td[0].innerHTML = response['vocabulary_qwk'];
+            td[1].innerHTML = response['vocabulary_lwk'];
+            td[2].innerHTML = response['sentence_qwk'];
+            td[3].innerHTML = response['sentence_lwk'];
+            td[4].innerHTML = response['structure_qwk'];
+            td[5].innerHTML = response['structure_lwk'];
+            td[6].innerHTML = response['content_qwk'];
+            td[7].innerHTML = response['content_lwk'];
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
