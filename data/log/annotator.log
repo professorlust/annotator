@@ -448,3 +448,1178 @@ ValueError: invalid literal for int() with base 10: '[object HTMLDivElement]'
 [INFO] (tornado.access) 200 POST /ocr_previous (::1) 1.67ms
 [INFO] (tornado.access) 200 POST /ocr_previous (::1) 1.92ms
 [INFO] (tornado.access) 200 POST /ocr_jump (::1) 1.79ms
+[INFO] (tornado.access) 304 GET /grammar (::1) 87.00ms
+[INFO] (tornado.access) 200 GET /billing (::1) 28.00ms
+[INFO] (tornado.access) 200 GET /static/js/billing.js?v=6c698e40e728053760cd5a32e3dd1bba (::1) 79.00ms
+[INFO] (tornado.access) 200 GET /static/css/billing.css?v=6635e46dbe8776e0e1039d725c704f68 (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /static/css/bootstrap-datetimepicker.min.css?v=3fde88619222e012ff01e47e9f2b7725 (::1) 2.00ms
+[INFO] (tornado.access) 200 GET / (::1) 21.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET / (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /qc (::1) 34.00ms
+[INFO] (tornado.access) 200 GET /static/js/qc.js?v=6689bd2c6fa1b6bafdc8eb52bdcbda0f (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /qc (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /qc (::1) 3.00ms
+[INFO] (tornado.access) 304 GET / (::1) 11.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 39.00ms
+[INFO] (tornado.access) 304 GET / (::1) 4.00ms
+[INFO] (tornado.access) 304 GET / (::1) 7.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /mark (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /mark (::1) 6.00ms
+[INFO] (tornado.access) 304 GET /mark (::1) 6.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 65.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 1.00ms
+[INFO] (tornado.access) 302 GET / (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 20.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 5.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 0.00ms
+[INFO] (tornado.access) 302 GET / (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 2.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 6.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 10.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 280.00ms
+[INFO] (tornado.access) 200 GET / (::1) 13.00ms
+[INFO] (tornado.access) 304 GET / (::1) 14.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 72.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 0.00ms
+[INFO] (tornado.access) 302 GET / (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 4.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 0.00ms
+[INFO] (tornado.access) 200 GET / (::1) 6.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 209.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 304 GET / (::1) 13.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 6.00ms
+[INFO] (tornado.access) 304 GET / (::1) 7.00ms
+[INFO] (tornado.access) 304 GET /mark (::1) 12.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 1.00ms
+[INFO] (tornado.access) 302 GET / (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 2.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 12.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 3.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 1.00ms
+[INFO] (tornado.access) 302 GET / (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 3.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 7.00ms
+[INFO] (tornado.access) 304 GET /mark (::1) 13.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 352.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 0.00ms
+[INFO] (tornado.access) 302 GET / (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 2.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 6.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\ocr.py modified; restarting server
+[INFO] (tornado.access) 304 GET / (::1) 15.00ms
+[ERROR] (tornado.application) Uncaught exception GET /ocr (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/ocr', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\ocr.py", line 15, in get
+    self.get_ocr()
+  File "D:\dc\annotator\handlers\ocr.py", line 39, in get_ocr
+    ocr_record = candidates.aggregate([{'$sample':{size:1}}])
+NameError: name 'size' is not defined
+[ERROR] (tornado.access) 500 GET /ocr (::1) 5.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\ocr.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception GET /ocr (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/ocr', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\ocr.py", line 15, in get
+    self.get_ocr()
+  File "D:\dc\annotator\handlers\ocr.py", line 41, in get_ocr
+    self.application.current_ocr_id = ocr_record['ocr_id']
+TypeError: 'CommandCursor' object is not subscriptable
+[ERROR] (tornado.access) 500 GET /ocr (::1) 32.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\ocr.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception GET /ocr (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/ocr', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\ocr.py", line 15, in get
+    self.get_ocr()
+  File "D:\dc\annotator\handlers\ocr.py", line 39, in get_ocr
+    ocr_record = candidates.aggregate({'$sample':{'size':1}})
+  File "D:\tools\python36\lib\site-packages\pymongo\collection.py", line 2185, in aggregate
+    **kwargs)
+  File "D:\tools\python36\lib\site-packages\pymongo\collection.py", line 2031, in _aggregate
+    common.validate_list('pipeline', pipeline)
+  File "D:\tools\python36\lib\site-packages\pymongo\common.py", line 409, in validate_list
+    raise TypeError("%s must be a list" % (option,))
+TypeError: pipeline must be a list
+[ERROR] (tornado.access) 500 GET /ocr (::1) 7.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\ocr.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception GET /ocr (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/ocr', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\ocr.py", line 15, in get
+    self.get_ocr()
+  File "D:\dc\annotator\handlers\ocr.py", line 41, in get_ocr
+    self.application.current_ocr_id = ocr_record['ocr_id']
+TypeError: 'CommandCursor' object is not subscriptable
+[ERROR] (tornado.access) 500 GET /ocr (::1) 17.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\ocr.py modified; restarting server
+[INFO] (tornado.access) 200 GET /ocr (::1) 13.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 76.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 200 GET /static/js/ocr.js?v=d6413d1a85f5dc341e2571938234dc29 (::1) 1.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\ocr.py modified; restarting server
+[INFO] (tornado.access) 200 POST /ocr_previous (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /ocr_previous (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /ocr_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /ocr_previous (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /ocr_submit (::1) 67.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.access) 200 GET / (::1) 8.00ms
+[ERROR] (tornado.application) Uncaught exception GET /mark (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/mark', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\mark.py", line 15, in get
+    self.get_essay()
+  File "D:\dc\annotator\handlers\mark.py", line 40, in get_essay
+    essay_record = candidates.aggregate([{'$sample':{'size':1,'annotator': {'$ne': annotator}}}])
+  File "D:\tools\python36\lib\site-packages\pymongo\collection.py", line 2185, in aggregate
+    **kwargs)
+  File "D:\tools\python36\lib\site-packages\pymongo\collection.py", line 2092, in _aggregate
+    client=self.__database.client)
+  File "D:\tools\python36\lib\site-packages\pymongo\pool.py", line 517, in command
+    collation=collation)
+  File "D:\tools\python36\lib\site-packages\pymongo\network.py", line 125, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "D:\tools\python36\lib\site-packages\pymongo\helpers.py", line 145, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+pymongo.errors.OperationFailure: unrecognized option to $sample: annotator
+[ERROR] (tornado.access) 500 GET /mark (::1) 114.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception GET /mark (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/mark', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\mark.py", line 15, in get
+    self.get_essay()
+  File "D:\dc\annotator\handlers\mark.py", line 40, in get_essay
+    essay_record = candidates.aggregate([{'$sample':{'size':1},'annotator': {'$ne': annotator}}])
+  File "D:\tools\python36\lib\site-packages\pymongo\collection.py", line 2185, in aggregate
+    **kwargs)
+  File "D:\tools\python36\lib\site-packages\pymongo\collection.py", line 2092, in _aggregate
+    client=self.__database.client)
+  File "D:\tools\python36\lib\site-packages\pymongo\pool.py", line 517, in command
+    collation=collation)
+  File "D:\tools\python36\lib\site-packages\pymongo\network.py", line 125, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "D:\tools\python36\lib\site-packages\pymongo\helpers.py", line 145, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+pymongo.errors.OperationFailure: A pipeline stage specification object must contain exactly one field.
+[ERROR] (tornado.access) 500 GET /mark (::1) 23.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.access) 200 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 82.00ms
+[INFO] (tornado.access) 200 GET /ocr (::1) 24.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 25.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 8.00ms
+[INFO] (tornado.access) 304 GET / (::1) 5.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 10.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 15.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 15.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 16.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 17.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 16.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 17.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 15.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 5.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 12.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 304 GET / (::1) 10.00ms
+[INFO] (tornado.access) 200 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 5.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 0.00ms
+[INFO] (tornado.access) 302 GET / (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 2.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 5.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 14.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 15.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 21.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 21.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 17.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 21.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 10.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 9.00ms
+[INFO] (tornado.access) 200 GET / (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 10.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 20.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 17.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 3.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 8.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 10.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 7.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 3.00ms
+[INFO] (tornado.access) 200 GET / (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 6.00ms
+[INFO] (tornado.access) 304 GET / (::1) 11.00ms
+[INFO] (tornado.access) 304 GET /mark (::1) 8.00ms
+[INFO] (tornado.access) 200 GET / (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 10.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 160.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 5.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 15.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 14.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 14.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 14.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 7.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 16.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 8.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 18.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 11.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 12.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 6.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 4.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 13.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 13.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 7.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\mark.py modified; restarting server
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 5.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 12.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 8.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 12.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 11.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 8.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 9.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 12.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 6.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 7.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/mark.js?v=0f05dc4c3e330a565b12d4a63d879372 (::1) 85.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 7.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /mark_next (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (::1) 2.00ms
+[INFO] (tornado.access) 304 GET / (::1) 5.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 6.00ms
+[INFO] (tornado.access) 200 GET /static/js/mark.js?v=3f81840c665ece45779dbd4290d60538 (::1) 1.00ms
+[INFO] (tornado.access) 302 GET /signout (::1) 0.00ms
+[INFO] (tornado.access) 302 GET / (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /signin?next=%2F (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /static/css/signin.css?v=872156b1846ca6e1fdfafe422b686c0e (::1) 1.00ms
+[INFO] (tornado.access) 302 POST /signin (::1) 1.00ms
+[INFO] (tornado.access) 200 GET / (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 9.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 347.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 20.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 16.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 18.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 8.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 18.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 14.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 19.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 18.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (::1) 9.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 9.00ms
+[INFO] (tornado.access) 200 GET /mark (::1) 7.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/mark.js?v=e38a5e53be8eeda4bb421b46b28925db (::1) 33.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET / (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /mark (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET / (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET / (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /qc (::1) 24.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /qc (::1) 22.00ms
+[INFO] (tornado.access) 200 POST /qc (::1) 23.00ms
+[INFO] (tornado.access) 304 GET / (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /billing (::1) 9.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET / (::1) 8.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 304 GET / (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /billing (::1) 8.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 304 GET / (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /billing (::1) 7.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET / (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[ERROR] (tornado.application) Uncaught exception GET /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 21, in get
+    end_date=today_date,
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 750, in render
+    html = self.render_string(template_name, **kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 888, in render_string
+    t = loader.load(template_name)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 425, in load
+    self.templates[name] = self._create_template(name)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 453, in _create_template
+    template = Template(f.read(), name=name, loader=self)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 304, in __init__
+    self.file = _File(self, _parse(reader, self))
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 947, in _parse
+    block_body = _parse(reader, template, operator, operator)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 806, in _parse
+    "Missing {%% end %%} block for %s" % in_block)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 786, in raise_parse_error
+    raise ParseError(msg, self.name, self.line)
+tornado.template.ParseError: Missing {% end %} block for for at view.html:93
+[ERROR] (tornado.access) 500 GET /view (::1) 10.00ms
+[ERROR] (tornado.application) Uncaught exception GET /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 21, in get
+    end_date=today_date,
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 750, in render
+    html = self.render_string(template_name, **kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 888, in render_string
+    t = loader.load(template_name)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 425, in load
+    self.templates[name] = self._create_template(name)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 453, in _create_template
+    template = Template(f.read(), name=name, loader=self)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 304, in __init__
+    self.file = _File(self, _parse(reader, self))
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 947, in _parse
+    block_body = _parse(reader, template, operator, operator)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 806, in _parse
+    "Missing {%% end %%} block for %s" % in_block)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 786, in raise_parse_error
+    raise ParseError(msg, self.name, self.line)
+tornado.template.ParseError: Missing {% end %} block for for at view.html:93
+[ERROR] (tornado.access) 500 GET /view (::1) 6.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[ERROR] (tornado.application) Uncaught exception GET /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 2949, in wrapper
+    return method(self, *args, **kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 21, in get
+    end_date=today_date,
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 750, in render
+    html = self.render_string(template_name, **kwargs)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 888, in render_string
+    t = loader.load(template_name)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 425, in load
+    self.templates[name] = self._create_template(name)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 453, in _create_template
+    template = Template(f.read(), name=name, loader=self)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 304, in __init__
+    self.file = _File(self, _parse(reader, self))
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 947, in _parse
+    block_body = _parse(reader, template, operator, operator)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 806, in _parse
+    "Missing {%% end %%} block for %s" % in_block)
+  File "D:\tools\python36\lib\site-packages\tornado\template.py", line 786, in raise_parse_error
+    raise ParseError(msg, self.name, self.line)
+tornado.template.ParseError: Missing {% end %} block for for at view.html:93
+[ERROR] (tornado.access) 500 GET /view (::1) 5.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 304 GET / (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /qc (::1) 28.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 304 GET / (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /qc (::1) 28.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.access) 304 GET /qc (::1) 35.00ms
+[INFO] (tornado.access) 304 GET /static/js/qc.js?v=6689bd2c6fa1b6bafdc8eb52bdcbda0f (::1) 79.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 304 GET / (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /view (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /view (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=5b27d31630197ff1ccab81ee6e3517a3 (::1) 9.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 27, in post
+    start_timestamp = self.convert_date(start_date)
+  File "D:\dc\annotator\handlers\view.py", line 54, in convert_date
+    d = date(int(date_list[0]), int(date_list[1]), int(date_list[2]))
+NameError: name 'date' is not defined
+[ERROR] (tornado.access) 500 POST /view (::1) 9.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=5b27d31630197ff1ccab81ee6e3517a3 (::1) 77.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 28, in post
+    start_timestamp = self.convert_date(start_date)
+  File "D:\dc\annotator\handlers\view.py", line 56, in convert_date
+    timestamp = calendar.timegm(d.timetuple())
+NameError: name 'calendar' is not defined
+[ERROR] (tornado.access) 500 POST /view (::1) 7.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=5b27d31630197ff1ccab81ee6e3517a3 (::1) 82.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 32, in post
+    if self.is_annotator_valid(annotator):
+TypeError: is_annotator_valid() takes 1 positional argument but 2 were given
+[ERROR] (tornado.access) 500 POST /view (::1) 4.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 42, in post
+    response['qwk'] = self.calculate_qwk(start_date, end_date, option='screen')
+AttributeError: 'ViewHandler' object has no attribute 'calculate_qwk'
+[ERROR] (tornado.access) 500 POST /view (::1) 14.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 42, in post
+    response['qwk'] = self.calculate_qwk(start_date, end_date, option='screen')
+AttributeError: 'ViewHandler' object has no attribute 'calculate_qwk'
+[ERROR] (tornado.access) 500 POST /view (::1) 4.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=5b27d31630197ff1ccab81ee6e3517a3 (::1) 74.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 0.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=933176c5019bedd4cf7f080363529fdf (::1) 11.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=df3bff880cd20f7485284866a8b193ea (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 0.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 1.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.access) 200 POST /view (::1) 1.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 33, in post
+    essay_record = self.get_essay_record()
+TypeError: get_essay_record() takes 0 positional arguments but 1 was given
+[ERROR] (tornado.access) 500 POST /view (::1) 9.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 45, in post
+    self.write(response)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 741, in write
+    chunk = escape.json_encode(chunk)
+  File "D:\tools\python36\lib\site-packages\tornado\escape.py", line 81, in json_encode
+    return json.dumps(value).replace("</", "<\\/")
+  File "D:\tools\python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\tools\python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\tools\python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\tools\python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Cursor' is not JSON serializable
+[ERROR] (tornado.access) 500 POST /view (::1) 32.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 33, in post
+    screen_essay_record = self.get_essay_record()
+  File "D:\dc\annotator\handlers\view.py", line 74, in get_essay_record
+    return screen_essay_record
+UnboundLocalError: local variable 'screen_essay_record' referenced before assignment
+[ERROR] (tornado.access) 500 POST /view (::1) 10.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 33, in post
+    screen_essay_record = self.get_essay_record()
+  File "D:\dc\annotator\handlers\view.py", line 74, in get_essay_record
+    return screen_essay_record
+UnboundLocalError: local variable 'screen_essay_record' referenced before assignment
+[ERROR] (tornado.access) 500 POST /view (::1) 4.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 45, in post
+    self.write(response)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 741, in write
+    chunk = escape.json_encode(chunk)
+  File "D:\tools\python36\lib\site-packages\tornado\escape.py", line 81, in json_encode
+    return json.dumps(value).replace("</", "<\\/")
+  File "D:\tools\python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\tools\python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\tools\python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\tools\python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'ObjectId' is not JSON serializable
+[ERROR] (tornado.access) 500 POST /view (::1) 26.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 45, in post
+    self.write(response)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 741, in write
+    chunk = escape.json_encode(chunk)
+  File "D:\tools\python36\lib\site-packages\tornado\escape.py", line 81, in json_encode
+    return json.dumps(value).replace("</", "<\\/")
+  File "D:\tools\python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\tools\python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\tools\python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\tools\python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'ObjectId' is not JSON serializable
+[ERROR] (tornado.access) 500 POST /view (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=b4c6fcfa6a0c48fa1660ebd496c1ad3e (::1) 83.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 45, in post
+    self.write(response)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 741, in write
+    chunk = escape.json_encode(chunk)
+  File "D:\tools\python36\lib\site-packages\tornado\escape.py", line 81, in json_encode
+    return json.dumps(value).replace("</", "<\\/")
+  File "D:\tools\python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\tools\python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\tools\python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\tools\python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'ObjectId' is not JSON serializable
+[ERROR] (tornado.access) 500 POST /view (::1) 15.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[ERROR] (tornado.application) Uncaught exception POST /view (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/view', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "D:\dc\annotator\handlers\view.py", line 45, in post
+    self.write(response)
+  File "D:\tools\python36\lib\site-packages\tornado\web.py", line 741, in write
+    chunk = escape.json_encode(chunk)
+  File "D:\tools\python36\lib\site-packages\tornado\escape.py", line 81, in json_encode
+    return json.dumps(value).replace("</", "<\\/")
+  File "D:\tools\python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\tools\python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\tools\python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\tools\python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'ObjectId' is not JSON serializable
+[ERROR] (tornado.access) 500 POST /view (::1) 35.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 73.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=b4c6fcfa6a0c48fa1660ebd496c1ad3e (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 8.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=4489096fc26417c8a705e9eb95f9c9c5 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 12.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=400cb0565a43088b2ad5a05442f3ea66 (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 7.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=dcd18a383db788fb0d739367ffeb2894 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 6.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 6.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=dcd18a383db788fb0d739367ffeb2894 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 12.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=7ffe8f1f4485c1d58c6b522c6a89ac71 (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 9.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=7ffe8f1f4485c1d58c6b522c6a89ac71 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=6d8712b66d9a4163c71863a00a8ff11e (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 15.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=1fc4b140627bdcf82c1f40cd24716035 (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 8.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=c39aa40d87fb9312ac79e2ae87ecf611 (::1) 5.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 11.00ms
+[INFO] (tornado.general) D:\dc\annotator\handlers\view.py modified; restarting server
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=112505889f895626daffda7fb40009c6 (::1) 105.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 15.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 2.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=7e1ed415938b05967ef3b114d03594ee (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 19.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 19.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 8.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 5.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=44b1ca80ef3624a0921ec71456cf12ad (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=44b1ca80ef3624a0921ec71456cf12ad (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=3c883ab5fa45e2e6a63feda5cc36c5f6 (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 4.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=601407ed596e176bc39ace8b08344900 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=3e670bc26175d6031601e3eb23928d46 (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=bfdc1574264657706b1dec4ea446c5b1 (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 7.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=51ef18a939284260bf260aa46504eec8 (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 4.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=b0582d270d63b3bf617c0327acec82b4 (::1) 11.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 3.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=3d2cc14a1137824e4ab8eca0351df49a (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 3.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 10.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 20.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 5.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=6dd0e3ccbcc13ad930613281d33b76d4 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 8.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=6dd0e3ccbcc13ad930613281d33b76d4 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 5.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=9753752a1ee46c42b9fa118daac458f9 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 23.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 8.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=9753752a1ee46c42b9fa118daac458f9 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 11.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=9753752a1ee46c42b9fa118daac458f9 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 10.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=9753752a1ee46c42b9fa118daac458f9 (::1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 7.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 4.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=9753752a1ee46c42b9fa118daac458f9 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 14.00ms
+[INFO] (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=9753752a1ee46c42b9fa118daac458f9 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (::1) 14.00ms
+[INFO] (tornado.access) 200 GET /view (127.0.0.1) 116.00ms
+[INFO] (tornado.access) 304 GET /static/js/view.js?v=9753752a1ee46c42b9fa118daac458f9 (127.0.0.1) 67.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (127.0.0.1) 0.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (127.0.0.1) 0.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 4.00ms
+[INFO] (tornado.access) 304 GET / (127.0.0.1) 24.00ms
+[WARNING] (tornado.access) 404 GET /favicon.ico (127.0.0.1) 25.00ms
+[INFO] (tornado.access) 200 GET /mark (127.0.0.1) 109.00ms
+[INFO] (tornado.access) 304 GET / (127.0.0.1) 10.00ms
+[INFO] (tornado.access) 200 GET /view (127.0.0.1) 3.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 5.00ms
+[INFO] (tornado.access) 304 GET / (127.0.0.1) 9.00ms
+[INFO] (tornado.access) 200 GET /ocr (127.0.0.1) 135.00ms
+[INFO] (tornado.access) 200 GET /static/js/ocr.js?v=d6413d1a85f5dc341e2571938234dc29 (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 200 POST /ocr_submit (127.0.0.1) 166.00ms
+[INFO] (tornado.access) 200 POST /ocr_submit (127.0.0.1) 22.00ms
+[INFO] (tornado.access) 200 POST /ocr_next (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 200 POST /ocr_submit (127.0.0.1) 32.00ms
+[INFO] (tornado.access) 200 GET / (127.0.0.1) 8.00ms
+[INFO] (tornado.access) 200 GET /billing (127.0.0.1) 103.00ms
+[INFO] (tornado.access) 200 GET /static/css/billing.css?v=6635e46dbe8776e0e1039d725c704f68 (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 200 GET /static/css/bootstrap-datetimepicker.min.css?v=3fde88619222e012ff01e47e9f2b7725 (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 304 GET / (127.0.0.1) 7.00ms
+[INFO] (tornado.access) 304 GET /mark (127.0.0.1) 4.00ms
+[INFO] (tornado.access) 200 POST /mark_next (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_previous (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_next (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 200 POST /mark_submit (127.0.0.1) 7.00ms
+[INFO] (tornado.access) 304 GET / (127.0.0.1) 10.00ms
+[INFO] (tornado.access) 200 GET /view (127.0.0.1) 3.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 7.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 11.00ms
+[INFO] (tornado.access) 200 GET /view (127.0.0.1) 6.00ms
+[INFO] (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (127.0.0.1) 2.00ms
+[INFO] (tornado.access) 304 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 200 GET /static/js/view.js?v=06639406be32c482a8bbe808fdd58518 (127.0.0.1) 11.00ms
+[INFO] (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (127.0.0.1) 1.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 11.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 14.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 16.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 12.00ms
+[INFO] (tornado.access) 200 POST /view (127.0.0.1) 15.00ms
+[INFO] (tornado.access) 304 GET / (127.0.0.1) 7.00ms
