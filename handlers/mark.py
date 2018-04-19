@@ -36,14 +36,17 @@ class MarkHandler(BaseHandler):
     def get_essay(self):
         candidates = self.application.db.essay_candidates
         annotator = (self.current_user).decode('ascii')
-        essay_record = candidates.find_one({'annotator': {'$ne': annotator}})
+        #essay_record = candidates.find_one({'annotator': {'$ne': annotator}})
+        essay_record = candidates.aggregate([{'$match':{'annotator': {'$ne': annotator}}},
+                                             {'$sample':{'size':1}}])
         if essay_record != None:
-            self.application.current_essay_id = essay_record['essay_id']
-            self.application.current_essay = essay_record['essay']
+            for essay in essay_record:
+                self.application.current_essay_id = essay['essay_id']
+                self.application.current_essay = essay['essay']
         else:
             self.application.current_essay_id = self.application.essay_quantity-1
             self.application.current_essay = self.application.essays[self.application.essay_quantity-1]
-    
+
     def get_mark(self):
         candidates = self.application.db.essay_candidates
         essay_id = self.application.current_essay_id
@@ -79,8 +82,7 @@ class MarkSubmitHandler(BaseHandler):
             self.write_db(mark_record)
             response['invalid_flag'] = False
         else:
-            response['invalid_flag'] = True
-            
+            response['invalid_flag'] = True 
         self.get_essay()
         self.get_progress()
         self.get_mark()
@@ -90,7 +92,7 @@ class MarkSubmitHandler(BaseHandler):
         response['annotated_essay_quantity'] = self.application.annotated_essay_quantity
         response['annotation_essay_ratio'] = self.application.annotation_essay_ratio
         response['essay_annotator_mark'] = self.application.essay_annotator_mark
-        
+
         # check db
         candidates = self.application.db.essay_candidates
         annotator = (self.current_user).decode('ascii')
@@ -112,10 +114,12 @@ class MarkSubmitHandler(BaseHandler):
     def get_essay(self):
         candidates = self.application.db.essay_candidates
         annotator = (self.current_user).decode('ascii')
-        essay_record = candidates.find_one({'annotator': {'$ne': annotator}})
+        essay_record = candidates.aggregate([{'$match':{'annotator': {'$ne': annotator}}},
+                                             {'$sample':{'size':1}}])
         if essay_record != None:
-            self.application.current_essay_id = essay_record['essay_id']
-            self.application.current_essay = essay_record['essay']
+            for essay in essay_record:
+                self.application.current_essay_id = essay['essay_id']
+                self.application.current_essay = essay['essay']
         else:
             self.application.current_essay_id = self.application.essay_quantity-1
             self.application.current_essay = self.application.essays[self.application.essay_quantity-1]
@@ -206,8 +210,6 @@ class MarkSubmitHandler(BaseHandler):
         if abs(score1 - score2) > round(0.1 * 8):
             record = {}
             record['essay_id'] = essay_id
-            del check_data[0]['essay_id']
-            del check_data[1]['essay_id']
             record['annotator1'] = check_data[0]
             record['annotator2'] = check_data[1]
             unchecked.insert_one(record)

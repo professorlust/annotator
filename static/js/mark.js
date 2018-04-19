@@ -153,12 +153,24 @@ function submitEssayMark(button) {
             var empty_flag = response['empty_flag'];
             if (empty_flag) {
                 alert("All the essays have been marked");
+                var annotated_essay_quantity = document.getElementById("annotated_quantity");
+                annotated_essay_quantity.innerHTML = response['annotated_essay_quantity'];
+                var essay_annotator_mark = document.getElementById("annotator_mark");
+                essay_annotator_mark.innerHTML = response['essay_annotator_mark']; 
+                var ratio = document.getElementById("ratio");
+                ratio.innerHTML = response['annotation_essay_ratio'];
                 return
             }
 
             var invalid_flag = response['invalid_flag'];
             if (invalid_flag) {
                 alert("Submission invalid! This essay has been marked by two persons");
+                var annotated_essay_quantity = document.getElementById("annotated_quantity");
+                annotated_essay_quantity.innerHTML = response['annotated_essay_quantity'];
+                var essay_annotator_mark = document.getElementById("annotator_mark");
+                essay_annotator_mark.innerHTML = response['essay_annotator_mark']; 
+                var ratio = document.getElementById("ratio");
+                ratio.innerHTML = response['annotation_essay_ratio'];
                 return
             }
 
