@@ -31,7 +31,7 @@ from bson.objectid import ObjectId
 import logging
 logging.basicConfig(
     level=logging.INFO,
-    format='[%(levelname)s] (%(name)s) %(message)s',
+    format='[%(levelname)s] (%(asctime)s) (%(name)s) %(message)s',
     handlers=[
         logging.FileHandler('./data/log/annotator.log', encoding='utf8'),
         logging.StreamHandler()
