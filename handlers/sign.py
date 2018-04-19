@@ -11,7 +11,7 @@ class SigninHandler(BaseHandler):
     @tornado.gen.coroutine
     def get(self):
         incorrect = self.get_secure_cookie("incorrect")
-        if incorrect and int(incorrect) > 5:
+        if incorrect and int(incorrect) > 20:
             self.write('blocked')
             return
         
@@ -23,7 +23,7 @@ class SigninHandler(BaseHandler):
     @tornado.gen.coroutine
     def post(self):
         incorrect = self.get_secure_cookie("incorrect")
-        if incorrect and int(incorrect) > 5:
+        if incorrect and int(incorrect) > 20:
             self.write('blocked')
             return
         
