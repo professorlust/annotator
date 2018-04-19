@@ -30,8 +30,8 @@ class ViewHandler(BaseHandler):
         end_timestamp = self.convert_date(end_date)
         annotator = self.get_argument('annotator')
         if self.is_annotator_valid(annotator):
-            screen_essay_record = self.get_essay_record()
-            screen_ocr_record = self.get_ocr_record()
+            screen_essay_record = self.get_essay_record(start_timestamp, end_timestamp)
+            screen_ocr_record = self.get_ocr_record(start_timestamp, end_timestamp)
         else:
             screen_essay_record = []
             screen_ocr_record = []
@@ -65,10 +65,10 @@ class ViewHandler(BaseHandler):
         else:
             return False
     
-    def get_essay_record(self):
+    def get_essay_record(self,start,end):
         data = self.application.db.essay_data
         annotator = self.get_argument('annotator')
-        essay_record = data.find({'annotator': annotator})
+        essay_record = data.find({'annotator': annotator, "time": {"$gte": start, "$lt": end}})
         if essay_record == None:
             screen_essay_record = []
         else:
@@ -79,10 +79,10 @@ class ViewHandler(BaseHandler):
         print(screen_essay_record)
         return screen_essay_record
         
-    def get_ocr_record(self):
+    def get_ocr_record(self,start,end):
         data = self.application.db.ocr_data
         annotator = self.get_argument('annotator')
-        ocr_record = data.find({'annotator': annotator})
+        ocr_record = data.find({'annotator': annotator, "time": {"$gte": start, "$lt": end}})
         if ocr_record == None:
             screen_ocr_record = []
         else:

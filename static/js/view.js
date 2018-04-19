@@ -42,21 +42,81 @@ function screen(button) {
                 alert("Annotator not valid!");
                 return
             }
-            td_amount = response['screen_essay_record']
-            var screen_essay_record= document.getElementById('screen_essay_record');
-            var screen_ocr_record = document.getElementById('screen_ocr_record');
-            if (essay_record_length == 0){
-                screen_essay_record.innerHTML = 'null';
+
+            clean_screen_record();
+
+            if (essay_record_length > ocr_record_length){
+                for(i=0;i<ocr_record_length;i++){
+                    var tr = document.createElement("tr");
+                    var td_essay_record = document.createElement("td");
+                    var td_ocr_record = document.createElement("td");
+                    td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'][i],null, 4);
+                    td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);
+                    tr.appendChild(td_essay_record);
+                    tr.appendChild(td_ocr_record);
+                    record_area.appendChild(tr);
+                }
+                for(i=ocr_record_length;i<essay_record_length;i++){
+                    var tr = document.createElement("tr");
+                    var td_essay_record = document.createElement("td");
+                    var td_ocr_record = document.createElement("td");
+                    td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'][i],null, 4);
+                    td_ocr_record.innerHTML = "";
+                    tr.appendChild(td_essay_record);
+                    tr.appendChild(td_ocr_record);
+                    record_area.appendChild(tr);
+                }
             }
             else{
-                screen_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'],null, 4);
+                if(essay_record_length < ocr_record_length){
+                    for(i=0;i<essay_record_length;i++){
+                        var tr = document.createElement("tr");
+                        var td_essay_record = document.createElement("td");
+                        var td_ocr_record = document.createElement("td");
+                        td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'][i],null, 4);
+                        td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);
+                        tr.appendChild(td_essay_record);
+                        tr.appendChild(td_ocr_record);
+                        record_area.appendChild(tr);
+                    }
+                    for(i=essay_record_length;i<ocr_record_length;i++){
+                        var tr = document.createElement("tr");
+                        var td_essay_record = document.createElement("td");
+                        var td_ocr_record = document.createElement("td");
+                        td_essay_record.innerHTML = "";
+                        td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);;
+                        tr.appendChild(td_essay_record);
+                        tr.appendChild(td_ocr_record);
+                        record_area.appendChild(tr);
+                    }
+                }
+                else{
+                    for(i=0;i<essay_record_length;i++){
+                        var tr = document.createElement("tr");
+                        var td_essay_record = document.createElement("td");
+                        var td_ocr_record = document.createElement("td");
+                        td_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'][i],null, 4);
+                        td_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'][i],null, 4);
+                        tr.appendChild(td_essay_record);
+                        tr.appendChild(td_ocr_record);
+                        record_area.appendChild(tr);
+                    }
+                }
             }
-            if (ocr_record_length == 0){
-                screen_ocr_record.innerHTML = 'null';
-            }
-            else{
-                screen_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'],null, 4);
-            }
+
+            // if (essay_record_length == 0){
+            //     screen_essay_record.innerHTML = 'null';
+            // }
+            // else{
+            //     screen_essay_record.innerHTML = JSON.stringify(response['screen_essay_record'],null, 4);
+            // }
+            // if (ocr_record_length == 0){
+            //     screen_ocr_record.innerHTML = 'null';
+            // }
+            // else{
+            //     screen_ocr_record.innerHTML = JSON.stringify(response['screen_ocr_record'],null, 4);
+            // }
+            
             // var tr = document.createElement("tr");
             // var td_essay_record = document.createElement("td");
             // var td_ocr_record = document.createElement("td");
@@ -86,4 +146,12 @@ function screen(button) {
             console.log("Something went wrong:(");
         }
     });
+}
+function clean_screen_record(){
+    var record_area = document.getElementById('record_area');
+    var tr = record_area.getElementsByTagName("tr");
+    var len = tr.length;
+    for(i=len-1;i>=0;i--){
+        tr[i].parentNode.removeChild(tr[i]);
+    }
 }
