@@ -50,3 +50,5 @@
 [INFO] (2018-04-19 21:27:57,494) (tornado.access) 200 POST /mark_previous (::1) 1.71ms
 [INFO] (2018-04-19 21:27:58,651) (tornado.access) 200 POST /mark_next (::1) 1.45ms
 [INFO] (2018-04-19 21:27:59,137) (tornado.access) 200 POST /mark_next (::1) 1.57ms
+[INFO] (2018-04-19 21:29:28,160) (tornado.access) 200 GET /mark (::1) 13.52ms
+[INFO] (2018-04-19 21:29:30,881) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 10.96ms
