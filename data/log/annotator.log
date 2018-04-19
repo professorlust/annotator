@@ -202,3 +202,13 @@
 [INFO] (2018-04-19 18:10:03,825) (tornado.access) 200 GET /static/js/view.js?v=e9ea8c177da6ed442221a8bb232f5c88 (::1) 8.00ms
 [INFO] (2018-04-19 18:10:04,143) (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
 [INFO] (2018-04-19 18:10:04,863) (tornado.access) 200 POST /view (::1) 11.00ms
+[INFO] (2018-04-19 18:15:46,023) (tornado.access) 200 GET /view (::1) 3.00ms
+[INFO] (2018-04-19 18:15:46,062) (tornado.access) 304 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 1.00ms
+[INFO] (2018-04-19 18:15:46,065) (tornado.access) 304 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 1.00ms
+[INFO] (2018-04-19 18:15:46,069) (tornado.access) 304 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 1.00ms
+[INFO] (2018-04-19 18:15:46,072) (tornado.access) 304 GET /static/css/main.css?v=086ddf1ee4497f17e283f1b6986ef00a (::1) 0.00ms
+[INFO] (2018-04-19 18:15:46,073) (tornado.access) 304 GET /static/js/view.js?v=e9ea8c177da6ed442221a8bb232f5c88 (::1) 0.00ms
+[INFO] (2018-04-19 18:15:46,075) (tornado.access) 200 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 6.00ms
+[INFO] (2018-04-19 18:15:46,409) (tornado.access) 304 GET /static/css/bootstrap.min.css.map (::1) 1.00ms
+[INFO] (2018-04-19 18:15:47,878) (tornado.access) 200 POST /view (::1) 8.00ms
+[INFO] (2018-04-19 18:16:10,656) (tornado.access) 200 POST /view (::1) 21.00ms
