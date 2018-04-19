@@ -10,7 +10,7 @@ from handlers.sign import SigninHandler, SignoutHandler
 from handlers.billing import BillingHandler
 from handlers.qc import QCHandler
 from handlers.view import ViewHandler
-from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler
+from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler, MarkJumpHandler
 from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler, OCRJumpHandler
 from handlers.grammar import GrammarHandler
 
@@ -58,6 +58,7 @@ class Application(tornado.web.Application):
             (r'/mark_submit', MarkSubmitHandler),
             (r'/mark_previous', MarkPreviousHandler),
             (r'/mark_next', MarkNextHandler),
+            (r'/mark_jump', MarkJumpHandler),
             (r'/ocr', OCRHandler),
             (r'/ocr_submit', OCRSubmitHandler),
             (r'/ocr_previous', OCRPreviousHandler),
