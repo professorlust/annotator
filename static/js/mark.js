@@ -26,7 +26,7 @@ function previousEssay(button) {
             var essay_annotator_mark = document.getElementById("annotator_mark");
             essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
 
-            clearAllRadios();
+            clearAllMarks();
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -65,7 +65,7 @@ function nextEssay(button) {
             var essay_annotator_mark = document.getElementById("annotator_mark");
             essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
 
-            clearAllRadios();
+            clearAllMarks();
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -73,18 +73,6 @@ function nextEssay(button) {
             console.log("Something went wrong:(");
         }
     });
-}
-
-function isRadioChecked(name) {
-    var radio = document.getElementsByName(name);
-    var is_checked = false;
-    for (var i = 0; i < radio.length; i++) {
-        if (radio[i].checked) {
-            is_checked = true;
-            break;
-        }
-    }
-    return is_checked;
 }
 
 function jumpImage(button) {
@@ -117,7 +105,7 @@ function jumpImage(button) {
             var essay_annotator_mark = document.getElementById("annotator_mark");
             essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
 
-            clearAllRadios();
+            clearAllMarks();
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -130,11 +118,15 @@ function jumpImage(button) {
 function submitEssayMark(button) {
     console.log("Submit essay annotation data...");
 
-    if (isRadioChecked("overall_score")) {
-        var overall_score = Number(document.querySelector('input[name="overall_score"]:checked').value);
+    var overall_score = document.getElementById("overall_score").value;
+
+    if (overall_score == '') {
+        alert("Please enter the Overall Socre!");
+        return
     }
-    else {
-        alert("Please choose the Overall Score!");
+
+    if (overall_score < 0 || overall_score > 15) {
+        alert("Overall Socre is between 0 and 15 (inclusive)!");
         return
     }
 
@@ -171,7 +163,6 @@ function submitEssayMark(button) {
     }
 
     var essay_id = Number(document.getElementById("essay_id").innerHTML);
-
 
     var formData = new FormData();
     formData.append('essay_id', essay_id);
@@ -225,7 +216,7 @@ function submitEssayMark(button) {
             var essay_annotator_mark = document.getElementById("annotator_mark");
             essay_annotator_mark.innerHTML = response['essay_annotator_mark'];            
 
-            clearAllRadios();
+            clearAllMarks();
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -235,8 +226,20 @@ function submitEssayMark(button) {
     });
 }
 
+function isRadioChecked(name) {
+    var radio = document.getElementsByName(name);
+    var is_checked = false;
+    for (var i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
+            is_checked = true;
+            break;
+        }
+    }
+    return is_checked;
+}
+
 function clearMark(button) {
-    clearAllRadios();
+    clearAllMarks();
 }
 
 function setRadioUnchecked(name) {
@@ -246,8 +249,8 @@ function setRadioUnchecked(name) {
     }
 }
 
-function clearAllRadios() {
-    setRadioUnchecked("overall_score");
+function clearAllMarks() {
+    document.getElementById("overall_score").value = '';
     setRadioUnchecked("vocabulary_score");
     setRadioUnchecked("sentence_score");
     setRadioUnchecked("structure_score");
