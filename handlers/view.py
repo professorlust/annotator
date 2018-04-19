@@ -76,7 +76,6 @@ class ViewHandler(BaseHandler):
             for record in essay_record:
                 del record['_id']
                 screen_essay_record.append(record)
-        print(screen_essay_record)
         return screen_essay_record
         
     def get_ocr_record(self,start,end):
@@ -90,5 +89,4 @@ class ViewHandler(BaseHandler):
             for record in ocr_record:
                 del record['_id']
                 screen_ocr_record.append(record)
-        print(screen_ocr_record)
         return screen_ocr_record
