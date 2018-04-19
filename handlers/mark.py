@@ -245,12 +245,39 @@ class MarkPreviousHandler(BaseHandler):
         else:
             self.application.essay_annotator_mark = essay_record['annotator']
 
+
 class MarkNextHandler(BaseHandler):
     def post(self):
         essay_id = int(self.get_argument('essay_id'))
 
         self.get_essay(essay_id + 1)
         self.get_mark()
+        response = {}
+        response['essay'] = self.application.current_essay
+        response['essay_annotator_mark'] = self.application.essay_annotator_mark
+        self.write(response)
+
+    def get_essay(self, essay_id):
+        essay_record = self.application.essays[essay_id]
+        self.application.current_essay_id = essay_id
+        self.application.current_essay = essay_record
+    
+    def get_mark(self):
+        candidates = self.application.db.essay_candidates
+        essay_id = self.application.current_essay_id
+        essay_record = candidates.find_one({'essay_id':essay_id})
+        if essay_record == None:
+            self.application.essay_annotator_mark = 'both'
+        else:
+            self.application.essay_annotator_mark = essay_record['annotator']
+
+
+class MarkJumpHandler(BaseHandler):
+    def post(self):
+        jump_id = int(self.get_argument('jump_id'))
+        self.get_essay(jump_id)
+        self.get_mark()
+
         response = {}
         response['essay'] = self.application.current_essay
         response['essay_annotator_mark'] = self.application.essay_annotator_mark

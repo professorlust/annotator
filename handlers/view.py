@@ -18,7 +18,7 @@ class ViewHandler(BaseHandler):
         self.render(
             'view.html',
             title='God View',
-            annotator='', 
+            annotator='',
             start_date=yesterday_date,
             end_date=today_date
         )

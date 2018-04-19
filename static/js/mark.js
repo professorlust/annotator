@@ -87,6 +87,46 @@ function isRadioChecked(name) {
     return is_checked;
 }
 
+function jumpImage(button) {
+    console.log("Jump tp an essay...");
+
+    var jump_id = Number(document.getElementById("jump_id").value);
+    var essay_sum = Number(document.getElementById("sum").innerHTML) - 1;
+
+    if (jump_id >= essay_sum || jump_id < 0) {
+        alert("There is no such image!");
+        return
+    }
+
+    var formData = new FormData();
+    formData.append('jump_id', jump_id);
+    $.ajax({
+        type: 'POST',
+        url: '/mark_jump',
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(response) {
+            console.log('Response received!');
+
+            var jump_essay_id = document.getElementById("essay_id");
+            jump_essay_id.innerHTML = jump_id;
+            var essay = document.getElementById("essay");
+            essay.innerHTML = response['essay'];
+            var essay_annotator_mark = document.getElementById("annotator_mark");
+            essay_annotator_mark.innerHTML = response['essay_annotator_mark'];
+
+            clearAllRadios();
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            alert(textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
+            console.log("Something went wrong:(");
+        }
+    });
+}
+
 function submitEssayMark(button) {
     console.log("Submit essay annotation data...");
 

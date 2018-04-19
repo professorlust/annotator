@@ -44,10 +44,18 @@
 				<h4 class="mb-3">
 					Essay
 					<div id="essay_id" name="essay_id" class="essay_id">{{ essay_id }}</div>
-					<h5 class="mb-3">
-						<div id="essay" name="essay" class="essay">{{ essay }}</div>
-					</h5>
 				</h4>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<button id="button_jump" class="btn btn-outline-secondary" onclick="jumpImage(this);">Jump</button>
+					</div>
+					<input id="jump_id" type="text" class="form-control" placeholder="Enter the Image ID which you want to jump to" aria-label="" aria-describedby="basic-addon1">
+				</div>
+
+				<div class="mb-3">
+					<div id="essay" name="essay" class="essay">{{ essay }}</div>
+				</div>
 			</div>
 
 			<div class="col-md-5 order-md-2 mb-4">
