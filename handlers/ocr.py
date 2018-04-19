@@ -37,11 +37,15 @@ class OCRHandler(BaseHandler):
     def get_ocr(self):
         candidates = self.application.db.ocr_candidates
         ocr_record = candidates.aggregate([{'$sample':{'size':1}}])
+        #ocr_record = candidates.find_one()
         if ocr_record != None:
             for ocr in ocr_record:
                 self.application.current_ocr_id = ocr['ocr_id']
                 self.application.current_image_url = self.application.image_url_prefix + ocr['image_id']
                 self.application.current_ocr_essay = ocr['essay']
+            # self.application.current_ocr_id = ocr_record['ocr_id']
+            # self.application.current_image_url = self.application.image_url_prefix + ocr_record['image_id']
+            # self.application.current_ocr_essay = ocr_record['essay']
         else:
             # get last one record
             ocr_record = self.application.ocrs[self.application.ocr_quantity - 1]
@@ -102,6 +106,7 @@ class OCRSubmitHandler(BaseHandler):
     def get_ocr(self):
         candidates = self.application.db.ocr_candidates
         ocr_record = candidates.aggregate([{'$sample':{'size':1}}])
+        #ocr_record = candidates.find_one()
         if ocr_record != None:
             for ocr in ocr_record:
                 self.application.current_ocr_id = ocr['ocr_id']
