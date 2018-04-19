@@ -37,7 +37,7 @@ class OCRHandler(BaseHandler):
     def get_ocr(self):
         candidates = self.application.db.ocr_candidates
         ocr_record = candidates.aggregate([{'$sample':{'size':1}}])
-        #ocr_record = candidates.find_one()
+        # ocr_record = candidates.find_one()
         if ocr_record != None:
             for ocr in ocr_record:
                 self.application.current_ocr_id = ocr['ocr_id']
@@ -106,7 +106,7 @@ class OCRSubmitHandler(BaseHandler):
     def get_ocr(self):
         candidates = self.application.db.ocr_candidates
         ocr_record = candidates.aggregate([{'$sample':{'size':1}}])
-        #ocr_record = candidates.find_one()
+        # ocr_record = candidates.find_one()
         if ocr_record != None:
             for ocr in ocr_record:
                 self.application.current_ocr_id = ocr['ocr_id']

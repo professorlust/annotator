@@ -36,7 +36,7 @@ class MarkHandler(BaseHandler):
     def get_essay(self):
         candidates = self.application.db.essay_candidates
         annotator = (self.current_user).decode('ascii')
-        #essay_record = candidates.find_one({'annotator': {'$ne': annotator}})
+        # essay_record = candidates.find_one({'annotator': {'$ne': annotator}})
         essay_record = candidates.aggregate([{'$match':{'annotator': {'$ne': annotator}}},
                                              {'$sample':{'size':1}}])
         if essay_record != None:
@@ -186,7 +186,7 @@ class MarkSubmitHandler(BaseHandler):
                         }
                     }
                 )
-            #if the essay has been corrected by the other annotator
+            # if the essay has been corrected by the other annotator
             else:
                 self.check_mark(essay_id) # check the scores of the essay marked by two persons
                 candidates.delete_one({'essay_id': essay_id})
