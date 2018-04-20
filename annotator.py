@@ -112,11 +112,15 @@ class Application(tornado.web.Application):
 
 
     def connect_db(self):
-        self.conn = MongoClient("localhost", 27017)
-        self.db = self.conn.annotation
-        self.init_mark_db()
-        self.init_ocr_db()
-        self.init_grammar_db()
+        try:
+            self.conn = MongoClient("localhost", 27017)
+            self.db = self.conn.annotation
+            self.init_mark_db()
+            self.init_ocr_db()
+            self.init_grammar_db()
+        except Exception as e:
+            logger.error(e)
+            raise
 
     def init_mark_db(self):
         '''essay mark annotation'''
@@ -169,15 +173,19 @@ class Application(tornado.web.Application):
         pass
 
     def load_accounts(self):
-        self.account_path = './data/account.txt'
-        self.accounts = {}  # [{account: password}]
-        with open(self.account_path, 'r') as accounts_file:
-            for line in accounts_file:
-                line = line.strip()
-                (account, password) = line.split(' ')
-                self.accounts[account] = password
-        # print('Accounts:')
-        # print(json.dumps(self.accounts, indent=4, sort_keys=True))
+        try:
+            self.account_path = './data/account.txt'
+            self.accounts = {}  # [{account: password}]
+            with open(self.account_path, 'r') as accounts_file:
+                for line in accounts_file:
+                    line = line.strip()
+                    (account, password) = line.split(' ')
+                    self.accounts[account] = password
+            # print('Accounts:')
+            # print(json.dumps(self.accounts, indent=4, sort_keys=True))
+        except Exception as e:
+            logger.error(e)
+            raise
 
 def main():
     print("--------------------------------------------------------------------------------")
