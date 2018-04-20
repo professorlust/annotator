@@ -52,3 +52,8 @@
 [INFO] (2018-04-19 21:27:59,137) (tornado.access) 200 POST /mark_next (::1) 1.57ms
 [INFO] (2018-04-19 21:29:28,160) (tornado.access) 200 GET /mark (::1) 13.52ms
 [INFO] (2018-04-19 21:29:30,881) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 10.96ms
+[INFO] (2018-04-20 19:00:45,897) (tornado.access) 304 GET / (::1) 21.60ms
+[INFO] (2018-04-20 19:00:49,276) (tornado.access) 200 GET /view (::1) 7.67ms
+[INFO] (2018-04-20 19:00:49,364) (tornado.access) 200 GET /static/js/view.js?v=02ea5676725c39cb1aed1125b114e517 (::1) 53.04ms
+[INFO] (2018-04-20 19:01:08,552) (tornado.access) 200 GET /view (::1) 14.06ms
+[INFO] (2018-04-20 19:01:11,128) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 1.81ms

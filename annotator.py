@@ -110,6 +110,20 @@ class Application(tornado.web.Application):
         self.load_accounts()
         self.connect_db()
 
+    def load_accounts(self):
+        try:
+            self.account_path = './data/account.txt'
+            self.accounts = {}  # [{account: password}]
+            with open(self.account_path, 'r') as accounts_file:
+                for line in accounts_file:
+                    line = line.strip()
+                    (account, password) = line.split(' ')
+                    self.accounts[account] = password
+            # print('Accounts:')
+            # print(json.dumps(self.accounts, indent=4, sort_keys=True))
+        except Exception as e:
+            logger.error(e)
+            raise
 
     def connect_db(self):
         try:
@@ -171,21 +185,6 @@ class Application(tornado.web.Application):
 
     def init_grammar_db(self):
         pass
-
-    def load_accounts(self):
-        try:
-            self.account_path = './data/account.txt'
-            self.accounts = {}  # [{account: password}]
-            with open(self.account_path, 'r') as accounts_file:
-                for line in accounts_file:
-                    line = line.strip()
-                    (account, password) = line.split(' ')
-                    self.accounts[account] = password
-            # print('Accounts:')
-            # print(json.dumps(self.accounts, indent=4, sort_keys=True))
-        except Exception as e:
-            logger.error(e)
-            raise
 
 def main():
     print("--------------------------------------------------------------------------------")
