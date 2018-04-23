@@ -127,7 +127,7 @@ class Application(tornado.web.Application):
 
     def connect_db(self):
         try:
-            self.conn = MongoClient("localhost", 27017)
+            self.conn = MongoClient("10.0.5.40", 27017)
             self.db = self.conn.annotation
             self.init_mark_db()
             self.init_ocr_db()
