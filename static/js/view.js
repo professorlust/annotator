@@ -11,7 +11,8 @@ function screen(button) {
         return
     }
 
-    var annotator = document.getElementById("annotator").value;
+    var annotators = document.getElementById("annotators");
+    var annotator = annotators.options[annotators.selectedIndex].value;
 
     var formData = new FormData();
     formData.append('start_date', start_date);

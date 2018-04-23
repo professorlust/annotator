@@ -57,3 +57,17 @@
 [INFO] (2018-04-20 19:00:49,364) (tornado.access) 200 GET /static/js/view.js?v=02ea5676725c39cb1aed1125b114e517 (::1) 53.04ms
 [INFO] (2018-04-20 19:01:08,552) (tornado.access) 200 GET /view (::1) 14.06ms
 [INFO] (2018-04-20 19:01:11,128) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 1.81ms
+[INFO] (2018-04-23 13:30:47,631) (tornado.access) 200 GET / (::1) 59.66ms
+[INFO] (2018-04-23 13:31:01,082) (tornado.access) 200 GET /ocr (::1) 71.92ms
+[INFO] (2018-04-23 13:31:01,175) (tornado.access) 200 GET /static/js/ocr.js?v=9c72f62e281bf30ccdbd82d2caf3a594 (::1) 33.08ms
+[INFO] (2018-04-23 13:31:07,557) (tornado.access) 200 GET /billing (::1) 168.09ms
+[INFO] (2018-04-23 13:33:41,100) (tornado.general) annotator.py modified; restarting server
+[INFO] (2018-04-23 13:33:47,337) (tornado.access) 304 GET / (::1) 68.14ms
+[INFO] (2018-04-23 13:33:49,307) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 14.33ms
+[INFO] (2018-04-23 13:34:04,362) (tornado.access) 200 GET /view (::1) 11.75ms
+[INFO] (2018-04-23 13:39:47,445) (tornado.access) 200 GET /view (::1) 12.82ms
+[INFO] (2018-04-23 13:39:47,495) (tornado.access) 200 GET /static/js/view.js?v=eed27bbfab858688056c5d5a0d9c8591 (::1) 4.14ms
+[INFO] (2018-04-23 13:39:47,839) (tornado.access) 200 GET /static/js/popper.min.js.map (::1) 4.47ms
+[INFO] (2018-04-23 13:40:16,693) (tornado.access) 200 GET /view (::1) 11.07ms
+[INFO] (2018-04-23 13:40:16,776) (tornado.access) 200 GET /static/js/view.js?v=4e2934ec641a6689ef41da43825d33e0 (::1) 4.78ms
+[INFO] (2018-04-23 13:40:24,207) (tornado.access) 200 POST /view (::1) 303.67ms

@@ -43,6 +43,7 @@ define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 define("xsrf", default=True, help="use xsrf protection", type=bool)
 define("cookie", default="8Vz8CPxFTlGl2YYqKtD0btnWEsZjDUtJklRHc7p85yA=", help="cookie secret", type=str)
+define("ip", default="10.0.5.40", help="remote server ip address", type=str)
 
 
 class Application(tornado.web.Application):
@@ -127,7 +128,7 @@ class Application(tornado.web.Application):
 
     def connect_db(self):
         try:
-            self.conn = MongoClient("10.0.5.40", 27017)
+            self.conn = MongoClient(options.ip, 27017)
             self.db = self.conn.annotation
             self.init_mark_db()
             self.init_ocr_db()
