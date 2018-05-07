@@ -43,7 +43,7 @@ define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=True, help="run in debug mode", type=bool)
 define("xsrf", default=True, help="use xsrf protection", type=bool)
 define("cookie", default="8Vz8CPxFTlGl2YYqKtD0btnWEsZjDUtJklRHc7p85yA=", help="cookie secret", type=str)
-define("ip", default="10.0.5.40", help="remote server ip address", type=str)
+define("mongo", default="localhost", help="MongoDB server ip address", type=str)
 
 
 class Application(tornado.web.Application):
@@ -108,6 +108,9 @@ class Application(tornado.web.Application):
         # grammar check annotation
         self.checked_grammar_ratio = 0.0
 
+        # formula annotation
+        self.checked_formula_ratio = 0.0
+
         self.load_accounts()
         self.connect_db()
 
@@ -128,7 +131,7 @@ class Application(tornado.web.Application):
 
     def connect_db(self):
         try:
-            self.conn = MongoClient(options.ip, 27017)
+            self.conn = MongoClient(options.mongo, 27017)
             self.db = self.conn.annotation
             self.init_mark_db()
             self.init_ocr_db()

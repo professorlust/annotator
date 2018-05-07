@@ -71,3 +71,16 @@
 [INFO] (2018-04-23 13:40:16,693) (tornado.access) 200 GET /view (::1) 11.07ms
 [INFO] (2018-04-23 13:40:16,776) (tornado.access) 200 GET /static/js/view.js?v=4e2934ec641a6689ef41da43825d33e0 (::1) 4.78ms
 [INFO] (2018-04-23 13:40:24,207) (tornado.access) 200 POST /view (::1) 303.67ms
+[INFO] (2018-05-07 20:06:02,341) (tornado.access) 200 GET / (::1) 23.52ms
+[INFO] (2018-05-07 20:06:02,449) (tornado.access) 200 GET /static/js/popper.min.js?v=c1d29c9b4fa7a8ee8417a01bc9ac1b56 (::1) 23.85ms
+[INFO] (2018-05-07 20:06:02,450) (tornado.access) 200 GET /static/js/bootstrap.min.js?v=14d449eb8876fa55e1ef3c2cc52b0c17 (::1) 12.30ms
+[INFO] (2018-05-07 20:06:02,450) (tornado.access) 200 GET /static/css/main.css?v=db22a4cdd4c2712735492b8ae88b21ad (::1) 6.75ms
+[INFO] (2018-05-07 20:06:02,453) (tornado.access) 200 GET /static/js/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039 (::1) 7.21ms
+[INFO] (2018-05-07 20:06:02,454) (tornado.access) 200 GET /static/css/bootstrap.min.css?v=450fc463b8b1a349df717056fbb3e078 (::1) 13.65ms
+[INFO] (2018-05-07 20:06:04,651) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 3.88ms
+[INFO] (2018-05-07 20:17:56,667) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/main.py modified; restarting server
+[INFO] (2018-05-07 20:18:43,556) (tornado.general) annotator.py modified; restarting server
+[INFO] (2018-05-07 20:25:00,929) (tornado.access) 200 GET / (::1) 19.81ms
+[INFO] (2018-05-07 20:25:03,248) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 14.70ms
+[INFO] (2018-05-07 20:25:33,347) (tornado.access) 200 GET / (::1) 16.23ms
+[INFO] (2018-05-07 20:25:35,550) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 1.95ms
