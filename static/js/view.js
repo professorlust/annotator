@@ -1,13 +1,13 @@
 function screen(button) {
-    var start_date = document.getElementById("start_date").value;
-    if (start_date == "") {
-        alert("Please enter the Start Date!");
+    var start_time = document.getElementById("start_time").value;
+    if (start_time == "") {
+        alert("Please enter the Start Time!");
         return
     }
 
-    var end_date = document.getElementById("end_date").value;
-    if (end_date == "") {
-        alert("Please enter the End Date!");
+    var end_time = document.getElementById("end_time").value;
+    if (end_time == "") {
+        alert("Please enter the End Time!");
         return
     }
 
@@ -15,8 +15,8 @@ function screen(button) {
     var annotator = annotators.options[annotators.selectedIndex].value;
 
     var formData = new FormData();
-    formData.append('start_date', start_date);
-    formData.append('end_date', end_date);
+    formData.append('start_time', start_time);
+    formData.append('end_time', end_time);
     formData.append('annotator', annotator);
     $.ajax({
         type: 'POST',
@@ -35,7 +35,7 @@ function screen(button) {
             var annotator_valid_flag = response['annotator_valid_flag'];
 
             if (start_timestamp > end_timestamp) {
-                alert("Start Date > End Date!");
+                alert("Start Time > End Time!");
                 return
             }
 
@@ -99,7 +99,7 @@ function screen(button) {
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
-            alert('Please check the date format!\n\n' + textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
+            alert('Please check the time format!\n\n' + textStatus + ' - ' + errorThrown + '\n\n' + jqXHR.responseText);
             console.log("Something went wrong:(");
         }
     });

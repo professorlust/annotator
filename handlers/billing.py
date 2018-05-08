@@ -12,14 +12,14 @@ import calendar
 
 class BillingHandler(BaseHandler):
     def get(self):
-        a_week_ago, now = self.get_default_time()
+        ago, now = self.get_default_time()
 
         self.get_essay_quantity()
         self.get_ocr_quantity()
         self.render(
             'billing.html',
             title='Billing System',
-            start_time=a_week_ago,
+            start_time=ago,
             end_time=now,
             annotators=self.application.accounts.keys(),
             essay_quantity_for_billing=self.application.essay_quantity_for_billing,
@@ -47,10 +47,10 @@ class BillingHandler(BaseHandler):
     def get_default_time(self):
         current = datetime.datetime.now()
         cur_time = str(current.year) + '/' + str(current.month) + '/' + str(current.day) + '/' + str(current.hour) + '/' + str(current.minute) + '/' + str(current.second)
-        a_week_ago = current - datetime.timedelta(days=7)
-        a_week_ago_time = str(a_week_ago.year) + '/' + str(a_week_ago.month) + '/' + str(a_week_ago.day) + '/' + str(a_week_ago.hour) + '/' + str(a_week_ago.minute) + '/' + str(a_week_ago.second)
+        ago = current - datetime.timedelta(days=1)
+        ago_time = str(ago.year) + '/' + str(ago.month) + '/' + str(ago.day) + '/' + str(ago.hour) + '/' + str(ago.minute) + '/' + str(ago.second)
 
-        return a_week_ago_time, cur_time
+        return ago_time, cur_time
 
     def get_essay_quantity(self):
         data = self.application.db.essay_data

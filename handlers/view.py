@@ -6,28 +6,28 @@
 # Copyright @ Shengjia Yan. All Rights Reserved.
 
 from .base import *
-import calendar
+import time
 import datetime
-from datetime import date
+import calendar
 
 class ViewHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        yesterday_date, today_date = self.get_default_date()
+        yesterday_time, today_time = self.get_default_time()
 
         self.render(
             'view.html',
             title='God View',
             annotators=self.application.accounts.keys(),
-            start_date=yesterday_date,
-            end_date=today_date
+            start_time=yesterday_time,
+            end_time=today_time
         )
 
     def post(self):
-        start_date = self.get_argument('start_date')
-        end_date = self.get_argument('end_date')
-        start_timestamp = self.convert_date(start_date)
-        end_timestamp = self.convert_date(end_date)
+        start_time = self.get_argument('start_time')
+        end_time = self.get_argument('end_time')
+        start_timestamp = self.convert_date(start_time)
+        end_timestamp = self.convert_date(end_time)
         annotator = self.get_argument('annotator')
         if self.is_annotator_valid(annotator):
             screen_essay_record = self.get_essay_record(start_timestamp, end_timestamp)
@@ -45,18 +45,16 @@ class ViewHandler(BaseHandler):
         response['ocr_record_length'] = len(screen_ocr_record)
         response['annotator_valid_flag'] = self.is_annotator_valid(annotator)
         self.write(response)
+    
+    def get_default_time(self):
+        current = datetime.datetime.now()
+        cur_time = str(current.year) + '/' + str(current.month) + '/' + str(current.day) + '/' + str(current.hour) + '/' + str(current.minute) + '/' + str(current.second)
+        ago = current - datetime.timedelta(days=1)
+        ago_time = str(ago.year) + '/' + str(ago.month) + '/' + str(ago.day) + '/' + str(ago.hour) + '/' + str(ago.minute) + '/' + str(ago.second)
+        return ago_time, cur_time
 
-    def get_default_date(self):
-        today = datetime.datetime.now()
-        today_date = str(today.year) + '/' + str(today.month) + '/' + str(today.day)
-        yesterday = today - datetime.timedelta(days=1)
-        yesterday_date = str(yesterday.year) + '/' + str(yesterday.month) + '/' + str(yesterday.day)
-        return yesterday_date, today_date
-
-    def convert_date(self, date_str):
-        date_list = date_str.split('/')
-        d = date(int(date_list[0]), int(date_list[1]), int(date_list[2]))
-        timestamp = calendar.timegm(d.timetuple())
+    def convert_date(self, time_str):
+        timestamp = time.mktime(datetime.datetime.strptime(time_str, "%Y/%m/%d/%H/%M/%S").timetuple())
         return timestamp
 
     def is_annotator_valid(self,annotator):

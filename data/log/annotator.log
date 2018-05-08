@@ -128,3 +128,21 @@ TypeError: function takes at most 3 arguments (6 given)
 [INFO] (2018-05-08 15:57:37,613) (tornado.access) 200 GET /billing (::1) 36.34ms
 [INFO] (2018-05-08 15:57:40,988) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 20.26ms
 [INFO] (2018-05-08 15:57:43,542) (tornado.access) 200 POST /billing (::1) 18.08ms
+[INFO] (2018-05-08 19:41:38,301) (tornado.access) 304 GET / (::1) 26.31ms
+[INFO] (2018-05-08 19:41:42,979) (tornado.access) 200 GET /billing (::1) 68.56ms
+[INFO] (2018-05-08 19:41:49,771) (tornado.access) 200 POST /billing (::1) 18.81ms
+[INFO] (2018-05-08 19:46:05,239) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/view.py modified; restarting server
+[INFO] (2018-05-08 19:46:46,325) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/view.py modified; restarting server
+[INFO] (2018-05-08 19:46:55,201) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/view.py modified; restarting server
+[INFO] (2018-05-08 19:47:28,149) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/view.py modified; restarting server
+[INFO] (2018-05-08 19:47:47,178) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/view.py modified; restarting server
+[INFO] (2018-05-08 19:47:53,873) (tornado.access) 200 GET /billing (::1) 27.99ms
+[INFO] (2018-05-08 19:47:56,275) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 23.75ms
+[INFO] (2018-05-08 19:47:57,840) (tornado.access) 304 GET / (::1) 11.34ms
+[INFO] (2018-05-08 19:48:00,512) (tornado.access) 200 GET /view (::1) 6.66ms
+[INFO] (2018-05-08 19:48:00,588) (tornado.access) 200 GET /static/js/view.js?v=c20ed175e3849fd632199fe39411cc68 (::1) 2.65ms
+[INFO] (2018-05-08 19:48:04,439) (tornado.access) 200 GET /view (::1) 5.95ms
+[INFO] (2018-05-08 19:48:05,736) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 4.11ms
+[INFO] (2018-05-08 19:48:06,386) (tornado.access) 200 GET /view (::1) 5.44ms
+[INFO] (2018-05-08 19:48:07,803) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 2.65ms
+[INFO] (2018-05-08 19:48:08,903) (tornado.access) 200 POST /view (::1) 12.31ms
