@@ -6,36 +6,32 @@
 # Copyright 2018 Shengjia Yan. All Rights Reserved.
 
 from .base import BaseHandler
-import calendar
+import time
 import datetime
-from datetime import date
+import calendar
 
 class BillingHandler(BaseHandler):
     def get(self):
-        a_week_ago_date, today_date = self.get_default_date()
+        a_week_ago, now = self.get_default_time()
 
         self.get_essay_quantity()
         self.get_ocr_quantity()
         self.render(
             'billing.html',
             title='Billing System',
-            start_date=a_week_ago_date,
-            end_date=today_date,
+            start_time=a_week_ago,
+            end_time=now,
             annotators=self.application.accounts.keys(),
             essay_quantity_for_billing=self.application.essay_quantity_for_billing,
             ocr_quantity_for_billing=self.application.ocr_quantity_for_billing,
         )
     
     def post(self):
-        start_date_str = self.get_argument('start_date')
-        end_date_str = self.get_argument('end_date')
-        start_date_list = start_date_str.split('/')
-        end_date_list = end_date_str.split('/')
+        start_str = self.get_argument('start_time')
+        end_str = self.get_argument('end_time')
 
-        start_d = date(int(start_date_list[0]), int(start_date_list[1]), int(start_date_list[2]))
-        start_timestamp = calendar.timegm(start_d.timetuple())
-        end_d = date(int(end_date_list[0]), int(end_date_list[1]), int(end_date_list[2]))
-        end_timestamp = calendar.timegm(end_d.timetuple())
+        start_timestamp = time.mktime(datetime.datetime.strptime(start_str, "%Y/%m/%d/%H/%M/%S").timetuple())
+        end_timestamp = time.mktime(datetime.datetime.strptime(end_str, "%Y/%m/%d/%H/%M/%S").timetuple())
 
         self.screen_essay_quantity(start_timestamp, end_timestamp)
         self.screen_ocr_quantity(start_timestamp, end_timestamp)
@@ -48,13 +44,13 @@ class BillingHandler(BaseHandler):
         response['ocr_progress'] = self.application.screened_ocr_quantity_for_billing
         self.write(response)
         
-    def get_default_date(self):
-        today = datetime.datetime.now()
-        today_date = str(today.year) + '/' + str(today.month) + '/' + str(today.day)
-        a_week_ago = today - datetime.timedelta(days=7)
-        a_week_ago_date = str(a_week_ago.year) + '/' + str(a_week_ago.month) + '/' + str(a_week_ago.day)
+    def get_default_time(self):
+        current = datetime.datetime.now()
+        cur_time = str(current.year) + '/' + str(current.month) + '/' + str(current.day) + '/' + str(current.hour) + '/' + str(current.minute) + '/' + str(current.second)
+        a_week_ago = current - datetime.timedelta(days=7)
+        a_week_ago_time = str(a_week_ago.year) + '/' + str(a_week_ago.month) + '/' + str(a_week_ago.day) + '/' + str(a_week_ago.hour) + '/' + str(a_week_ago.minute) + '/' + str(a_week_ago.second)
 
-        return a_week_ago_date, today_date
+        return a_week_ago_time, cur_time
 
     def get_essay_quantity(self):
         data = self.application.db.essay_data

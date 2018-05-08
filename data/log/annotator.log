@@ -84,3 +84,47 @@
 [INFO] (2018-05-07 20:25:03,248) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 14.70ms
 [INFO] (2018-05-07 20:25:33,347) (tornado.access) 200 GET / (::1) 16.23ms
 [INFO] (2018-05-07 20:25:35,550) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 1.95ms
+[INFO] (2018-05-08 14:26:03,622) (tornado.access) 304 GET / (::1) 67.47ms
+[INFO] (2018-05-08 14:26:10,015) (tornado.access) 200 GET /formula (::1) 177.89ms
+[INFO] (2018-05-08 14:26:10,202) (tornado.access) 200 GET /static/js/ocr.js?v=9c72f62e281bf30ccdbd82d2caf3a594 (::1) 62.70ms
+[INFO] (2018-05-08 14:27:15,003) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/formula.py modified; restarting server
+[INFO] (2018-05-08 14:27:23,448) (tornado.access) 304 GET / (::1) 8.89ms
+[INFO] (2018-05-08 14:27:26,973) (tornado.access) 200 GET /formula (::1) 35.90ms
+[INFO] (2018-05-08 14:27:27,080) (tornado.access) 200 GET /static/js/formula.js?v=d41d8cd98f00b204e9800998ecf8427e (::1) 67.87ms
+[INFO] (2018-05-08 14:44:42,315) (tornado.access) 200 GET /formula (::1) 70.41ms
+[INFO] (2018-05-08 14:44:49,082) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 2.95ms
+[INFO] (2018-05-08 14:44:57,405) (tornado.access) 200 GET /formula (::1) 28.11ms
+[INFO] (2018-05-08 14:45:03,631) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 3.83ms
+[INFO] (2018-05-08 14:45:20,077) (tornado.access) 304 GET / (::1) 8.23ms
+[INFO] (2018-05-08 14:47:06,587) (tornado.access) 304 GET / (::1) 13.60ms
+[INFO] (2018-05-08 14:47:10,618) (tornado.access) 200 GET /formula (::1) 31.39ms
+[INFO] (2018-05-08 14:47:38,423) (tornado.access) 304 GET / (::1) 12.94ms
+[INFO] (2018-05-08 14:52:51,881) (tornado.access) 200 GET /billing (::1) 57.53ms
+[INFO] (2018-05-08 14:52:52,039) (tornado.access) 200 GET /static/css/billing.css?v=1d4a265b462f5ad426951e4e87df7cf4 (::1) 58.33ms
+[INFO] (2018-05-08 14:52:52,040) (tornado.access) 200 GET /static/css/bootstrap-datetimepicker.min.css?v=4fe382c5a6f385d5c4ed76967ee60dff (::1) 40.84ms
+[INFO] (2018-05-08 14:52:52,041) (tornado.access) 200 GET /static/js/moment.min.js?v=fb1d9a5b3984866233be3647c8a56d7b (::1) 23.93ms
+[INFO] (2018-05-08 14:52:52,042) (tornado.access) 200 GET /static/js/bootstrap-datetimepicker.min.js?v=f638933b79209f44ea74d94dee4d40f7 (::1) 10.66ms
+[INFO] (2018-05-08 14:52:52,045) (tornado.access) 200 GET /static/js/billing.js?v=b4376ba7b38ea1b4e3461cc20a7f6775 (::1) 7.69ms
+[INFO] (2018-05-08 15:48:44,688) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/billing.py modified; restarting server
+[INFO] (2018-05-08 15:49:23,378) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/billing.py modified; restarting server
+[INFO] (2018-05-08 15:55:18,688) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/billing.py modified; restarting server
+[INFO] (2018-05-08 15:55:22,995) (tornado.access) 200 GET /billing (::1) 30.80ms
+[INFO] (2018-05-08 15:55:23,197) (tornado.access) 200 GET /static/js/billing.js?v=9eeb857907bada5e5921277e00a2b0e5 (::1) 22.81ms
+[INFO] (2018-05-08 15:55:26,624) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 3.42ms
+[INFO] (2018-05-08 15:55:29,752) (tornado.access) 200 GET /billing (::1) 27.91ms
+[INFO] (2018-05-08 15:55:31,942) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 2.37ms
+[ERROR] (2018-05-08 15:55:32,096) (tornado.application) Uncaught exception POST /billing (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/billing', version='HTTP/1.1', remote_ip='::1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1541, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/yanshengjia/GitHub/annotator/handlers/billing.py", line 35, in post
+    start = date(int(start_list[0]), int(start_list[1]), int(start_list[2]), int(start_list[3]), int(start_list[4]), int(start_list[5]))
+TypeError: function takes at most 3 arguments (6 given)
+[ERROR] (2018-05-08 15:55:32,100) (tornado.access) 500 POST /billing (::1) 5.43ms
+[INFO] (2018-05-08 15:56:44,328) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/billing.py modified; restarting server
+[INFO] (2018-05-08 15:57:04,185) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/billing.py modified; restarting server
+[INFO] (2018-05-08 15:57:22,037) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/billing.py modified; restarting server
+[INFO] (2018-05-08 15:57:37,613) (tornado.access) 200 GET /billing (::1) 36.34ms
+[INFO] (2018-05-08 15:57:40,988) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 20.26ms
+[INFO] (2018-05-08 15:57:43,542) (tornado.access) 200 POST /billing (::1) 18.08ms
