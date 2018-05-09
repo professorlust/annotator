@@ -31,8 +31,8 @@ function previousImage(button) {
             previous_ocr_essay.value = response["ocr_essay"];
 
             var previous_ocr_correction = document.getElementById("ocr_correction");
-            previous_ocr_correction.innerHTML = response["ocr_essay"];
-            previous_ocr_correction.value = response["ocr_essay"];
+            previous_ocr_correction.innerHTML = response["ocr_correction"];
+            previous_ocr_correction.value = response["ocr_correction"];
 
             var ocr_annotator_mark = document.getElementById("annotator_mark");
             ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];
@@ -79,8 +79,8 @@ function nextImage(button) {
             next_ocr_essay.value = response["ocr_essay"];
 
             var next_ocr_correction = document.getElementById("ocr_correction");
-            next_ocr_correction.innerHTML = response["ocr_essay"];
-            next_ocr_correction.value = response["ocr_essay"];
+            next_ocr_correction.innerHTML = response["ocr_correction"];
+            next_ocr_correction.value = response["ocr_correction"];
 
             var ocr_annotator_mark = document.getElementById("annotator_mark");
             ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];
@@ -127,8 +127,8 @@ function jumpImage(button) {
             jump_ocr_essay.value = response["ocr_essay"];
 
             var jump_ocr_correction = document.getElementById("ocr_correction");
-            jump_ocr_correction.innerHTML = response["ocr_essay"];
-            jump_ocr_correction.value = response["ocr_essay"];
+            jump_ocr_correction.innerHTML = response["ocr_correction"];
+            jump_ocr_correction.value = response["ocr_correction"];
 
             var ocr_annotator_mark = document.getElementById("annotator_mark");
             ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];
@@ -178,8 +178,8 @@ function submitOCRCorrection(button) {
             new_ocr_essay.value = response["ocr_essay"];
 
             var new_ocr_correction = document.getElementById("ocr_correction");
-            new_ocr_correction.innerHTML = response["ocr_essay"];
-            new_ocr_correction.value = response["ocr_essay"];
+            new_ocr_correction.innerHTML = response["ocr_correction"];
+            new_ocr_correction.value = response["ocr_correction"];
 
             var ocr_annotator_mark = document.getElementById("annotator_mark");
             ocr_annotator_mark.innerHTML = response['ocr_annotator_mark'];

@@ -13,7 +13,7 @@ from handlers.view import ViewHandler
 from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler, MarkJumpHandler
 from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler, OCRJumpHandler
 from handlers.grammar import GrammarHandler
-from handlers.formula import FormulaHandler, FormulaNextHandler, FormulaPreviousHandler, FormulaSubmitHandler, FormulaJumpHandler
+from handlers.formula import FormulaHandler
 
 import os.path
 import json
@@ -68,10 +68,6 @@ class Application(tornado.web.Application):
             (r'/ocr_jump', OCRJumpHandler),
             (r'/grammar', GrammarHandler),
             (r'/formula', FormulaHandler),
-            (r'/formula_submit', FormulaSubmitHandler),
-            (r'/formula_previous', FormulaPreviousHandler),
-            (r'/formula_next', FormulaNextHandler),
-            (r'/formula_jump', FormulaJumpHandler),
         ]
         settings = {
             'static_path': os.path.join(os.path.dirname(__file__), "static"),
@@ -91,8 +87,8 @@ class Application(tornado.web.Application):
         self.annotated_essay_quantity = 0
         self.annotation_essay_ratio = 0.0
         self.current_essay_id = 0
-        self.current_essay = 'Essay Placeholder'
-        self.essay_annotator_mark = '' # how many people have annotated this essay
+        self.current_essay = ''
+        self.essay_annotator_mark = ''
         self.essay_quantity_for_billing = {}
         self.screened_essay_quantity_for_billing = {}
 
@@ -106,7 +102,8 @@ class Application(tornado.web.Application):
         self.current_ocr_id = 0
         self.current_image_url = ''
         self.image_url_prefix = 'http://klximg.oss-cn-beijing.aliyuncs.com/scanimage/'
-        self.current_ocr_essay = 'OCR Result Placeholder'
+        self.current_ocr_essay = ''
+        self.current_ocr_correction = ''
         self.ocr_annotator_mark = ''
         self.ocr_quantity_for_billing = {}
         self.screened_ocr_quantity_for_billing = {}

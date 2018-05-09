@@ -38,56 +38,6 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 order-md-1">
-				<h4 class="mb-3">
-					Image
-					<div id="ocr_id" name="ocr_id" class="ocr_id">{{ ocr_id }}</div>
-				</h4>
-				
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<button id="button_jump" class="btn btn-outline-secondary" onclick="jumpImage(this);">Jump</button>
-					</div>
-					<input id="jump_id" type="number" class="form-control" placeholder="Enter the Image ID which you want to jump to" aria-label="" aria-describedby="basic-addon1">
-				</div>
-
-				<div class="image">
-					<img id="image_url" name="image_url" class="image_url" width="100%" src={{ image_url }} alt="Image {{ ocr_id }}" />
-				</div>
-			</div>
-
-			<div class="col-md-6 order-md-2 mb-4">
-				<h4 class="d-flex justify-content-between align-items-center mb-3">
-					<span class="text-muted">Annotation</span>
-				</h4>
-
-				<div class="annotation_mark">
-					Annotator:
-					<div class='annotator_mark' id='annotator_mark' name='annotator_mark'>{{  ocr_annotator_mark  }}</div>
-				</div>
-
-				<div class="progress_detail">
-						Annotation Progress:
-						<div class="annotated_quantity" id="annotated_quantity" name="annotated_quantity">{{ corrected_ocr_quantity }}</div> /
-						<div class="sum" id="sum" name="sum">{{ sum }}</div>,
-						<div class="ratio" id="ratio" name="ratio">{{ corrected_ocr_ratio }}</div>%<br>
-				</div>
-				<br>
-				
-				<div class="ocr_corrector">
-					<input id="formula" type="text" class="form-control" placeholder="Enter the Formula in the image" aria-label=""><br>
-					
-					<button id="button_previous" class="btn btn-outline-primary" onclick="previousImage(this);">Previous</button>
-					<button id="button_next" class="btn btn-outline-primary" onclick="nextImage(this);">Next</button>
-					<button id="button_clear" class="btn btn-outline-primary" onclick="clearCorrection(this);">Clear</button>
-					<button id="button_submit" class="btn btn-outline-primary" onclick="submitOCRCorrection(this);">Submit</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- modal rules -->
 	<div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rules_title" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
