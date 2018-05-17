@@ -1,0 +1,21 @@
+[INFO] (2018-05-17 14:38:00,843) (tornado.access) 200 GET / (::1) 18.51ms
+[INFO] (2018-05-17 14:38:03,156) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 11.68ms
+[INFO] (2018-05-17 14:38:40,016) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/main.py modified; restarting server
+[INFO] (2018-05-17 14:40:15,320) (tornado.general) annotator.py modified; restarting server
+[INFO] (2018-05-17 14:40:19,594) (tornado.access) 200 GET / (::1) 15.32ms
+[INFO] (2018-05-17 14:40:21,660) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 17.56ms
+[INFO] (2018-05-17 14:40:42,782) (tornado.general) annotator.py modified; restarting server
+[INFO] (2018-05-17 14:41:00,353) (tornado.access) 200 GET / (::1) 22.99ms
+[INFO] (2018-05-17 14:41:02,441) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 16.39ms
+[INFO] (2018-05-17 14:41:06,159) (tornado.access) 200 GET /grammar (::1) 9.30ms
+[INFO] (2018-05-17 14:41:06,204) (tornado.access) 200 GET /static/js/grammar.js?v=d41d8cd98f00b204e9800998ecf8427e (::1) 2.31ms
+[INFO] (2018-05-17 14:41:19,243) (tornado.general) /Users/yanshengjia/GitHub/annotator/handlers/grammar.py modified; restarting server
+[INFO] (2018-05-17 14:41:22,097) (tornado.access) 200 GET /grammar (::1) 8.15ms
+[INFO] (2018-05-17 14:41:23,737) (tornado.access) 200 GET /static/img/favicon.ico?v=5e56e9cbed5cd2a0b87161facdc37ded (::1) 13.03ms
+[INFO] (2018-05-17 14:41:28,090) (tornado.access) 304 GET / (::1) 8.33ms
+[INFO] (2018-05-17 15:08:47,434) (tornado.access) 200 GET /billing (::1) 43.04ms
+[INFO] (2018-05-17 15:08:47,492) (tornado.access) 200 GET /static/js/billing.js?v=9eeb857907bada5e5921277e00a2b0e5 (::1) 8.15ms
+[INFO] (2018-05-17 15:08:47,530) (tornado.access) 200 GET /static/css/bootstrap-datetimepicker.min.css?v=4fe382c5a6f385d5c4ed76967ee60dff (::1) 11.36ms
+[INFO] (2018-05-17 15:08:47,530) (tornado.access) 200 GET /static/js/bootstrap-datetimepicker.min.js?v=f638933b79209f44ea74d94dee4d40f7 (::1) 9.31ms
+[INFO] (2018-05-17 15:08:47,532) (tornado.access) 200 GET /static/js/moment.min.js?v=fb1d9a5b3984866233be3647c8a56d7b (::1) 7.38ms
+[INFO] (2018-05-17 15:08:47,532) (tornado.access) 200 GET /static/css/billing.css?v=1d4a265b462f5ad426951e4e87df7cf4 (::1) 4.46ms

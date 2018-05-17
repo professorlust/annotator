@@ -14,5 +14,5 @@ class GrammarHandler(BaseHandler):
     def get(self):
         self.render(
             'grammar.html',
-            title='Grammar Check Annotation',
+            title='Grammar Error Annotation',
         )

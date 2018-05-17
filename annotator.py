@@ -106,11 +106,9 @@ class Application(tornado.web.Application):
         self.ocr_quantity_for_billing = {}
         self.screened_ocr_quantity_for_billing = {}
 
-        # grammar check annotation
+        # grammar error annotation
         self.checked_grammar_ratio = 0.0
 
-        # formula annotation
-        self.checked_formula_ratio = 0.0
 
         self.load_accounts()
         self.connect_db()
