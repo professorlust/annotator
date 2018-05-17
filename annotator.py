@@ -13,7 +13,6 @@ from handlers.view import ViewHandler
 from handlers.mark import MarkHandler, MarkNextHandler, MarkPreviousHandler, MarkSubmitHandler, MarkJumpHandler
 from handlers.ocr import OCRHandler, OCRNextHandler, OCRPreviousHandler, OCRSubmitHandler, OCRJumpHandler
 from handlers.grammar import GrammarHandler
-from handlers.formula import FormulaHandler
 
 import os.path
 import json
@@ -67,7 +66,6 @@ class Application(tornado.web.Application):
             (r'/ocr_next', OCRNextHandler),
             (r'/ocr_jump', OCRJumpHandler),
             (r'/grammar', GrammarHandler),
-            (r'/formula', FormulaHandler),
         ]
         settings = {
             'static_path': os.path.join(os.path.dirname(__file__), "static"),
