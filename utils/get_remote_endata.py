@@ -47,16 +47,26 @@ def get_items_info(ip, port):
                     ofile.write(prompt_json + '\n')
 
 def get_essay_scandata(ip, port):
-    conn = MongoClient(ip, port)
-    db = conn.klx_analysis
-    temp_endata = db.temp_endata
+    # conn = MongoClient(ip, port)
+    # db = conn.klx_analysis
+    # temp_endata = db.temp_endata
+    valid_item_id_list = []     # item id with prompt info
 
-    with open(essay_scandata_filepath, 'a') as ofile:
-        ofile.seek(0)
-        ofile.truncate()
-        for item in temp_endata.find():
-            answer_data = item['answer_data']
-            
+    with open(essay_items_info_filepath, 'r') as ifile:
+        for line in ifile:
+            line = line.strip()
+            item_info = json.loads(line)
+            if item_info['stem_plain'] != '':
+                valid_item_id_list.append(item_info['item_id'])
+
+    print(valid_item_id_list)
+
+    # with open(essay_scandata_filepath, 'a') as ofile:
+    #     ofile.seek(0)
+    #     ofile.truncate()
+    #     for item in temp_endata.find():
+    #         answer_data = item['answer_data']
+
 
 
 
@@ -64,7 +74,8 @@ def get_essay_scandata(ip, port):
 
 
 def main():
-    get_items_info(ip, port)
+    # get_items_info(ip, port)
+    get_essay_scandata(ip, port)
 
 if __name__ == '__main__':
     main()
