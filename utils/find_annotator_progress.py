@@ -7,8 +7,6 @@
 import pymongo
 from pymongo import MongoClient
 
-ip = '10.0.5.40'
-annotator = 'fengchao.wang'
 
 def find_ocr_progress(ip, annotator):
     conn = MongoClient(ip, 27017)
@@ -18,7 +16,9 @@ def find_ocr_progress(ip, annotator):
         print(item["ocr_id"])
 
 def main():
-    find_ocr_progress()
+    ip = '10.0.5.40'
+    annotator = 'fengchao.wang'
+    find_ocr_progress(ip, annotator)
 
 if __name__ == '__main__':
     main()

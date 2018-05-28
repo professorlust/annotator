@@ -38,7 +38,7 @@ class OCRHandler(BaseHandler):
         candidates = self.application.db.ocr_candidates
         ocr_record = candidates.aggregate([{'$sample':{'size':1}}])
         # ocr_record = candidates.find_one()
-        if ocr_record != None:
+        if len(list(ocr_record)) != 0:
             for ocr in ocr_record:
                 self.application.current_ocr_id = ocr['ocr_id']
                 self.application.current_image_url = self.application.image_url_prefix + ocr['image_id']
