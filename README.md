@@ -25,6 +25,17 @@ http://mark.17zuoye.net/
 * OCR Result Annotation
 * Grammar Error Annotation
 
+## Candidate Data Format
+
+* Essay Grading Annotation
+  * path: /data/essay/essay.txt
+  * format: one line one essay
+  * essay_id == line_num - 1
+* OCR Result Annotation
+  * path: //data/ocr/batchx/ocr.txt
+  * format: one line one scanimage id
+  * ocr_id == line_num - 1
+
 ## Preview
 
 ![demo0](https://raw.githubusercontent.com/yanshengjia/photo/master/annotator_demo_0.png)
