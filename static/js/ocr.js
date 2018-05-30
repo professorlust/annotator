@@ -49,9 +49,9 @@ function nextImage(button) {
     console.log("Jump tp next image...");
 
     var ocr_id = Number(document.getElementById("ocr_id").innerHTML);
-    var ocr_sum = Number(document.getElementById("sum").innerHTML) - 1;
+    var ocr_sum = Number(document.getElementById("sum").innerHTML);
 
-    if (ocr_id >= ocr_sum ) {
+    if (ocr_id >= (ocr_sum - 1)) {
         alert("There is no next image!");
         return
     }
@@ -97,7 +97,7 @@ function jumpImage(button) {
     console.log("Jump tp a image...");
 
     var jump_id = Number(document.getElementById("jump_id").value);
-    var ocr_sum = Number(document.getElementById("sum").innerHTML) - 1;
+    var ocr_sum = Number(document.getElementById("sum").innerHTML);
 
     if (jump_id >= ocr_sum || jump_id < 0) {
         alert("There is no such image!");

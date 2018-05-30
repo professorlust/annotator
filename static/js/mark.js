@@ -40,9 +40,9 @@ function nextEssay(button) {
     console.log("Jump tp next essay...");
 
     var essay_id = Number(document.getElementById("essay_id").innerHTML);
-    var essay_sum = Number(document.getElementById("sum").innerHTML) - 1;
+    var essay_sum = Number(document.getElementById("sum").innerHTML);
 
-    if (essay_id >= essay_sum ) {
+    if (essay_id >= (essay_sum - 1)) {
         alert("There is no next essay!");
         return
     }
@@ -79,7 +79,7 @@ function jumpImage(button) {
     console.log("Jump tp an essay...");
 
     var jump_id = Number(document.getElementById("jump_id").value);
-    var essay_sum = Number(document.getElementById("sum").innerHTML) - 1;
+    var essay_sum = Number(document.getElementById("sum").innerHTML);
 
     if (jump_id >= essay_sum || jump_id < 0) {
         alert("There is no such image!");

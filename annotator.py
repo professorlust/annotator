@@ -172,16 +172,16 @@ class Application(tornado.web.Application):
         
     def init_ocr_db(self):
         '''ocr result correction'''
+        ocr_id = 0      # ocr_id == line_number - 1
+        for image_id in self.scanimage:
+            ocr_dict = {}
+            ocr_dict['ocr_id']   = ocr_id
+            ocr_dict['image_id'] = image_id
+            ocr_dict['essay']   = ''
+            self.ocrs.append(ocr_dict)
+            ocr_id += 1
         if "ocr_candidates" not in self.db.collection_names():
             self.db.ocr_candidates
-            ocr_id = 0      # ocr_id == line_number - 1
-            for image_id in self.scanimage:
-                ocr_dict = {}
-                ocr_dict['ocr_id']   = ocr_id
-                ocr_dict['image_id'] = image_id
-                ocr_dict['essay']   = ''
-                self.ocrs.append(ocr_dict)
-                ocr_id += 1
             self.db.ocr_candidates.insert_many(self.ocrs)
         if "ocr_marked" not in self.db.collection_names():
             self.db.ocr_marked
