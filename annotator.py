@@ -91,10 +91,11 @@ class Application(tornado.web.Application):
         self.screened_essay_quantity_for_billing = {}
 
         # ocr result annotation
-        self.ocr_path = './data/ocr/ocr.txt'
-        self.ocrs = json.load(open(self.ocr_path, 'r'))
+        self.ocr_path = './data/ocr/batch_1/ocr.txt'
+        self.scanimage = [line.strip() for line in open(self.ocr_path, 'r')]
+        self.ocrs = []
         self.ocr_flag = True    # True means ocr_candidates is not empty
-        self.ocr_quantity = len(self.ocrs)
+        self.ocr_quantity = len(self.scanimage)
         self.corrected_ocr_quantity = 0
         self.corrected_ocr_ratio = 0.0
         self.current_ocr_id = 0
@@ -144,7 +145,7 @@ class Application(tornado.web.Application):
         if "essay_candidates" not in self.db.collection_names():
             self.db.essay_candidates
             essay_candidates = []
-            essay_id = 0       # essay_id == line_number
+            essay_id = 0       # essay_id == line_number - 1
             for essay in self.essays:
                 candidate_record = {}
                 candidate_record['essay_id'] = essay_id
@@ -173,9 +174,13 @@ class Application(tornado.web.Application):
         '''ocr result correction'''
         if "ocr_candidates" not in self.db.collection_names():
             self.db.ocr_candidates
-            ocr_id = 0      # ocr_id starts from 0
-            for ocr_dict in self.ocrs:
-                ocr_dict['ocr_id'] = ocr_id
+            ocr_id = 0      # ocr_id == line_number - 1
+            for image_id in self.scanimage:
+                ocr_dict = {}
+                ocr_dict['ocr_id']   = ocr_id
+                ocr_dict['image_id'] = image_id
+                ocr_dict['essay']   = ''
+                self.ocrs.append(ocr_dict)
                 ocr_id += 1
             self.db.ocr_candidates.insert_many(self.ocrs)
         if "ocr_marked" not in self.db.collection_names():

@@ -32,7 +32,7 @@ http://mark.17zuoye.net/
   * format: one line one essay
   * essay_id == line_num - 1
 * OCR Result Annotation
-  * path: //data/ocr/batchx/ocr.txt
+  * path: //data/ocr/batch_x/ocr.txt
   * format: one line one scanimage id
   * ocr_id == line_num - 1
 
