@@ -36,13 +36,15 @@ function screen(button) {
             var td = billing_table.getElementsByTagName("td");
 
             var i = 0;  //annotator counter
+            var col_size = 4;
             for(var key in response['annotators']) {
-               td[i*3].innerHTML = response['essay_progress'][key];
-               td[i*3+1].innerHTML = response['ocr_progress'][key];
-               td[i*3+2].innerHTML = response['ocr_char_count'][key];
-               td[i*3+3].innerHTML = response['essay_progress'][key] + response['ocr_progress'][key];
+               td[i*col_size].innerHTML = response['essay_progress'][key];
+               td[i*col_size + 1].innerHTML = response['ocr_progress'][key];
+               td[i*col_size + 2].innerHTML = response['ocr_char_count'][key];
+               td[i*col_size + 3].innerHTML = response['essay_progress'][key] + response['ocr_progress'][key];
                i++;
             }
+            console.log(td);
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
