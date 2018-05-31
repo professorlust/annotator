@@ -44,7 +44,6 @@ function screen(button) {
                td[i*col_size + 3].innerHTML = response['essay_progress'][key] + response['ocr_progress'][key];
                i++;
             }
-            console.log(td);
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
