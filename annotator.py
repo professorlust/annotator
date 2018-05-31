@@ -105,7 +105,9 @@ class Application(tornado.web.Application):
         self.current_ocr_correction = ''
         self.ocr_annotator_mark = ''
         self.ocr_quantity_for_billing = {}
+        self.ocr_char_count_for_billing = {}
         self.screened_ocr_quantity_for_billing = {}
+        self.screened_ocr_char_count_for_billing = {}
 
         # grammar error annotation
         self.checked_grammar_ratio = 0.0

@@ -39,7 +39,8 @@ function screen(button) {
             for(var key in response['annotators']) {
                td[i*3].innerHTML = response['essay_progress'][key];
                td[i*3+1].innerHTML = response['ocr_progress'][key];
-               td[i*3+2].innerHTML = response['essay_progress'][key]+response['ocr_progress'][key];
+               td[i*3+2].innerHTML = response['ocr_char_count'][key];
+               td[i*3+3].innerHTML = response['essay_progress'][key] + response['ocr_progress'][key];
                i++;
             }
         },

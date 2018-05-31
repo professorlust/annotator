@@ -55,7 +55,8 @@
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Essay Grading</th>
-					<th scope="col">OCR Result</th> 
+					<th scope="col">OCR Result</th>
+					<th scope="col">OCR Count</th>
 					<th scope="col">ALL</th>
 				</tr>
 			</thead>
@@ -65,6 +66,7 @@
 					<th scope="row">{{ annotator }}</th>
 					<td>{{ essay_quantity_for_billing[annotator] }}</td>
 					<td>{{ ocr_quantity_for_billing[annotator] }}</td>
+					<td>{{ ocr_char_count_for_billing[annotator] }}</td>
 					<td>{{ essay_quantity_for_billing[annotator] + ocr_quantity_for_billing[annotator] }}</td>
 				</tr>
 				{% end %}
