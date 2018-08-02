@@ -19,8 +19,6 @@ def download_images(quantity=2000):
         counter = 0
         for line in in_file:
             counter += 1
-            if (counter <= 200):
-                continue
             if (counter > quantity):
                 break
             
@@ -86,7 +84,7 @@ def uniform_sampling():
             writer.writerow(row)
 
 def main():
-    uniform_sampling()
+    download_images(100)
 
 if __name__ == '__main__':
     main()

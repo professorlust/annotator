@@ -11,13 +11,13 @@ from bson import json_util
 import pymongo
 from pymongo import MongoClient
 
-ip = '10.6.2.6'
+ip = 'mongodb://klx_user:Lba7odZDJ(PbdY@10.6.2.5:47901,10.6.2.6:47901/admin'
 port = 47901
-essay_items_info_filepath = '../data/raw/essay_items_info.txt'
-essay_scandata_filepath = '../data/raw/essay_scandata.txt'
+essay_items_info_filepath = './essay_items_info.txt'
+essay_scandata_filepath = './essay_scandata.txt'
 en_essay_type = [5008, 5348, 6, 7]
 
-def get_items_info(ip, port):
+def get_items_info():
     conn = MongoClient(ip, port)
     db = conn.klx_analysis
     temp_endata = db.temp_endata
@@ -47,7 +47,7 @@ def get_items_info(ip, port):
                     prompt_json = json.dumps(prompt)
                     ofile.write(prompt_json + '\n')
 
-def get_essay_scandata(ip, port):
+def get_essay_scandata():
     conn = MongoClient(ip, port)
     db = conn.klx_analysis
     temp_endata = db.temp_endata
@@ -87,8 +87,8 @@ def get_essay_scandata(ip, port):
 
 
 def main():
-    # get_items_info(ip, port)
-    get_essay_scandata(ip, port)
+    get_items_info()
+    get_essay_scandata()
 
 if __name__ == '__main__':
     main()
