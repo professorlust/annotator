@@ -1,5 +1,5 @@
 # Annotator
-A Crowdsourcing Multimedia Annotation Platform with Purview Control and Multiple Quality Control Mechanisms powered by Tornado and MongoDB
+A Crowdsourcing NLP Annotation Platform with Purview Control and Multiple Quality Control Mechanisms powered by Tornado and MongoDB
 
 ## Website
 
