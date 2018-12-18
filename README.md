@@ -54,11 +54,18 @@ Start MongoDB as a Daemon:
 input: 0 0 * * * /bin/bash /path/to/annotator/utils/mongo_backup.sh
 ```
 
-#### Start the service:
+#### Start the service
 
 ```shell
 > cd /path/to/annotator
 > python3 annotator.py
+```
+
+#### Export annotation data
+
+```shell
+> cd /path/to/annotator/utils
+> python3 exporter.py --ip 10.7.13.73 --port 27017 --db annotation --collection ocr_data --save_path ../data/ocr/ocr_data.txt
 ```
 
 ## Tasks
